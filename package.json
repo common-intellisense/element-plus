@@ -7,12 +7,12 @@
   "author": "Simon He",
   "license": "MIT",
   "funding": "https://github.com/sponsors/Simon-He95",
-  "homepage": "https://github.com/common-intellisense/element-plus2#readme",
+  "homepage": "https://github.com/common-intellisense/element-plus#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/common-intellisense/element-plus2.git"
+    "url": "git+https://github.com/common-intellisense/element-plus.git"
   },
-  "bugs": "https://github.com/common-intellisense/element-plus2/issues",
+  "bugs": "https://github.com/common-intellisense/element-plus/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {

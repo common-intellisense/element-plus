@@ -1,3 +1,4 @@
+import directives from '../directives.json'
 import { getComponentMap, getPropsMap } from './mapping'
 
 export function elementPlus2() {
@@ -16,5 +17,6 @@ export function elementPlus2Components(isZh: boolean) {
     prefix: 'el',
     lib: 'element-plus',
     isReact: false,
+    directives: directives.elementPlus2,
   }
 }

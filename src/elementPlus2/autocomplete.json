@@ -56,7 +56,8 @@
       "description": "Returns an input suggestion method, only when your input suggests data Resolve, by calling callback(data:[]).",
       "default": "—",
       "type": "Function(queryString, callback)",
-      "description_zh": "返回输入建议的方法，仅当你的输入建议数据 resolve 时，通过调用 callback(data:[]) 来返回它"
+      "description_zh": "返回输入建议的方法，仅当你的输入建议数据 resolve 时，通过调用 callback(data:[]) 来返回它",
+      "required": true
     },
     "popper-class": {
       "value": "",

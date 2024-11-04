@@ -35,7 +35,8 @@
       "description": "Total number of pages, total and page-count can be set to achieve the function of displaying page numbers; If you want to support changes to page-sizes, you'll need to use the total attribute",
       "default": "—",
       "type": "number",
-      "description_zh": "总页数，total 和 page-count 设置任意一个就可以达到显示页码的功能；如果要支持 page-sizes 的更改，则需要使用 total 属性"
+      "description_zh": "总页数，total 和 page-count 设置任意一个就可以达到显示页码的功能；如果要支持 page-sizes 的更改，则需要使用 total 属性",
+      "required": true
     },
     ":pager-count": {
       "value": "",
@@ -49,7 +50,8 @@
       "description": "The current number of pages, with support for the .sync modifier",
       "default": "—",
       "type": "number",
-      "description_zh": "当前页数，支持 .sync 修饰符"
+      "description_zh": "当前页数，支持 .sync 修饰符",
+      "required": true
     },
     "layout": {
       "value": "",

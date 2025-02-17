@@ -10,7 +10,7 @@
       "description_zh": "输入框占位文本",
       "$label": "请输入$label",
       "related": [
-        "el-form-item.label"
+        "el-form.model"
       ]
     },
     "disabled": {
@@ -27,12 +27,17 @@
       "type": "string",
       "description_zh": "输入建议对象中用于显示的键名"
     },
-    "value": {
+    ":v-model": {
       "value": "",
       "description": "Required value, enter the binding value",
       "default": "—",
       "type": "string",
-      "description_zh": "必填值，输入绑定值"
+      "description_zh": "必填值，输入绑定值",
+      "required": true,
+      "$model": "$model.$(el-form-item.label)",
+      "related": [
+        "el-form.model"
+      ]
     },
     ":debounce": {
       "value": "",

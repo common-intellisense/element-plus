@@ -70,6 +70,20 @@
       "type": "boolean",
       "description_zh": "是否可清空"
     },
+    "formatter": {
+      "value": "",
+      "description": "The format function that triggers when the value changes",
+      "default": "—",
+      "type": "(value: string | number) => string",
+      "description_zh": "数值格式化函数"
+    },
+    "parser": {
+      "value": "",
+      "description": "The parsing function that triggers when the value changes",
+      "default": "—",
+      "type": "(value: string) => string | number",
+      "description_zh": "指定从格式化器输入中提取的值。(仅当 type 是\"text\"时才起作用)"
+    },
     "show-password": {
       "value": "",
       "description": "Whether to display the switch password icon",
@@ -194,12 +208,21 @@
       "type": "string",
       "description_zh": "原生属性"
     },
+    "aria-label": {
+      "value": "",
+      "description": "Enter the label text associated with the field",
+      "default": "—",
+      "type": "string",
+      "description_zh": "输入框关联的label文字",
+      "version": "2.7.2"
+    },
     "label": {
       "value": "",
       "description": "Enter the label text associated with the field",
       "default": "—",
       "type": "string",
-      "description_zh": "输入框关联的label文字"
+      "description_zh": "输入框关联的label文字",
+      "version": "deprecated"
     },
     "tabindex": {
       "value": [
@@ -218,6 +241,13 @@
       "default": "true",
       "type": "boolean",
       "description_zh": "输入时是否触发表单的校验"
+    },
+    "input-style": {
+      "value": "",
+      "description": "Input box style",
+      "default": "{}",
+      "type": "string | CSSProperties | CSSProperties[] | string[]",
+      "description_zh": "输入框样式"
     }
   },
   "methods": [
@@ -300,6 +330,69 @@
       "name": "append",
       "description": "The input box is followed by the content",
       "description_zh": "输入框后置内容"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "blur",
+      "description": "使 input 失去焦点",
+      "description_zh": "使 input 失去焦点",
+      "detail": "() => void"
+    },
+    {
+      "name": "clear",
+      "description": "清除 input 值。",
+      "description_zh": "清除 input 值。",
+      "detail": "() => void"
+    },
+    {
+      "name": "focus",
+      "description": "使 input 获取焦点",
+      "description_zh": "使 input 获取焦点",
+      "detail": "() => void"
+    },
+    {
+      "name": "input",
+      "description": "Input HTML 元素",
+      "description_zh": "Input HTML 元素",
+      "detail": "Ref<HTMLInputElement>"
+    },
+    {
+      "name": "ref",
+      "description": "HTML元素 input 或 textarea。",
+      "description_zh": "HTML元素 input 或 textarea。",
+      "detail": "Ref<HTMLInputElement | HTMLTextAreaElement>"
+    },
+    {
+      "name": "resizeTextarea",
+      "description": "改变 textarea 大小",
+      "description_zh": "改变 textarea 大小",
+      "detail": "() => void"
+    },
+    {
+      "name": "select",
+      "description": "选中 input 中的文字",
+      "description_zh": "选中 input 中的文字",
+      "detail": "() => void"
+    },
+    {
+      "name": "textarea",
+      "description": "HTML textarea 元素",
+      "description_zh": "HTML textarea 元素",
+      "detail": "Ref<HTMLTextAreaElement>"
+    },
+    {
+      "name": "textareaStyle",
+      "description": "textarea 的样式",
+      "description_zh": "textarea 的样式",
+      "detail": "Ref<StyleValue>"
+    },
+    {
+      "name": "isComposing",
+      "description": "是否是输入 composing 状态",
+      "description_zh": "是否是输入 composing 状态",
+      "detail": "Ref<boolean>",
+      "version": "2.8.0"
     }
   ],
   "link": "https://element-plus.org/en-US/component/input.html",

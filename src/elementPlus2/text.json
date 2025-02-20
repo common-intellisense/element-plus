@@ -28,7 +28,7 @@
     "truncated": {
       "value": "",
       "description": "Displays the ellipsis",
-      "default": "fasle",
+      "default": "false",
       "type": "boolean",
       "description_zh": "显示省略号"
     },
@@ -37,7 +37,8 @@
       "description": "Whether it is read-only",
       "default": "false",
       "type": "boolean",
-      "description_zh": "是否为只读"
+      "description_zh": "是否为只读",
+      "version": "2.4.0"
     },
     "allow-half": {
       "value": "",

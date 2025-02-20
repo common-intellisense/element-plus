@@ -131,15 +131,37 @@
       "default": "—",
       "type": "string",
       "description_zh": "分数显示模板"
+    },
+    "clearable": {
+      "value": "",
+      "description": "Whether to allow empty scores",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否允许再次点击后清除分数",
+      "version": "2.2.18"
     }
   },
   "events": [
     {
       "name": "change",
       "description": "Triggered when the score is changed",
-      "params": "改变后的分值",
+      "params": "(value: number) => void",
       "description_zh": "分值改变时触发",
       "value": ""
+    }
+  ],
+  "exposed": [
+    {
+      "name": "setCurrentValue",
+      "description": "设置当前值",
+      "description_zh": "设置当前值",
+      "detail": "(value: number) => void"
+    },
+    {
+      "name": "resetCurrentValue",
+      "description": "重置当前值",
+      "description_zh": "重置当前值",
+      "detail": "() => void"
     }
   ],
   "link": "https://element-plus.org/en-US/component/rate.html",

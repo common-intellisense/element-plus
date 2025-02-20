@@ -6,7 +6,7 @@
       "description": "Translate text objects",
       "description_zh": "翻译文本对象",
       "default": "en",
-      "type": "object languages"
+      "type": "{name: string, el: TranslatePair}"
     },
     "size": {
       "value": [
@@ -53,6 +53,22 @@
       "description_zh": "将要添加的实验阶段的功能，所有功能都是默认设置为 false",
       "default": "—",
       "type": "object"
+    },
+    "empty-values": {
+      "value": "",
+      "description": "Input class component empty value",
+      "description_zh": "输入类组件空值",
+      "default": "—",
+      "type": "array",
+      "version": "2.7.0"
+    },
+    "value-on-clear": {
+      "value": "",
+      "description": "Input class component clears value",
+      "description_zh": "输入类组件清空值",
+      "default": "—",
+      "type": "string / number / boolean / Function",
+      "version": "2.7.0"
     }
   },
   "events": [],

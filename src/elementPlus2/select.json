@@ -225,44 +225,52 @@
     {
       "name": "change",
       "description": "Triggered when the selected value changes",
-      "params": "目前的选中值",
+      "params": "(value: any) => void",
       "description_zh": "选中值发生变化时触发",
       "value": ""
     },
     {
       "name": "visible-change",
       "description": "Triggered when the drop-down box appears/hides",
-      "params": "出现则为 true，隐藏则为 false",
+      "params": "(visible: boolean) => void",
       "description_zh": "下拉框出现/隐藏时触发",
       "value": ""
     },
     {
       "name": "remove-tag",
       "description": "Triggered when a tag is removed in multi-select mode",
-      "params": "移除的tag值",
+      "params": "(tagValue: any) => void",
       "description_zh": "多选模式下移除tag时触发",
       "value": ""
     },
     {
       "name": "clear",
       "description": "Clearable radio mode is triggered when the user clicks the clear button",
-      "params": "",
+      "params": "() => void",
       "description_zh": "可清空的单选模式下用户点击清空按钮时触发",
       "value": ""
     },
     {
       "name": "blur",
       "description": "Triggers when input loses focus",
-      "params": "(event: Event)",
+      "params": "(event: FocusEvent) => void",
       "description_zh": "当 input 失去焦点时触发",
       "value": ""
     },
     {
       "name": "focus",
       "description": "Triggers when input gains focus",
-      "params": "(event: Event)",
+      "params": "(event: FocusEvent) => void",
       "description_zh": "当 input 获得焦点时触发",
       "value": ""
+    },
+    {
+      "name": "popup-scroll",
+      "description": "下拉滚动时触发",
+      "params": "(data:{scrollTop: number, scrollLeft: number}) => void",
+      "description_zh": "下拉滚动时触发",
+      "value": "",
+      "version": "2.9.4"
     }
   ],
   "slots": [
@@ -275,11 +283,62 @@
       "name": "empty",
       "description": "A list when there are no options",
       "description_zh": "无选项时的列表"
+    },
+    {
+      "name": "header",
+      "description": "下拉列表顶部的内容",
+      "description_zh": "下拉列表顶部的内容",
+      "version": "2.4.3"
+    },
+    {
+      "name": "footer",
+      "description": "下拉列表底部的内容",
+      "description_zh": "下拉列表底部的内容",
+      "version": "2.4.3"
+    },
+    {
+      "name": "tag",
+      "description": "select 组件自定义标签内容",
+      "description_zh": "select 组件自定义标签内容",
+      "version": "2.5.0"
+    },
+    {
+      "name": "loading",
+      "description": "select 组件自定义 loading内容",
+      "description_zh": "select 组件自定义 loading内容",
+      "version": "2.5.2"
+    },
+    {
+      "name": "label",
+      "description": "select 组件自定义标签内容",
+      "description_zh": "select 组件自定义标签内容",
+      "version": "2.7.4"
     }
   ],
   "suggestions": [
     "el-option",
     "el-option-group"
+  ],
+  "exposed": [
+    {
+      "name": "focus",
+      "description": "使选择器的输入框获取焦点",
+      "description_zh": "使选择器的输入框获取焦点",
+      "detail": "(value: number) => void"
+    },
+    {
+      "name": "blur",
+      "description": "使选择器的输入框失去焦点，并隐藏下拉框",
+      "description_zh": "使选择器的输入框失去焦点，并隐藏下拉框",
+      "detail": "() => void"
+    },
+    {
+      "name": "selectedLabel",
+      "description": "获取当前选中的标签",
+      "description_zh": "获取当前选中的标签",
+      "detail": "ComputedRef<string | string[]>",
+      "version": "2.8.5"
+    }
   ],
   "link": "https://element-plus.org/en-US/component/select.html",
   "link_zh": "https://element-plus.org/zh-CN/component/select.html"

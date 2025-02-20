@@ -83,28 +83,40 @@
       "description": "View ID",
       "description_zh": "视图ID",
       "default": "—",
-      "type": "string"
+      "type": "string",
+      "version": "2.4.0"
     },
     "role": {
       "value": "",
       "description": "The role of the view",
       "description_zh": "视图的角色",
       "default": "—",
-      "type": "string"
+      "type": "string",
+      "version": "2.4.0"
     },
     "aria-label": {
       "value": "",
       "description": "aria-label of the view",
       "description_zh": "视图的 aria-label",
       "default": "—",
-      "type": "string"
+      "type": "string",
+      "version": "2.4.0"
     },
     "aria-orientation": {
       "value": "",
       "description": "aria-orientation of the view",
       "description_zh": "视图的 aria-orientation",
       "default": "—",
-      "type": "enum"
+      "type": "horizontal / vertical",
+      "version": "2.4.0"
+    },
+    "tabindex": {
+      "value": "",
+      "description": "tabindex of the view",
+      "description_zh": "视图的 tabindex",
+      "default": "0",
+      "type": "number | string",
+      "version": "2.8.3"
     }
   },
   "link": "https://element-plus.org/en-US/component/scroll-bar.html",
@@ -160,6 +172,44 @@
       "params": "({ scrollLeft: number, scrollTop: number }) => void",
       "description_zh": "当触发滚动事件时，返回滚动的距离",
       "value": ""
+    }
+  ],
+  "exposed": [
+    {
+      "name": "handleScroll",
+      "description": "Trigger a scroll event",
+      "description_zh": "触发滚动事件",
+      "detail": "() => void"
+    },
+    {
+      "name": "scrollTo",
+      "description": "滚动到一组特定坐标",
+      "description_zh": "滚动到一组特定坐标",
+      "detail": "(options: ScrollToOptions | number, yCoord?: number) => void"
+    },
+    {
+      "name": "setScrollTop",
+      "description": "Sets the distance from the scrollbar to the top",
+      "description_zh": "设置滚动条到顶部的距离",
+      "detail": "(scrollTop: number) => void"
+    },
+    {
+      "name": "setScrollLeft",
+      "description": "Sets the distance from the scrollbar to the left",
+      "description_zh": "设置滚动条到左边的距离",
+      "detail": "(scrollLeft: number) => void"
+    },
+    {
+      "name": "update",
+      "description": "Manually update the scrollbar status",
+      "description_zh": "手动更新滚动条状态",
+      "detail": "() => void"
+    },
+    {
+      "name": "wrapRef",
+      "description": "The ref object wrapped by the scrollbar",
+      "description_zh": "滚动条包裹的 ref 对象",
+      "detail": "Ref<HTMLDivElement>"
     }
   ]
 }

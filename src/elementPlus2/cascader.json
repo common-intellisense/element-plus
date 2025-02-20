@@ -68,7 +68,7 @@
     "show-all-levels": {
       "value": "",
       "description": "Whether or not to display the full path of the selected value in the input box",
-      "default": "—",
+      "default": "true",
       "type": "boolean",
       "description_zh": "输入框中是否显示选中值的完整路径"
     },
@@ -82,7 +82,7 @@
     "separator": {
       "value": "",
       "description": "Option separator",
-      "default": "—",
+      "default": "/",
       "type": "string",
       "description_zh": "选项分隔符"
     },
@@ -103,7 +103,7 @@
     ":debounce": {
       "value": "",
       "description": "The debounce delay of the search keyword input, in milliseconds",
-      "default": "—",
+      "default": "300",
       "type": "number",
       "description_zh": "搜索关键词输入的去抖延迟，毫秒"
     },
@@ -120,6 +120,90 @@
       "default": "—",
       "type": "string",
       "description_zh": "自定义浮层类名"
+    },
+    "teleported": {
+      "value": "",
+      "description": "Whether to use teleport to move the pop-up layer to the body",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否使用 teleport 将弹出层移动至 body"
+    },
+    "tag-type": {
+      "value": "",
+      "description": "Tag type",
+      "default": "info",
+      "type": "success / info / warning / danger",
+      "description_zh": "标签类型"
+    },
+    "tag-effect": {
+      "value": "",
+      "description": "Tag effect",
+      "default": "light",
+      "type": "dark / light / plain",
+      "description_zh": "标签效果",
+      "version": "2.7.8"
+    },
+    "validate-event": {
+      "value": "",
+      "description": "Whether to trigger the validation event",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否触发校验事件"
+    },
+    "max-collapse-tags": {
+      "value": "",
+      "description": "The maximum number of tags to display Only effective when collapse-tags is set to true",
+      "default": "1",
+      "type": "number",
+      "description_zh": "需要显示的 Tag 的最大数量 只有当 collapse-tags 设置为 true 时才会生效。",
+      "version": "2.3.10"
+    },
+    "empty-values": {
+      "value": "",
+      "description": "Component empty value configuration Refer to config-provider",
+      "default": "—",
+      "type": "array",
+      "description_zh": "组件的空值配置 参考config-provider",
+      "version": "2.7.0"
+    },
+    "value-on-clear": {
+      "value": "",
+      "description": "Clear the value of the option Refer to config-provider",
+      "default": "—",
+      "type": "string / number / boolean / Function",
+      "description_zh": "清空选项的值 参考 config-provider",
+      "version": "2.7.0"
+    },
+    "persistent": {
+      "value": "",
+      "description": "Whether to keep the pop-up layer after closing",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "当下拉框未被激活并且persistent设置为false，下拉框容器会被删除。"
+    },
+    "fallback-placements": {
+      "value": "",
+      "description": "The fallback placement when the pop-up layer is clipped",
+      "default": "—",
+      "type": "Placement[]",
+      "description_zh": "Tooltip 可用的 positions 请查看popper.js 文档",
+      "version": "2.8.1"
+    },
+    "placement": {
+      "value": "",
+      "description": "The placement of the pop-up layer",
+      "default": "bottom-start",
+      "type": "top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end",
+      "description_zh": "弹出层的展示位置",
+      "version": "2.8.1"
+    },
+    "popper-append-to-body": {
+      "value": "",
+      "description": "Whether to insert the popped content directly into the body element. When the border positioning of the popped content is problematic, set this attribute to false.",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否将弹出的内容直接插入到 body 元素。 在弹出内容的边框定位出现问题时，可将该属性设置为 false。",
+      "version": "deprecated"
     }
   },
   "methods": [
@@ -200,7 +284,41 @@
     {
       "name": "empty",
       "description": "What to do when there are no matching options",
-      "description_zh": "无匹配选项时的内容"
+      "description_zh": "无匹配选项时的内容",
+      "version": "2.8.3"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "getCheckedNodes",
+      "description": "Get an array of currently selected nodes. (just the flyer) Whether to return only leaf-selected nodes, default is false",
+      "description_zh": "获取一个当前选中节点的数组。(仅仅是传单) 是否只返回叶选中的节点，默认是 false",
+      "detail": "(leafOnly: boolean) => CascaderNode[] | undefined"
+    },
+    {
+      "name": "cascaderPanelRef",
+      "description": "ref of the cascader panel",
+      "description_zh": "cascader 面板的 ref",
+      "detail": "ComputedRef<any>"
+    },
+    {
+      "name": "togglePopperVisible",
+      "description": "Toggle the popper visible state",
+      "description_zh": "切换 popper 可见状态",
+      "detail": "(visible?: boolean) => void",
+      "version": "2.2.31"
+    },
+    {
+      "name": "contentRef",
+      "description": "cascader content ref",
+      "description_zh": "cascader 内容的 ref",
+      "detail": "ComputedRef<any>"
+    },
+    {
+      "name": "presentText",
+      "description": "Selected content text",
+      "description_zh": "选中的内容文本",
+      "detail": "ComputedRef<string>"
     }
   ],
   "link": "https://element-plus.org/en-US/component/cascader.html",

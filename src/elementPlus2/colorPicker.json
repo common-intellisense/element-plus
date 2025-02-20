@@ -70,6 +70,50 @@
       "default": "—",
       "type": "array",
       "description_zh": "预定义颜色"
+    },
+    "validate-event": {
+      "value": "",
+      "description": "Whether to trigger the change event when the value changes",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否在值改变时触发 change 事件"
+    },
+    "tabindex": {
+      "value": "",
+      "description": "tabindex of the input",
+      "default": "0",
+      "type": "string",
+      "description_zh": "输入框的 tabindex"
+    },
+    "aria-label": {
+      "value": "",
+      "description": "The aria-label attribute of the ColorPicker",
+      "default": "—",
+      "type": "string",
+      "description_zh": "ColorPicker 的 aria-label 属性",
+      "version": "2.7.2"
+    },
+    "id": {
+      "value": "",
+      "description": "The id of the input",
+      "default": "—",
+      "type": "string",
+      "description_zh": "输入框的 id"
+    },
+    "teleported": {
+      "value": "",
+      "description": "Whether to use teleport to move the popper to the body",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否使用 teleport 将弹出框移动至 body 元素下"
+    },
+    "label": {
+      "value": "",
+      "description": "ColorPicker 的 aria-label",
+      "default": "—",
+      "type": "string",
+      "description_zh": "ColorPicker 的 aria-label",
+      "version": "deprecated"
     }
   },
   "events": [
@@ -86,6 +130,56 @@
       "params": "当前显示的颜色值",
       "description_zh": "面板中当前显示的颜色发生改变时触发",
       "value": ""
+    },
+    {
+      "name": "focus",
+      "description": "Triggers when focus is gained",
+      "params": "(event: FocusEvent) => void",
+      "description_zh": "当获得焦点时触发",
+      "value": ""
+    },
+    {
+      "name": "blur",
+      "description": "Triggers when focus is lost",
+      "params": "(event: FocusEvent) => void",
+      "description_zh": "当失去焦点时触发",
+      "value": ""
+    }
+  ],
+  "exposed": [
+    {
+      "name": "color",
+      "description": "当前色彩对象",
+      "description_zh": "当前色彩对象",
+      "detail": "Color"
+    },
+    {
+      "name": "show",
+      "description": "手动显示颜色选择器",
+      "description_zh": "手动显示颜色选择器",
+      "detail": "() => void",
+      "version": "2.3.3"
+    },
+    {
+      "name": "hide",
+      "description": "手动隐藏颜色选择器",
+      "description_zh": "手动隐藏颜色选择器",
+      "detail": "() => void",
+      "version": "2.3.3"
+    },
+    {
+      "name": "focus",
+      "description": "使 picker 获得焦点",
+      "description_zh": "使 picker 获得焦点",
+      "detail": "() => void",
+      "version": "2.3.13"
+    },
+    {
+      "name": "blur",
+      "description": "使 picker 失去焦点",
+      "description_zh": "使 picker 失去焦点",
+      "detail": "() => void",
+      "version": "2.3.13"
     }
   ],
   "link": "https://element-plus.org/en-US/component/color-picker.html",

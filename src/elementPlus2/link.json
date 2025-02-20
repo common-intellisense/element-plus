@@ -35,6 +35,13 @@
       "type": "string",
       "description_zh": "原生 href 属性"
     },
+    "target": {
+      "value": "",
+      "description": "Same as the target attribute of the a tag",
+      "default": "—",
+      "type": "_blank / _parent / _self / _top",
+      "description_zh": "同 a 标签的 target 属性"
+    },
     "icon": {
       "value": "",
       "description": "Icon class name",

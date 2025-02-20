@@ -6,7 +6,7 @@
       "description": "The way of alignment",
       "description_zh": "对齐的方式",
       "default": "center",
-      "type": "enum align-items"
+      "type": "center / normal / stretch / start / end / baseline / first baseline / last baseline / safe center / unsafe center / inherit / initial / unset"
     },
     "class": {
       "value": "",

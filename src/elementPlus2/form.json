@@ -62,12 +62,26 @@
       "type": "boolean",
       "description_zh": "是否隐藏必填字段的标签旁边的红色星号"
     },
+    "require-asterisk-position": {
+      "value": "",
+      "description": "The position of the red asterisk",
+      "default": "left",
+      "type": "string",
+      "description_zh": "红色星号的位置"
+    },
     "show-message": {
       "value": "",
       "description": "Whether a verification error message is displayed",
-      "default": "false",
+      "default": "true",
       "type": "boolean",
       "description_zh": "是否显示校验错误信息"
+    },
+    "inline-message": {
+      "value": "",
+      "description": "Displays the validation information in an inline form",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "以行内形式展示校验信息"
     },
     "status-icon": {
       "value": "",
@@ -85,9 +99,9 @@
     },
     "size": {
       "value": [
-        "medium",
-        "small",
-        "mini"
+        "large",
+        "default",
+        "small"
       ],
       "description": "Used to control the size of the components within the form",
       "default": "—",
@@ -100,6 +114,21 @@
       "default": "false",
       "type": "boolean",
       "description_zh": "是否禁用该表单内的所有组件。若设置为 true，则表单内组件上的 disabled 属性不再生效"
+    },
+    "scroll-to-error": {
+      "value": "",
+      "description": "Whether to scroll to the first error location when the form is validated",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "校验表单时是否滚动到第一个错误的位置"
+    },
+    "scroll-into-view-options": {
+      "value": "",
+      "description": "When the verification fails, scroll to the first failed form item. Can be configured through scrollIntoView",
+      "default": "—",
+      "type": "Record<string, any> / boolean",
+      "description_zh": "当校验有失败结果时，滚动到第一个失败的表单项目 可通过 scrollIntoView 配置",
+      "version": "2.3.2"
     }
   },
   "methods": [
@@ -143,6 +172,45 @@
   ],
   "suggestions": [
     "el-form-item"
+  ],
+  "exposed": [
+    {
+      "name": "validate",
+      "description": "对整个表单的内容进行验证。 接收一个回调函数，或返回 Promise。",
+      "description_zh": "对整个表单的内容进行验证。 接收一个回调函数，或返回 Promise。",
+      "detail": "(callback?: FormValidateCallback) => Promise<void>"
+    },
+    {
+      "name": "validateField",
+      "description": "验证具体的某个字段。",
+      "description_zh": "验证具体的某个字段。",
+      "detail": "(props?: Arrayable<FormItemProp> | undefined, callback?: FormValidateCallback | undefined) => FormValidationResult"
+    },
+    {
+      "name": "resetFields",
+      "description": "重置该表单项，将其值重置为初始值，并移除校验结果",
+      "description_zh": "重置该表单项，将其值重置为初始值，并移除校验结果",
+      "detail": "(props?: Arrayable<FormItemProp> | undefined) => void"
+    },
+    {
+      "name": "scrollToField",
+      "description": "滚动到指定的字段",
+      "description_zh": "滚动到指定的字段",
+      "detail": "(prop: FormItemProp) => void"
+    },
+    {
+      "name": "clearValidate",
+      "description": "清理某个字段的表单验证信息。",
+      "description_zh": "清理某个字段的表单验证信息。",
+      "detail": "(props?: Arrayable<FormItemProp> | undefined) => void"
+    },
+    {
+      "name": "fields",
+      "description": "获取所有字段的 context",
+      "description_zh": "获取所有字段的 context",
+      "detail": "FormItemContext[]",
+      "version": "2.7.3"
+    }
   ],
   "link": "https://element-plus.org/en-US/component/form.html",
   "link_zh": "https://element-plus.org/zh-CN/component/form.html"

@@ -38,21 +38,24 @@
       "description": "Whether it is a text button",
       "description_zh": "是否为文字按钮",
       "default": "false",
-      "type": "boolean"
+      "type": "boolean",
+      "version": "2.2.0"
     },
     "bg": {
       "value": "",
       "description": "Whether to display the background color of the text button",
       "description_zh": "是否显示文字按钮背景颜色",
       "default": "false",
-      "type": "boolean"
+      "type": "boolean",
+      "version": "2.2.0"
     },
     "link": {
       "value": "",
       "description": "Whether it is a link button",
       "description_zh": "是否为链接按钮",
       "default": "false",
-      "type": "boolean"
+      "type": "boolean",
+      "version": "2.2.1"
     },
     "round": {
       "value": "",
@@ -140,7 +143,8 @@
       "description": "Custom element labels",
       "description_zh": "自定义元素标签",
       "default": "button",
-      "type": "string / Component"
+      "type": "string / Component",
+      "version": "2.3.4"
     }
   },
   "slots": [
@@ -155,12 +159,32 @@
       "description": "Ghost nodes",
       "description_zh": "幽灵节点",
       "params": "-"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "ref",
+      "description": "Button html element",
+      "description_zh": "按钮 html 元素",
+      "detail": "Ref<HTMLButtonElement>"
     },
     {
-      "name": "dot",
-      "description": "Ghost nodes",
-      "description_zh": "幽灵节点",
-      "params": "-"
+      "name": "size",
+      "description": "Button size",
+      "description_zh": "按钮尺寸",
+      "detail": "ComputedRef<'' | 'small' | 'default' | 'large'>"
+    },
+    {
+      "name": "disabled",
+      "description": "Whether the button is disabled",
+      "description_zh": "按钮已禁用",
+      "detail": "ComputedRef<boolean>"
+    },
+    {
+      "name": "shouldAddSpace",
+      "description": "Whether to insert a space between two characters",
+      "description_zh": "是否在两个字符之间插入空格",
+      "detail": "ComputedRef<boolean>"
     }
   ],
   "methods": [],

@@ -63,19 +63,12 @@
         "el-form-item.label"
       ]
     },
-    "clearable": {
+    "id": {
       "value": "",
-      "description": "Whether it can be emptied",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "是否可清空"
-    },
-    "show-password": {
-      "value": "",
-      "description": "Whether to display the switch password icon",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "是否显示切换密码图标"
+      "description": "Input box id",
+      "default": "—",
+      "type": "string",
+      "description_zh": "输入框 id"
     },
     "disabled": {
       "value": "",
@@ -95,57 +88,12 @@
       "type": "string",
       "description_zh": "输入框头部图标"
     },
-    "prefix-icon": {
-      "value": "",
-      "description": "Input box header icon",
-      "default": "—",
-      "type": "string",
-      "description_zh": "输入框头部图标"
-    },
-    "suffix-icon": {
-      "value": "",
-      "description": "Input box end icon",
-      "default": "—",
-      "type": "string",
-      "description_zh": "输入框尾部图标"
-    },
-    ":rows": {
-      "value": "",
-      "description": "Enter the number of lines in the box, which is valid only for type=\"textarea\".",
-      "default": "2",
-      "type": "number",
-      "description_zh": "输入框行数，只对 type=\"textarea\" 有效"
-    },
-    "autosize": {
-      "value": "",
-      "description": "Adaptive content height, valid only for type=\"textarea\", can be passed in objects, e.g., { minRows: 2, maxRows: 6 }",
-      "default": "false",
-      "type": "boolean | object",
-      "description_zh": "自适应内容高度，只对 type=\"textarea\" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }"
-    },
-    "autocomplete": {
-      "value": [
-        "on",
-        "off"
-      ],
-      "description": "Native attributes, auto-complete",
-      "default": "off",
-      "type": "string",
-      "description_zh": "原生属性，自动补全"
-    },
     "name": {
       "value": "",
       "description": "Native attributes",
       "default": "—",
       "type": "string",
       "description_zh": "原生属性"
-    },
-    "readonly": {
-      "value": "",
-      "description": "Native attributes, whether they are read-only",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "原生属性，是否只读"
     },
     "max": {
       "value": "",
@@ -180,37 +128,29 @@
       "type": "string",
       "description_zh": "控制是否能被用户缩放"
     },
-    "autofocus": {
+    "aria-label": {
       "value": "",
-      "description": "Native attributes, automatically get focus",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "原生属性，自动获取焦点"
-    },
-    "form": {
-      "value": "",
-      "description": "Native attributes",
+      "description": "Enter the label text associated with the field",
       "default": "—",
       "type": "string",
-      "description_zh": "原生属性"
+      "description_zh": "输入框关联的label文字",
+      "version": "2.7.2"
     },
     "label": {
       "value": "",
       "description": "Enter the label text associated with the field",
       "default": "—",
       "type": "string",
-      "description_zh": "输入框关联的label文字"
+      "description_zh": "输入框关联的label文字",
+      "version": "deprecated"
     },
-    "tabindex": {
-      "value": [
-        "medium",
-        "small",
-        "mini"
-      ],
-      "description": "Enter the size of the box, which is only valid when type!=\"textarea\".",
+    "value-on-clear": {
+      "value": "",
+      "description": "The value of the input box when the clear button is clicked",
       "default": "—",
-      "type": "string",
-      "description_zh": "输入框尺寸，只在 type!=\"textarea\" 时有效"
+      "type": "number / null / min / max",
+      "description_zh": "点击清空按钮时，输入框的值",
+      "version": "2.2.2"
     },
     "validate-event": {
       "value": "",
@@ -271,6 +211,50 @@
       "params": "",
       "description_zh": "在点击由 clearable 属性生成的清空按钮时触发",
       "value": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "decrease-icon",
+      "description": "自定义输入框按钮减少图标",
+      "description_zh": "自定义输入框按钮减少图标",
+      "params": "-",
+      "version": "2.6.3"
+    },
+    {
+      "name": "increase-icon",
+      "description": "自定义输入框按钮增加图标",
+      "description_zh": "自定义输入框按钮增加图标",
+      "params": "-",
+      "version": "2.6.3"
+    },
+    {
+      "name": "prefix",
+      "description": "输入框头部内容",
+      "description_zh": "输入框头部内容",
+      "params": "-",
+      "version": "2.8.4"
+    },
+    {
+      "name": "suffix",
+      "description": "输入框尾部内容",
+      "description_zh": "输入框尾部内容",
+      "params": "-",
+      "version": "2.8.4"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "focus",
+      "description": "Make input get focus",
+      "description_zh": "使 input 获取焦点",
+      "detail": "() => void"
+    },
+    {
+      "name": "blur",
+      "description": "使 input 组件失去焦点",
+      "description_zh": "使 input 组件失去焦点",
+      "detail": "() => void"
     }
   ],
   "link": "https://element-plus.org/en-US/component/input-number.html",

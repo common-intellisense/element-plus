@@ -20,7 +20,7 @@
         "mini"
       ],
       "description": "The multi-checkbox group size, which is only valid for checkboxes in the form of buttons or checkboxes with borders",
-      "default": "medium | small | mini",
+      "default": "",
       "type": "string",
       "description_zh": "多选框组尺寸，仅对按钮形式的 Checkbox 或带有边框的 Checkbox 有效"
     },
@@ -45,19 +45,49 @@
       "type": "number",
       "description_zh": "可被勾选的 checkbox 的最大数量"
     },
+    "aria-label": {
+      "value": "",
+      "description": "The aria-label attribute of the checkbox group",
+      "default": "—",
+      "type": "string",
+      "description_zh": "Checkbox 组的 aria-label 属性",
+      "version": "2.7.2"
+    },
     "text-color": {
       "value": "",
       "description": "The color of the text when the checkbox is activated in the form of a button",
-      "default": "—",
+      "default": "#ffffff",
       "type": "string",
       "description_zh": "按钮形式的 Checkbox 激活时的文本颜色"
     },
     "fill": {
       "value": "",
       "description": "The color of the fill and border when the checkbox in the form of a button is activated",
-      "default": "—",
+      "default": "#409eff",
       "type": "string",
       "description_zh": "按钮形式的 Checkbox 激活时的填充色和边框色"
+    },
+    "tag": {
+      "value": "",
+      "description": "Checkbox group element tag",
+      "default": "div",
+      "type": "string",
+      "description_zh": "复选框组元素标签"
+    },
+    "validate-event": {
+      "value": "",
+      "description": "Whether to trigger the validate event",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否触发校验事件"
+    },
+    "label": {
+      "value": "",
+      "description": "The label of the checkbox group",
+      "default": "-",
+      "type": "string",
+      "description_zh": "原生 aria-label属性",
+      "version": "deprecated"
     }
   },
   "events": [

@@ -202,6 +202,58 @@
       "default": "—",
       "type": "string",
       "description_zh": "自定义清空图标的类名"
+    },
+    ":shortcuts": {
+      "value": "",
+      "description": "Set shortcuts, need to pass in { text, onClick } object usage reference demo or the following table",
+      "default": "—",
+      "type": "Array<{ text: string, value: Date | Function }>",
+      "description_zh": "设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表"
+    },
+    "disabled-date": {
+      "value": "",
+      "description": "一个用来判断该日期是否被禁用的函数，接受一个 Date 对象作为参数。 应该返回一个 Boolean 值。",
+      "default": "—",
+      "type": "(data: Date) => boolean",
+      "description_zh": "一个用来判断该日期是否被禁用的函数，接受一个 Date 对象作为参数。 应该返回一个 Boolean 值。"
+    },
+    "cell-class-name": {
+      "value": "",
+      "description": "设置日期的 className",
+      "default": "—",
+      "type": "(data: Date) => string",
+      "description_zh": "设置日期的 className"
+    },
+    "teleported": {
+      "value": "",
+      "description": "Whether to use teleport to move the pop-up layer to the body",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否使用 teleport 将弹出层移动至 body"
+    },
+    "empty-values": {
+      "value": "",
+      "description": "组件的空值配置 参考config-provider",
+      "default": "",
+      "type": "array",
+      "description_zh": "组件的空值配置 参考config-provider",
+      "version": "2.7.0"
+    },
+    "value-on-clear": {
+      "value": "",
+      "description": "清空时的值",
+      "default": "null",
+      "type": "string / number / boolean / Function",
+      "description_zh": "清空时的值",
+      "version": "2.7.0"
+    },
+    "show-now": {
+      "value": "",
+      "description": "是否显示此刻按钮",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否显示此刻按钮",
+      "version": "2.8.7"
     }
   },
   "methods": [
@@ -233,6 +285,28 @@
       "description": "Triggers when input gains focus",
       "params": "组件实例",
       "description_zh": "当 input 获得焦点时触发",
+      "value": ""
+    },
+    {
+      "name": "clear",
+      "description": "Triggered when the clear button is clicked",
+      "params": "组件绑定值。格式与绑定值一致，可受 `value-format` 控制",
+      "description_zh": "清空按钮点击时触发",
+      "value": "",
+      "version": "2.7.7"
+    },
+    {
+      "name": "calendar-change",
+      "description": "如果用户没有选择日期，那默认展示当前日的月份。 选中日历日期后会执行的回调，只有当 datetimerange 才生效",
+      "params": "[Date, Date]",
+      "description_zh": "如果用户没有选择日期，那默认展示当前日的月份。 选中日历日期后会执行的回调，只有当 datetimerange 才生效",
+      "value": ""
+    },
+    {
+      "name": "visible-change",
+      "description": "当 DateTimePicker 的下拉列表出现/消失时触发",
+      "params": "出现时为true，隐藏时为false",
+      "description_zh": "当 DateTimePicker 的下拉列表出现/消失时触发",
       "value": ""
     }
   ],
@@ -278,6 +352,55 @@
       "name": "range-separator",
       "description": "Custom separators",
       "description_zh": "自定义分隔符"
+    },
+    {
+      "name": "range-separator",
+      "description": "Custom range separator content",
+      "description_zh": "自定义范围分割符内容",
+      "params": "-"
+    },
+    {
+      "name": "prev-month",
+      "description": "Previous month icon",
+      "description_zh": "上个月的图标",
+      "params": "-",
+      "version": "2.8.0"
+    },
+    {
+      "name": "next-month",
+      "description": "Next month icon",
+      "description_zh": "下个月的图标",
+      "params": "-",
+      "version": "2.8.0"
+    },
+    {
+      "name": "prev-year",
+      "description": "Previous year icon",
+      "description_zh": "上一年图标",
+      "params": "-",
+      "version": "2.8.0"
+    },
+    {
+      "name": "next-year",
+      "description": "Next year icon",
+      "description_zh": "下一年图标",
+      "params": "-",
+      "version": "2.8.0"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "focus",
+      "description": "使组件获取焦点",
+      "description_zh": "使组件获取焦点",
+      "detail": "() => void"
+    },
+    {
+      "name": "blur",
+      "description": "使组件失去焦点",
+      "description_zh": "使组件失去焦点",
+      "detail": "() => void",
+      "version": "2.8.7"
     }
   ],
   "link": "https://element-plus.org/en-US/component/datetime-picker.html",

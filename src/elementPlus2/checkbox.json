@@ -6,7 +6,8 @@
       "description": "Binding value",
       "default": "—",
       "type": "string | number | boolean",
-      "description_zh": "绑定值"
+      "description_zh": "绑定值",
+      "version": "2.6.0"
     },
     ":v-model": {
       "value": "",
@@ -24,19 +25,74 @@
       "required": true,
       "description_zh": "选中状态的值（只有在`checkbox-group`或者绑定对象类型为`array`时有效）"
     },
+    "validate-event": {
+      "value": "",
+      "description": "Whether to trigger the form validation",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "输入时是否触发表单的校验"
+    },
+    "tabindex": {
+      "value": "",
+      "description": "The tabindex of the checkbox",
+      "default": "0",
+      "type": "string",
+      "description_zh": "checkbox 的 tabindex"
+    },
+    "id": {
+      "value": "",
+      "description": "input id",
+      "default": "—",
+      "type": "string",
+      "description_zh": "input id"
+    },
+    "aria-controls": {
+      "value": "",
+      "description": "The id of the element controlled by the checkbox",
+      "default": "-",
+      "type": "string",
+      "description_zh": "和 aria-control一致。当 indeterminate 为 true 时生效",
+      "version": "2.7.2"
+    },
     "true-label": {
       "value": "",
       "description": "The value when selected",
       "default": "—",
       "type": "string | number",
-      "description_zh": "选中时的值"
+      "description_zh": "选中时的值",
+      "version": "deprecated"
     },
     "false-label": {
       "value": "",
       "description": "There is no value when checked",
       "default": "—",
       "type": "string | number",
-      "description_zh": "没有选中时的值"
+      "description_zh": "没有选中时的值",
+      "version": "deprecated"
+    },
+    "controls": {
+      "value": "",
+      "description": "The id of the element controlled by the checkbox",
+      "default": "-",
+      "type": "string",
+      "description_zh": "和 aria-control一致。当 indeterminate 为 true 时生效",
+      "version": "deprecated"
+    },
+    "true-value": {
+      "value": "",
+      "description": "The value when selected",
+      "default": "true",
+      "type": "string | number",
+      "description_zh": "选中时的值",
+      "version": "2.6.0"
+    },
+    "false-value": {
+      "value": "",
+      "description": "There is no value when checked",
+      "default": "false",
+      "type": "string | number",
+      "description_zh": "没有选中时的值",
+      "version": "2.6.0"
     },
     "disabled": {
       "value": "",
@@ -59,7 +115,7 @@
         "mini"
       ],
       "description": "The size of the checkbox, which is only valid if the border is true",
-      "default": "medium | small | mini",
+      "default": "",
       "type": "string",
       "description_zh": "Checkbox 的尺寸，仅在 border 为真时有效"
     },

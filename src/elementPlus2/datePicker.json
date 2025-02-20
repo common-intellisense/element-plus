@@ -202,12 +202,65 @@
       "type": "boolean",
       "description_zh": "输入时是否触发表单的校验"
     },
-    "append-to-body": {
+    "disabled-date": {
       "value": "",
-      "description": "Whether the DatePicker itself is inserted on the body element.",
-      "default": "false",
+      "description": "一个用来判断该日期是否被禁用的函数，接受一个 Date 对象作为参数。 应该返回一个 Boolean 值。",
+      "default": "-",
+      "type": "(data: Date) => boolean",
+      "description_zh": "一个用来判断该日期是否被禁用的函数，接受一个 Date 对象作为参数。 应该返回一个 Boolean 值。"
+    },
+    "shortcuts": {
+      "value": "",
+      "description": "设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表",
+      "default": "[]",
+      "type": "Array<{ text: string, value: Date | Function }>",
+      "description_zh": "设置快捷选项，需要传入 { text, onClick } 对象用法参考 demo 或下表"
+    },
+    "cell-class-name": {
+      "value": "",
+      "description": "设置自定义类名",
+      "default": "-",
+      "type": "(data: Date) => string",
+      "description_zh": "设置自定义类名"
+    },
+    "teleported": {
+      "value": "",
+      "description": "Whether to render the pop-up box in the body",
+      "default": "true",
       "type": "boolean",
-      "description_zh": "DatePicker 自身是否插入至 body 元素上。"
+      "description_zh": "是否将弹出框渲染到 body 上"
+    },
+    "empty-values": {
+      "value": "",
+      "description": "Whether to allow empty values",
+      "default": "-",
+      "type": "array",
+      "description_zh": "是否允许为空值",
+      "version": "2.7.0"
+    },
+    "value-on-clear": {
+      "value": "",
+      "description": "Clear the value of the input box",
+      "default": "null",
+      "type": "any",
+      "description_zh": "清空输入框的值",
+      "version": "2.7.0"
+    },
+    "fallback-placements": {
+      "value": "",
+      "description": "Tooltip 可用的 positions 请查看popper.js 文档",
+      "default": "-",
+      "type": "Placement[]",
+      "description_zh": "Tooltip 可用的 positions 请查看popper.js 文档",
+      "version": "2.8.4"
+    },
+    "placement": {
+      "value": "",
+      "description": "Tooltip 的出现位置",
+      "default": "bottom",
+      "type": "Placement",
+      "description_zh": "Tooltip 的出现位置",
+      "version": "2.8.4"
     }
   },
   "methods": [
@@ -225,12 +278,14 @@
       "description": "Triggered when the user confirms the selected value",
       "callback": "组件绑定值。格式与绑定值一致，可受 `value-format` 控制",
       "description_zh": "用户确认选定的值时触发",
+      "params": "(val: typeof v-model) => void",
       "value": ""
     },
     {
       "name": "blur",
       "description": "Triggers when input loses focus",
       "callback": "组件实例",
+      "params": "(e: FocusEvent) => void",
       "description_zh": "当 input 失去焦点时触发",
       "value": ""
     },
@@ -238,7 +293,41 @@
       "name": "focus",
       "description": "Triggers when input gains focus",
       "callback": "组件实例",
+      "params": "(e: FocusEvent) => void",
       "description_zh": "当 input 获得焦点时触发",
+      "value": ""
+    },
+    {
+      "name": "clear",
+      "description": "Triggers when input gains focus",
+      "callback": "组件实例",
+      "params": "() => void",
+      "description_zh": "当 input 获得焦点时触发",
+      "value": "",
+      "version": "2.7.7"
+    },
+    {
+      "name": "calendar-change",
+      "description": "在日历所选日期更改时触发",
+      "callback": "",
+      "params": "(val: [Date, null | Date]) => void",
+      "description_zh": "在日历所选日期更改时触发",
+      "value": ""
+    },
+    {
+      "name": "panel-change",
+      "description": "当日期面板改变时触发。",
+      "callback": "",
+      "params": "(date: Date | [Date, Date], mode: 'month' | 'year', view?: string) => void",
+      "description_zh": "当日期面板改变时触发。",
+      "value": ""
+    },
+    {
+      "name": "visible-change",
+      "description": "当 DatePicker 的下拉列表出现/消失时触发",
+      "callback": "",
+      "params": "(visibility: boolean) => void",
+      "description_zh": "当 DatePicker 的下拉列表出现/消失时触发",
       "value": ""
     }
   ],
@@ -284,6 +373,77 @@
       }
     ]
   },
+  "exposed": [
+    {
+      "name": "focus",
+      "description": "使组件获取焦点",
+      "description_zh": "使组件获取焦点",
+      "detail": "() => void"
+    },
+    {
+      "name": "blur",
+      "description": "使组件失去焦点",
+      "description_zh": "使组件失去焦点",
+      "detail": "() => void",
+      "version": "2.8.7"
+    },
+    {
+      "name": "handleOpen",
+      "description": "打开日期选择器弹窗",
+      "description_zh": "打开日期选择器弹窗",
+      "detail": "() => void",
+      "version": "2.2.16"
+    },
+    {
+      "name": "handleClose",
+      "description": "关闭日期选择器弹窗",
+      "description_zh": "关闭日期选择器弹窗",
+      "detail": "() => void",
+      "version": "2.2.16"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Custom cell content",
+      "description_zh": "自定义单元格内容",
+      "params": "-"
+    },
+    {
+      "name": "range-separator",
+      "description": "Custom range separator content",
+      "description_zh": "自定义范围分割符内容",
+      "params": "-"
+    },
+    {
+      "name": "prev-month",
+      "description": "Previous month icon",
+      "description_zh": "上个月的图标",
+      "params": "-",
+      "version": "2.8.0"
+    },
+    {
+      "name": "next-month",
+      "description": "Next month icon",
+      "description_zh": "下个月的图标",
+      "params": "-",
+      "version": "2.8.0"
+    },
+    {
+      "name": "prev-year",
+      "description": "Previous year icon",
+      "description_zh": "上一年图标",
+      "params": "-",
+      "version": "2.8.0"
+    },
+    {
+      "name": "next-year",
+      "description": "Next year icon",
+      "description_zh": "下一年图标",
+      "params": "-",
+      "version": "2.8.0"
+    }
+  ],
   "link": "https://element-plus.org/en-US/component/date-picker.html",
   "link_zh": "https://element-plus.org/zh-CN/component/date-picker.html"
 }

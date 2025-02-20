@@ -17,6 +17,14 @@
       "description_zh": "标签文本",
       "required": true
     },
+    "label-position": {
+      "value": "",
+      "description": "The position of the label",
+      "default": "right",
+      "type": "left / right / top",
+      "description_zh": "表单域标签的位置",
+      "version": "2.7.7"
+    },
     "label-width": {
       "value": "",
       "description": "The width of the form field label, e.g. '50px'. Auto is supported.",
@@ -35,7 +43,7 @@
       "value": "[{ required: true, message: '请输入$1', trigger: '${2|blur,change|}' }]",
       "description": "Form validation rules",
       "default": "—",
-      "type": "object",
+      "type": "Arrayable<FormItemRule>",
       "description_zh": "表单验证规则"
     },
     "error": {
@@ -48,7 +56,7 @@
     "show-message": {
       "value": "",
       "description": "Whether a verification error message is displayed",
-      "default": "false",
+      "default": "true",
       "type": "boolean",
       "description_zh": "是否显示校验错误信息"
     },
@@ -61,14 +69,28 @@
     },
     "size": {
       "value": [
-        "medium",
-        "small",
-        "mini"
+        "large",
+        "default",
+        "small"
       ],
       "description": "Used to control the size of the components within the form",
       "default": "—",
       "type": "string",
       "description_zh": "用于控制该表单内组件的尺寸"
+    },
+    "for": {
+      "value": "",
+      "description": "The id of the form item",
+      "default": "—",
+      "type": "string",
+      "description_zh": "表单域的 id"
+    },
+    "validate-status": {
+      "value": "",
+      "description": "formitem 校验的状态",
+      "default": "—",
+      "type": "error / validating / success",
+      "description_zh": "formitem 校验的状态"
     }
   },
   "methods": [
@@ -91,7 +113,52 @@
     {
       "name": "label",
       "description": "The content of the label text",
-      "description_zh": "标签文本的内容"
+      "description_zh": "标签文本的内容",
+      "params": "{ label: string }"
+    },
+    {
+      "name": "error",
+      "description": "验证错误信息的显示内容",
+      "description_zh": "验证错误信息的显示内容",
+      "params": "{ error: string }"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "size",
+      "description": "表单项大小",
+      "description_zh": "表单项大小",
+      "detail": "ComputedRef<'' | 'large' | 'default' | 'small'>"
+    },
+    {
+      "name": "validateMessage",
+      "description": "校验消息",
+      "description_zh": "校验消息",
+      "detail": "Ref<string>"
+    },
+    {
+      "name": "validateState",
+      "description": "校验状态",
+      "description_zh": "校验状态",
+      "detail": "Ref<'' | 'error' | 'validating' | 'success'>"
+    },
+    {
+      "name": "validate",
+      "description": "验证表单项",
+      "description_zh": "验证表单项",
+      "detail": "(trigger: string, callback?: FormValidateCallback | undefined) => FormValidationResult"
+    },
+    {
+      "name": "resetField",
+      "description": "对该表单项进行重置，将其值重置为初始值并移除校验结果",
+      "description_zh": "对该表单项进行重置，将其值重置为初始值并移除校验结果",
+      "detail": "() => void"
+    },
+    {
+      "name": "clearValidate",
+      "description": "移除该表单项的校验结果",
+      "description_zh": "移除该表单项的校验结果",
+      "detail": "() => void"
     }
   ],
   "link": "https://element-plus.org/en-US/component/form-item.html",

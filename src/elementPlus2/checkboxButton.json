@@ -1,6 +1,14 @@
 {
   "name": "ElCheckboxButton",
   "props": {
+    "value": {
+      "value": "",
+      "description": "The value of the selected state is only valid if the binding object type is array.",
+      "default": "—",
+      "type": "string | number | boolean",
+      "description_zh": "选中状态的值，只有在绑定对象类型为 array 时有效。",
+      "version": "2.6.0"
+    },
     "label": {
       "value": "",
       "description": "The value of the selected state (only valid if 'checkbox-group' or the binding object type is 'array')",
@@ -8,19 +16,37 @@
       "type": "string | number | boolean",
       "description_zh": "选中状态的值（只有在`checkbox-group`或者绑定对象类型为`array`时有效）"
     },
+    "true-value": {
+      "value": "",
+      "description": "The value when selected",
+      "default": "—",
+      "type": "string | number",
+      "description_zh": "选中时的值",
+      "version": "2.6.0"
+    },
+    "false-value": {
+      "value": "",
+      "description": "There is no value when checked",
+      "default": "—",
+      "type": "string | number",
+      "description_zh": "没有选中时的值",
+      "version": "2.6.0"
+    },
     "true-label": {
       "value": "",
       "description": "The value when selected",
       "default": "—",
       "type": "string | number",
-      "description_zh": "选中时的值"
+      "description_zh": "选中时的值",
+      "version": "deprecated"
     },
     "false-label": {
       "value": "",
       "description": "There is no value when checked",
       "default": "—",
       "type": "string | number",
-      "description_zh": "没有选中时的值"
+      "description_zh": "没有选中时的值",
+      "version": "deprecated"
     },
     "disabled": {
       "value": "",

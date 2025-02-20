@@ -89,6 +89,14 @@
       "type": "string",
       "description_zh": "原生属性"
     },
+    "aria-label": {
+      "value": "",
+      "description": "Native aria-label attribute",
+      "default": "—",
+      "type": "string",
+      "description_zh": "原生 aria-label属性",
+      "version": "2.7.2"
+    },
     "select-when-unmatched": {
       "value": "",
       "description": "In the absence of any matching suggestions, press enter to trigger the select event",
@@ -129,7 +137,8 @@
       "description": "Whether to insert a drop-down list into the body element. If there is a problem with the positioning of the drop-down list, you can set the property to false",
       "default": "true",
       "type": "boolean",
-      "description_zh": "是否将下拉列表插入至 body 元素。在下拉列表的定位出现问题时，可将该属性设置为 false"
+      "description_zh": "是否将下拉列表插入至 body 元素。在下拉列表的定位出现问题时，可将该属性设置为 false",
+      "version": "deprecated"
     },
     "teleported": {
       "value": "",
@@ -275,6 +284,93 @@
       "name": "append",
       "description": "The input box is followed by the content",
       "description_zh": "输入框后置内容"
+    },
+    {
+      "name": "loading",
+      "description": "The content of the loading icon",
+      "version": "2.5.0",
+      "description_zh": "修改加载区域内容"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "activated",
+      "description": "Whether the autocomplete input box is activated",
+      "description_zh": "自动补全输入框是否被激活",
+      "detail": "Ref<boolean>"
+    },
+    {
+      "name": "blur",
+      "description": "Makes the input out of focus",
+      "description_zh": "使 input 失去焦点",
+      "detail": "() => void"
+    },
+    {
+      "name": "close",
+      "description": "Collapse the list of suggestions",
+      "description_zh": "折叠建议列表",
+      "detail": "() => void"
+    },
+    {
+      "name": "focus",
+      "description": "Make input get focus",
+      "description_zh": "使 input 获取焦点",
+      "detail": "() => void"
+    },
+    {
+      "name": "handleSelect",
+      "description": "Manually trigger the selected suggested event",
+      "description_zh": "手动触发选中建议事件",
+      "detail": "(item: any) => promise<void>"
+    },
+    {
+      "name": "handleKeyEnter",
+      "description": "Manually trigger a keyboard enter event",
+      "description_zh": "手动触发键盘回车事件",
+      "detail": "() => promise<void>"
+    },
+    {
+      "name": "highlightedIndex",
+      "description": "The index of the current highlighting option",
+      "description_zh": "当前高亮显示选项的索引",
+      "detail": "Ref<number>"
+    },
+    {
+      "name": "highlight",
+      "description": "Highlight an item in the suggestion",
+      "description_zh": "在建议中高亮显示一个项目",
+      "detail": "(itemIndex: number) => void"
+    },
+    {
+      "name": "inputRef",
+      "description": "el-input 组件实例",
+      "description_zh": "el-input 组件实例",
+      "detail": "Ref<ElInputInstance>"
+    },
+    {
+      "name": "loading",
+      "description": "Remotely get a loading status indicator for the prompt content",
+      "description_zh": "远程获取提示内容的加载状态指示器",
+      "detail": "Ref<boolean>"
+    },
+    {
+      "name": "popperRef",
+      "description": "el-tooltip component",
+      "description_zh": "el-tooltip 组件实例",
+      "detail": "Ref<ElTooltipInstance>"
+    },
+    {
+      "name": "suggestions",
+      "description": "Get the autocomplete result",
+      "description_zh": "获取自动补全结果",
+      "detail": "Ref<record<string, any>>"
+    },
+    {
+      "name": "getData",
+      "description": "The instance of the injected active theme.",
+      "version": "2.8.4",
+      "description_zh": "加载建议列表",
+      "detail": "(queryString: string) => void"
     }
   ],
   "link": "https://element-plus.org/en-US/component/autocomplete.html",

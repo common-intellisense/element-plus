@@ -6,7 +6,8 @@
       "description": "Binding value",
       "default": "—",
       "type": "string | number | boolean",
-      "description_zh": "绑定值"
+      "description_zh": "绑定值",
+      "version": "2.6.0"
     },
     ":v-model": {
       "value": "",
@@ -40,9 +41,9 @@
     },
     "size": {
       "value": [
-        "medium",
-        "small",
-        "mini"
+        "large",
+        "default",
+        "small"
       ],
       "description": "The size of the radio, which is only valid if the border is true",
       "default": "—",
@@ -59,7 +60,7 @@
   },
   "events": [
     {
-      "name": "input",
+      "name": "change",
       "description": "An event that is triggered when the binding value changes",
       "params": "选中的 Radio label 值",
       "description_zh": "绑定值变化时触发的事件",

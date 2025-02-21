@@ -15,7 +15,7 @@
       "default": "label",
       "type": "string"
     },
-    "options": {
+    ":options": {
       "value": "",
       "description": "Specifies that the sub-option of an option is a property value of the option object",
       "description_zh": "指定选项的子选项为选项对象的某个属性值",
@@ -28,6 +28,336 @@
       "description_zh": "指定选项的禁用为选项对象的某个属性值",
       "default": "disabled",
       "type": "string"
+    },
+    "value-key": {
+      "value": "",
+      "description": "The key name that uniquely identifies the value as an object type is required when the bound value is an object type",
+      "description_zh": "作为 value 唯一标识的键名，绑定值为对象类型时必填",
+      "default": "value",
+      "type": "string"
+    },
+    "size": {
+      "value": "",
+      "description": "Component size",
+      "description_zh": "组件大小",
+      "default": "",
+      "type": "string",
+      "options": "larget / default / small"
+    },
+    "clearable": {
+      "value": "",
+      "description": "Whether to display the clear button",
+      "description_zh": "是否显示清空按钮",
+      "default": "false",
+      "type": "boolean"
+    },
+    "clear-icon": {
+      "value": "",
+      "description": "Clear button icon class",
+      "description_zh": "清空按钮的图标类名",
+      "default": "CircleClose",
+      "type": "string / Component"
+    },
+    "collapse-tags": {
+      "value": "",
+      "description": "Whether to collapse tags into a text when multiple tags are selected",
+      "description_zh": "多选时是否将选中值按文字的形式展示",
+      "default": "false",
+      "type": "boolean"
+    },
+    "multiple-limit": {
+      "value": "",
+      "description": "Maximum number of selections allowed in multiple selection mode",
+      "description_zh": "多选时用户最多可以选择的项目数",
+      "default": "0",
+      "type": "number"
+    },
+    "name": {
+      "value": "",
+      "description": "Select input name",
+      "description_zh": "Select input 的 name 属性",
+      "default": "",
+      "type": "string"
+    },
+    "effect": {
+      "value": "",
+      "description": "Effect of the input box",
+      "description_zh": "输入框的效果",
+      "default": "light",
+      "type": "string",
+      "options": "dark / light"
+    },
+    "autocomplete": {
+      "value": "",
+      "description": "Native autocomplete attribute",
+      "description_zh": "原生的自动完成功能",
+      "default": "off",
+      "type": "string"
+    },
+    "placeholder": {
+      "value": "",
+      "description": "Placeholder",
+      "description_zh": "输入框占位文本",
+      "default": "",
+      "type": "string"
+    },
+    "filterable": {
+      "value": "",
+      "description": "Whether to enable filtering",
+      "description_zh": "是否可搜索",
+      "default": "false",
+      "type": "boolean"
+    },
+    "allow-create": {
+      "value": "",
+      "description": "Whether to allow user input",
+      "description_zh": "是否允许用户创建新条目",
+      "default": "false",
+      "type": "boolean"
+    },
+    "filter-method": {
+      "value": "",
+      "description": "Custom filtering method",
+      "description_zh": "自定义搜索方法",
+      "default": "",
+      "type": "function"
+    },
+    "loading": {
+      "value": "",
+      "description": "Whether loading data",
+      "description_zh": "是否正在从远程获取数据",
+      "default": "false",
+      "type": "boolean"
+    },
+    "loading-text": {
+      "value": "",
+      "description": "Loading text",
+      "description_zh": "加载中的文字",
+      "default": "Loading",
+      "type": "string"
+    },
+    "reserve-keyword": {
+      "value": "",
+      "description": "Whether to reserve the keyword",
+      "description_zh": "是否保留选中项的关键词",
+      "default": "true",
+      "type": "boolean"
+    },
+    "no-match-text": {
+      "value": "",
+      "description": "No matching data text",
+      "description_zh": "搜索条件无匹配时显示的文字",
+      "default": "No matching data",
+      "type": "string"
+    },
+    "no-data-text": {
+      "value": "",
+      "description": "No data text",
+      "description_zh": "选项为空时显示的文字",
+      "default": "No data",
+      "type": "string"
+    },
+    "popper-class": {
+      "value": "",
+      "description": "Custom popper class",
+      "description_zh": "自定义 popper 类名",
+      "default": "",
+      "type": "string"
+    },
+    "teleported": {
+      "value": "",
+      "description": "Whether to use teleport to move the dropdown to the body",
+      "description_zh": "是否使用 teleport 将下拉框移动至 body 元素下",
+      "default": "true",
+      "type": "boolean"
+    },
+    "append-to": {
+      "value": "",
+      "description": "The DOM element that the dropdown will be appended to. The value should be a valid CSS selector or an Element",
+      "description_zh": "下拉框的容器",
+      "default": "body",
+      "type": "string | Element",
+      "version": "2.8.8"
+    },
+    "persistent": {
+      "value": "",
+      "description": "Whether to keep the dropdown open after selecting an option",
+      "description_zh": "是否保持下拉框的展开状态",
+      "default": "true",
+      "type": "boolean",
+      "version": "2.8.8"
+    },
+    "popper-options": {
+      "value": "",
+      "description": "Popper.js options",
+      "description_zh": "Popper.js 的参数",
+      "default": "{}",
+      "type": "object",
+      "version": "2.8.8"
+    },
+    "automatic-dropdown": {
+      "value": "",
+      "description": "Whether to automatically display the drop-down box",
+      "description_zh": "是否自动展开下拉框",
+      "default": "false",
+      "type": "boolean",
+      "version": "2.8.8"
+    },
+    "fit-input-width": {
+      "value": "",
+      "description": "Whether the width of the drop-down box is consistent with the width of the input box",
+      "description_zh": "下拉框的宽度是否和输入框一致",
+      "default": "true",
+      "type": "boolean",
+      "version": "2.9.2"
+    },
+    "height": {
+      "value": "",
+      "description": "Height of the drop-down box",
+      "description_zh": "下拉框的高度",
+      "default": "274",
+      "type": "number"
+    },
+    "item-height": {
+      "value": "",
+      "description": "Height of each option",
+      "description_zh": "每个选项的高度",
+      "default": "34",
+      "type": "number"
+    },
+    "scrollbar-always-on": {
+      "value": "",
+      "description": "Whether to always display the scroll bar",
+      "description_zh": "是否总是显示滚动条",
+      "default": "false",
+      "type": "boolean"
+    },
+    "remote": {
+      "value": "",
+      "description": "Whether to enable remote search",
+      "description_zh": "是否启用远程搜索",
+      "default": "false",
+      "type": "boolean"
+    },
+    "remote-method": {
+      "value": "",
+      "description": "Remote search method",
+      "description_zh": "远程搜索方法",
+      "default": "",
+      "type": "(keyword: string) => void"
+    },
+    "validate-event": {
+      "value": "",
+      "description": "Whether to trigger the change event when the value is changed",
+      "description_zh": "是否在选中值发生变化时触发 change 事件",
+      "default": "true",
+      "type": "boolean"
+    },
+    "offset": {
+      "value": "",
+      "description": "The offset of the drop-down box",
+      "description_zh": "下拉框的偏移量",
+      "default": "12",
+      "type": "number",
+      "version": "2.8.8"
+    },
+    "show-arrow": {
+      "value": "",
+      "description": "Whether to display the drop-down arrow",
+      "description_zh": "是否显示下拉小箭头",
+      "default": "true",
+      "type": "boolean",
+      "version": "2.8.8"
+    },
+    "placement": {
+      "value": "",
+      "description": "Placement of the drop-down box",
+      "description_zh": "下拉框出现的位置",
+      "default": "bottom-start",
+      "type": "string",
+      "options": "top / top-start / top-end / bottom / bottom-start / bottom-end"
+    },
+    "fallback-placements": {
+      "value": "",
+      "description": "Fallback placements of the drop-down box",
+      "description_zh": "下拉框的回退位置",
+      "default": "['bottom-start', 'top-start', 'right', 'left']",
+      "type": "string[]",
+      "version": "2.5.6"
+    },
+    "collapse-tags-tooltip": {
+      "value": "",
+      "description": "Whether to display the tooltip when the tags are collapsed",
+      "description_zh": "多选时是否将选中值按文字的形式展示",
+      "default": "false",
+      "type": "boolean",
+      "version": "2.3.0"
+    },
+    "max-collapse-tags": {
+      "value": "",
+      "description": "Maximum number of tags displayed when tags are collapsed",
+      "description_zh": "多选时最多显示的 tag 个数",
+      "default": "1",
+      "type": "number",
+      "version": "2.3.0"
+    },
+    "tag-type": {
+      "value": "",
+      "description": "Tag type",
+      "description_zh": "tag 类型",
+      "default": "info",
+      "type": "string",
+      "options": "success / info / warning / danger",
+      "version": "2.5.0"
+    },
+    "tag-effect": {
+      "value": "",
+      "description": "Tag effect",
+      "description_zh": "tag 主题",
+      "default": "light",
+      "type": "string",
+      "options": "dark / light",
+      "version": "2.7.7"
+    },
+    "aria-label": {
+      "value": "",
+      "description": "Accessibility label",
+      "description_zh": "辅助性描述",
+      "default": "",
+      "type": "string",
+      "version": "2.5.0"
+    },
+    ":empty-values": {
+      "value": "",
+      "description": "Empty value array",
+      "description_zh": "空值数组",
+      "default": "[]",
+      "type": "array",
+      "version": "2.7.0"
+    },
+    "value-on-clear": {
+      "value": "",
+      "description": "Value after clearing",
+      "description_zh": "清空后的值",
+      "default": "null",
+      "type": "string | number | boolean | Function",
+      "version": "2.7.0"
+    },
+    "popper-append-to-body": {
+      "value": "",
+      "description": "Whether to append the dropdown to body",
+      "description_zh": "是否将下拉框插入至 body 元素",
+      "default": "false",
+      "type": "boolean",
+      "version": "deprecated"
+    },
+    "tabindex": {
+      "value": "",
+      "description": "Tab index",
+      "description_zh": "tabindex",
+      "default": "",
+      "type": "string",
+      "version": "2.9.0"
     }
   },
   "methods": [],
@@ -78,18 +408,69 @@
   "slots": [
     {
       "name": "prefix",
-      "description": "Select component header contents",
-      "description_zh": "Select 组件头部内容"
+      "description": "输入框的前缀",
+      "description_zh": "输入框的前缀"
+    },
+    {
+      "name": "header",
+      "description": "下拉列表顶部的内容",
+      "description_zh": "下拉列表顶部的内容",
+      "version": "2.5.2"
+    },
+    {
+      "name": "footer",
+      "description": "下拉列表底部的内容",
+      "description_zh": "下拉列表底部的内容",
+      "version": "2.5.2"
     },
     {
       "name": "empty",
-      "description": "A list when there are no options",
-      "description_zh": "无选项时的列表"
+      "description": "自定义当选项为空时的内容",
+      "description_zh": "自定义当选项为空时的内容"
+    },
+    {
+      "name": "tag",
+      "description": "select 组件自定义标签内容",
+      "description_zh": "select 组件自定义标签内容",
+      "version": "2.5.0"
+    },
+    {
+      "name": "loading",
+      "description": "select 组件自定义 loading内容",
+      "description_zh": "select 组件自定义 loading内容",
+      "version": "2.5.2"
+    },
+    {
+      "name": "label",
+      "description": "select 组件自定义标签内容",
+      "description_zh": "select 组件自定义标签内容",
+      "version": "2.7.4"
     }
   ],
   "suggestions": [
     "el-option",
     "el-option-group"
+  ],
+  "exposed": [
+    {
+      "name": "focus",
+      "description": "使选择器的输入框获取焦点",
+      "description_zh": "使选择器的输入框获取焦点",
+      "detail": "() => void"
+    },
+    {
+      "name": "blur",
+      "description": "使选择器的输入框失去焦点，并隐藏下拉框",
+      "description_zh": "使选择器的输入框失去焦点，并隐藏下拉框",
+      "detail": "() => void"
+    },
+    {
+      "name": "selectedLabel",
+      "description": "获取当前选中的标签",
+      "description_zh": "获取当前选中的标签",
+      "detail": "ComputedRef<string | string[]>",
+      "version": "2.8.5"
+    }
   ],
   "link": "https://element-plus.org/en-US/component/select-v2.html",
   "link_zh": "https://element-plus.org/zh-CN/component/select-v2.html"

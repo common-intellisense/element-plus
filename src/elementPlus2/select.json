@@ -205,22 +205,7 @@
       "description_zh": "对于不可搜索的 Select，是否在输入框获得焦点后自动弹出选项菜单"
     }
   },
-  "methods": [
-    {
-      "name": "focus",
-      "description": "Make input get focus",
-      "params": "-",
-      "description_zh": "使 input 获取焦点",
-      "value": ""
-    },
-    {
-      "name": "blur",
-      "description": "Makes input lose focus and hides the drop-down box",
-      "params": "-",
-      "description_zh": "使 input 失去焦点，并隐藏下拉框",
-      "value": ""
-    }
-  ],
+  "methods": [],
   "events": [
     {
       "name": "change",

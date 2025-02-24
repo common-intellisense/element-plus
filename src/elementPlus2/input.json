@@ -251,27 +251,6 @@
     }
   },
   "methods": [
-    {
-      "name": "focus",
-      "description": "Make input get focus",
-      "params": "—",
-      "description_zh": "使 input 获取焦点",
-      "value": ""
-    },
-    {
-      "name": "blur",
-      "description": "Makes the input out of focus",
-      "params": "—",
-      "description_zh": "使 input 失去焦点",
-      "value": ""
-    },
-    {
-      "name": "select",
-      "description": "Select the text in input",
-      "params": "—",
-      "description_zh": "选中 input 中的文字",
-      "value": ""
-    }
   ],
   "events": [
     {

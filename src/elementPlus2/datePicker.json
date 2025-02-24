@@ -264,13 +264,6 @@
     }
   },
   "methods": [
-    {
-      "name": "focus",
-      "description": "Make input get focus",
-      "params": "—",
-      "description_zh": "使 input 获取焦点",
-      "value": ""
-    }
   ],
   "events": [
     {

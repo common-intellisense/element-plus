@@ -15,41 +15,37 @@
     },
     "readonly": {
       "value": "",
-      "description": "Completely read-only",
+      "description": "whether TimePicker is read only",
       "default": "false",
       "type": "boolean",
-      "description_zh": "完全只读"
+      "description_zh": "是否只读"
     },
     "disabled": {
       "value": "",
-      "description": "disable",
+      "description": "whether TimePicker is disabled",
       "default": "false",
       "type": "boolean",
-      "description_zh": "禁用"
+      "description_zh": "是否禁用"
     },
     "editable": {
       "value": "",
-      "description": "Text boxes can be entered",
+      "description": "whether the input is editable",
       "default": "true",
       "type": "boolean",
-      "description_zh": "文本框可输入"
+      "description_zh": "输入框是否可编辑"
     },
     "clearable": {
       "value": "",
-      "description": "Whether or not to display a clear button",
+      "description": "whether to show clear button",
       "default": "true",
       "type": "boolean",
       "description_zh": "是否显示清除按钮"
     },
     "size": {
-      "value": [
-        "medium",
-        "small",
-        "mini"
-      ],
+      "value": ["large", "default", "small"],
       "description": "Enter the size of the field",
       "default": "—",
-      "type": "medium / small / mini",
+      "type": "enum",
       "description_zh": "输入框尺寸"
     },
     "placeholder": {
@@ -92,6 +88,20 @@
       "type": "boolean",
       "description_zh": "是否使用箭头进行时间选择，仅对<el-time-picker>有效"
     },
+    "popper-class": {
+      "value": "",
+      "description": "custom class name for TimePicker's dropdown",
+      "default": "''",
+      "type": "string",
+      "description_zh": "TimePicker 下拉框的自定义类名"
+    },
+    "range-separator": {
+      "value": "",
+      "description": "range separator",
+      "default": "-",
+      "type": "string",
+      "description_zh": "范围分隔符"
+    },
     "align": {
       "value": [
         "left",
@@ -103,61 +113,121 @@
       "type": "left / center / right",
       "description_zh": "对齐方式"
     },
-    "popper-class": {
+    "format": {
       "value": "",
-      "description": "TimePicker 下拉框的类名",
+      "description": "format of the displayed value in the input box",
       "default": "—",
       "type": "string",
-      "description_zh": "TimePicker 下拉框的类名"
-    },
-    ":picker-options": {
-      "value": "",
-      "description": "Refer to the following table for options specific to the current time and date selector",
-      "default": "{}",
-      "type": "object",
-      "description_zh": "当前时间日期选择器特有的选项参考下表"
-    },
-    "range-separator": {
-      "value": "-",
-      "description": "Separator when selecting a range",
-      "default": "-",
-      "type": "string",
-      "description_zh": "选择范围时的分隔符"
-    },
-    "value-format": {
-      "value": "见日期格式",
-      "description": "Optional, only available when TimePicker, bind the format of the value. If not specified, the binding value is a Date object",
-      "default": "—",
-      "type": "string",
-      "description_zh": "可选，仅TimePicker时可用，绑定值的格式。不指定则绑定值为 Date 对象"
+      "description_zh": "输入框中显示值的格式"
     },
     "default-value": {
-      "value": "可被new Date()解析(TimePicker) / 可选值(TimeSelect)",
-      "description": "Optionally, the time displayed by default when the selector is turned on",
+      "value": "",
+      "description": "optional, default date of the calendar",
       "default": "—",
-      "type": "Date(TimePicker) / string(TimeSelect)",
-      "description_zh": "可选，选择器打开时默认显示的时间"
+      "type": "Date | object",
+      "description_zh": "可选，日历的默认日期"
+    },
+    "value-format": {
+      "value": "",
+      "description": "optional, format of binding value. If not specified, the binding value will be a Date object",
+      "default": "—",
+      "type": "string",
+      "description_zh": "可选，绑定值的格式。如果未指定，绑定值将是一个 Date 对象"
+    },
+    "id": {
+      "value": "",
+      "description": "same as `id` in native input",
+      "default": "—",
+      "type": "string | object",
+      "description_zh": "与原生 input 的 `id` 相同"
     },
     "name": {
       "value": "",
-      "description": "Native attributes",
+      "description": "same as `name` in native input",
+      "default": "''",
+      "type": "string",
+      "description_zh": "与原生 input 的 `name` 相同"
+    },
+    "aria-label": {
+      "value": "",
+      "description": "same as `aria-label` in native input",
       "default": "—",
       "type": "string",
-      "description_zh": "原生属性"
+      "version": "2.7.2",
+      "description_zh": "与原生 input 的 `aria-label` 相同"
     },
     "prefix-icon": {
       "value": "",
-      "description": "Customize the class name of the head icon",
-      "default": "el-icon-time",
-      "type": "string",
-      "description_zh": "自定义头部图标的类名"
+      "description": "Custom prefix icon component",
+      "default": "Clock",
+      "type": "string | Component",
+      "description_zh": "自定义前缀图标组件"
     },
     "clear-icon": {
       "value": "",
-      "description": "Customize the class name of the clear icon",
-      "default": "el-icon-circle-close",
+      "description": "Custom clear icon component",
+      "default": "CircleClose",
+      "type": "string | Component",
+      "description_zh": "自定义清除图标组件"
+    },
+    "disabled-hours": {
+      "value": "",
+      "description": "To specify the array of hours that cannot be selected",
+      "default": "—",
+      "type": "Function",
+      "description_zh": "指定不可选择的小时数组"
+    },
+    "disabled-minutes": {
+      "value": "",
+      "description": "To specify the array of minutes that cannot be selected",
+      "default": "—",
+      "type": "Function",
+      "description_zh": "指定不可选择的分钟数组"
+    },
+    "disabled-seconds": {
+      "value": "",
+      "description": "To specify the array of seconds that cannot be selected",
+      "default": "—",
+      "type": "Function",
+      "description_zh": "指定不可选择的秒数组"
+    },
+    "teleported": {
+      "value": "",
+      "description": "whether time-picker dropdown is teleported to the body",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否将 time-picker 下拉框传送到 body"
+    },
+    "tabindex": {
+      "value": "",
+      "description": "input tabindex",
+      "default": "0",
+      "type": "string | number",
+      "description_zh": "输入框的 tabindex"
+    },
+    ":empty-values": {
+      "value": "",
+      "description": "empty values of component",
+      "default": "—",
+      "type": "array",
+      "version": "2.7.0",
+      "description_zh": "组件的空值"
+    },
+    "value-on-clear": {
+      "value": "",
+      "description": "clear return value",
+      "default": "—",
+      "type": "string | number | boolean | Function",
+      "version": "2.7.0",
+      "description_zh": "清除返回值"
+    },
+    "label": {
+      "value": "",
+      "description": "same as `aria-label` in native input",
+      "default": "—",
       "type": "string",
-      "description_zh": "自定义清空图标的类名"
+      "deprecated": true,
+      "description_zh": "与原生 input 的 `aria-label` 相同"
     }
   },
   "methods": [
@@ -190,24 +260,64 @@
   "events": [
     {
       "name": "change",
-      "description": "Triggered when the user confirms the selected value",
-      "description_zh": "用户确认选定的值时触发",
-      "params": "组件绑定值",
-      "value": ""
+      "description": "triggers when user confirms the value",
+      "params": "(val: number | string | Date | [number, number] | [string, string] | [Date, Date]) => void",
+      "description_zh": "用户确认选定的值时触发"
     },
     {
       "name": "blur",
       "description": "Triggers when input loses focus",
       "description_zh": "当 input 失去焦点时触发",
-      "params": "组件实例",
+      "params": "(e: FocusEvent) => void",
       "value": ""
     },
     {
       "name": "focus",
       "description": "Triggers when input gains focus",
       "description_zh": "当 input 获得焦点时触发",
-      "params": "组件实例",
+      "params": "(e: FocusEvent) => void",
       "value": ""
+    },
+    {
+      "name": "clear",
+      "description": "triggers when the clear icon is clicked in a clearable TimePicker",
+      "params": "() => void",
+      "version": "2.7.7",
+      "description_zh": "当可清除的 TimePicker 中点击清除图标时触发"
+    },
+    {
+      "name": "visible-change",
+      "description": "triggers when the TimePicker's dropdown appears/disappears",
+      "params": "(visibility: boolean) => void",
+      "description_zh": "当 TimePicker 的下拉框出现/消失时触发"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "focus",
+      "description": "focus the TimePicker component",
+      "params": "Function",
+      "description_zh": "使 TimePicker 组件获取焦点"
+    },
+    {
+      "name": "blur",
+      "description": "blur the TimePicker component",
+      "params": "Function",
+      "description_zh": "使 TimePicker 组件失去焦点"
+    },
+    {
+      "name": "handleOpen",
+      "description": "open the TimePicker popper",
+      "params": "Function",
+      "version": "2.2.16",
+      "description_zh": "打开 TimePicker 弹出框"
+    },
+    {
+      "name": "handleClose",
+      "description": "close the TimePicker popper",
+      "params": "Function",
+      "version": "2.2.16",
+      "description_zh": "关闭 TimePicker 弹出框"
     }
   ],
   "link": "https://element-plus.org/en-US/component/time-picker.html",

@@ -4,14 +4,14 @@
     ":value": {
       "value": "",
       "description": "Binding value",
-      "default": "—",
+      "default": "0",
       "type": "number",
       "description_zh": "绑定值"
     },
     ":v-model": {
       "value": "",
       "description": "Binding value",
-      "default": "—",
+      "default": "0",
       "type": "number",
       "description_zh": "绑定值",
       "required": true,
@@ -23,14 +23,14 @@
     ":min": {
       "value": "",
       "description": "minimum",
-      "default": "—",
+      "default": "0",
       "type": "number",
       "description_zh": "最小值"
     },
     ":max": {
       "value": "",
       "description": "maximum",
-      "default": "—",
+      "default": "100",
       "type": "number",
       "description_zh": "最大值"
     },
@@ -44,7 +44,7 @@
     ":step": {
       "value": "",
       "description": "Step",
-      "default": "—",
+      "default": "1",
       "type": "number",
       "description_zh": "步长"
     },
@@ -62,15 +62,25 @@
       "type": "boolean",
       "description_zh": "在显示输入框的情况下，是否显示输入框的控制按钮"
     },
+    "size": {
+      "value": [
+        "large",
+        "default",
+        "small"
+      ],
+      "description": "Enter the dimensions of the box",
+      "default": "default",
+      "type": "string",
+      "description_zh": "输入框的尺寸"
+    },
     "input-size": {
       "value": [
         "large",
-        "medium",
-        "small",
-        "mini"
+        "default",
+        "small"
       ],
       "description": "Enter the dimensions of the box",
-      "default": "large | medium | small | mini",
+      "default": "default",
       "type": "string",
       "description_zh": "输入框的尺寸"
     },
@@ -84,7 +94,7 @@
     "show-tooltip": {
       "value": "",
       "description": "Whether to display the tooltip",
-      "default": "false",
+      "default": "true",
       "type": "boolean",
       "description_zh": "是否显示 tooltip"
     },
@@ -92,7 +102,7 @@
       "value": "",
       "description": "Format the tooltip message",
       "default": "—",
-      "type": "function(value)",
+      "type": "(value: number) => number | string",
       "description_zh": "格式化 tooltip message"
     },
     "range": {
@@ -121,12 +131,42 @@
       "description": "Screen reader labels",
       "default": "—",
       "type": "string",
-      "description_zh": "屏幕阅读器标签"
+      "description_zh": "屏幕阅读器标签",
+      "version": "deprecated"
+    },
+    "aria-label": {
+      "value": "",
+      "description": "Screen reader labels",
+      "default": "—",
+      "type": "string",
+      "description_zh": "屏幕阅读器标签",
+      "version": "2.7.2"
+    },
+    "range-start-label": {
+      "value": "",
+      "description": "Screen reader labels",
+      "default": "—",
+      "type": "string",
+      "description_zh": "当 range 为true时，屏幕阅读器标签开始的标记"
+    },
+    "range-end-label": {
+      "value": "",
+      "description": "Screen reader labels",
+      "default": "—",
+      "type": "string",
+      "description_zh": "当 range 为true时，屏幕阅读器标签结尾的标记"
+    },
+    "format-value-text": {
+      "value": "",
+      "description": "Format the value displayed in the input box",
+      "default": "—",
+      "type": "(value: number) => number | string",
+      "description_zh": "格式化输入框中显示的值"
     },
     ":debounce": {
       "value": "",
       "description": "The debounce delay on input, in milliseconds, is only valid when 'show-input' is equal to true",
-      "default": "—",
+      "default": "300",
       "type": "number",
       "description_zh": "输入时的去抖延迟，毫秒，仅在`show-input`等于true时有效"
     },
@@ -137,26 +177,54 @@
       "type": "string",
       "description_zh": "tooltip 的自定义类名"
     },
+    "placement": {
+      "value": [
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end"
+      ],
+      "description": "tooltip",
+      "default": "top",
+      "type": "string",
+      "description_zh": "tooltip 出现的位置"
+    },
     ":marks": {
       "value": "",
       "description": "tags, the type of key must be number and the value must be in the closed interval '[min, max]', and each token can be styled separately",
       "default": "—",
       "type": "object",
       "description_zh": "标记， key 的类型必须为 number 且取值在闭区间 `[min, max]` 内，每个标记可以单独设置样式"
+    },
+    "validate-event": {
+      "value": "",
+      "description": "Whether to validate the value when dragging the slider",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "拖动滑块时是否验证值"
+    },
+    "persistent": {
+      "value": "",
+      "description": "Whether to keep the Popconfirm when the tooltip is inactive",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "当 slider 的 tooltip 处于非活动状态且 persistent 为 false 时，Popconfirm 将被销毁。 当 show-tooltip 为 false 时，persistent 将始终为 false。"
     }
   },
   "events": [
     {
       "name": "change",
       "description": "Triggers when the value changes (when dragging with the mouse, it only triggers when the mouse is released)",
-      "params": "改变后的值",
+      "params": "(value: Arrayable<number>) => boolean",
       "description_zh": "值改变时触发（使用鼠标拖曳时，只在松开鼠标后触发）",
       "value": ""
     },
     {
       "name": "input",
       "description": "Triggered when data changes (when dragging with the mouse, the activity process is triggered in real time)",
-      "params": "改变后的值",
+      "params": "(value: Arrayable<number>) => boolean",
       "description_zh": "数据改变时触发（使用鼠标拖曳时，活动过程实时触发）",
       "value": ""
     }

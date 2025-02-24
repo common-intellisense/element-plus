@@ -27,6 +27,25 @@
       "type": "boolean",
       "description_zh": "是否禁用"
     },
+    "loading": {
+      "value": "",
+      "description": "whether Switch is in loading state",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否加载中"
+    },
+    "size": {
+      "value": [
+        "",
+        "large",
+        "default",
+        "small"
+      ],
+      "description": "size of Switch",
+      "default": "''",
+      "type": "enum",
+      "description_zh": "switch 的尺寸"
+    },
     ":width": {
       "value": "",
       "description": "Width of the switch (pixels)",
@@ -34,45 +53,68 @@
       "type": "number",
       "description_zh": "switch 的宽度（像素）"
     },
-    "active-icon-class": {
+    "inline-prompt": {
       "value": "",
-      "description": "The class name of the icon displayed when the switch is turned on, setting this item ignores 'active-text'",
+      "description": "whether icon or text is displayed inside dot, only the first character will be rendered for text",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否在点内显示图标或文字"
+    },
+    "active-icon": {
+      "value": "",
+      "description": "component of the icon displayed when in `on` state, overrides `active-text`",
       "default": "—",
-      "type": "string",
+      "type": "string | Component",
       "description_zh": "switch 打开时所显示图标的类名，设置此项会忽略 `active-text`"
     },
-    "inactive-icon-class": {
+    "inactive-icon": {
       "value": "",
-      "description": "The class name of the icon displayed when the switch is turned off, setting this will ignore 'inactive-text'",
+      "description": "component of the icon displayed when in `off` state, overrides `inactive-text`",
       "default": "—",
-      "type": "string",
+      "type": "string | Component",
       "description_zh": "switch 关闭时所显示图标的类名，设置此项会忽略 `inactive-text`"
+    },
+    "active-action-icon": {
+      "value": "",
+      "description": "component of the icon displayed in action when in `on` state",
+      "default": "—",
+      "type": "string | Component",
+      "version": "2.3.9",
+      "description_zh": "switch 打开时所显示图标的类名"
+    },
+    "inactive-action-icon": {
+      "value": "",
+      "description": "component of the icon displayed in action when in `off` state",
+      "default": "—",
+      "type": "string | Component",
+      "version": "2.3.9",
+      "description_zh": "switch 关闭时所显示图标的类名"
     },
     "active-text": {
       "value": "",
-      "description": "Textual description when the switch is turned on",
-      "default": "—",
+      "description": "text displayed when in `on` state",
+      "default": "''",
       "type": "string",
       "description_zh": "switch 打开时的文字描述"
     },
     "inactive-text": {
       "value": "",
-      "description": "A textual description when the switch is turned off",
-      "default": "—",
+      "description": "text displayed when in `off` state",
+      "default": "''",
       "type": "string",
       "description_zh": "switch 关闭时的文字描述"
     },
     "active-value": {
       "value": "",
-      "description": "The value when the switch is on",
-      "default": "—",
+      "description": "switch value when in `on` state",
+      "default": "true",
       "type": "boolean | string | number",
       "description_zh": "switch 打开时的值"
     },
     "inactive-value": {
       "value": "",
-      "description": "The value when the switch is off",
-      "default": "—",
+      "description": "switch value when in `off` state",
+      "default": "false",
       "type": "boolean | string | number",
       "description_zh": "switch 关闭时的值"
     },
@@ -100,27 +142,81 @@
     "validate-event": {
       "value": "",
       "description": "Whether to trigger the verification of the form when the switch state is changed",
-      "default": "false",
+      "default": "true",
       "type": "boolean",
       "description_zh": "改变 switch 状态时是否触发表单的校验"
+    },
+    "before-change": {
+      "value": "",
+      "description": "before-change hook before the switch state changes. If `false` is returned or a `Promise` is returned and then is rejected, will stop switching",
+      "default": "—",
+      "type": "boolean | Function",
+      "description_zh": "在 switch 状态改变前的钩子函数。如果返回 `false` 或返回一个被拒绝的 `Promise`，将停止切换"
+    },
+    "id": {
+      "value": "",
+      "description": "id for input",
+      "default": "—",
+      "type": "string",
+      "description_zh": "input 的 id"
+    },
+    "tabindex": {
+      "value": "",
+      "description": "tabindex for input",
+      "default": "—",
+      "type": "string | number",
+      "description_zh": "input 的 tabindex"
+    },
+    "aria-label": {
+      "value": "",
+      "description": "same as `aria-label` in native input",
+      "default": "—",
+      "type": "string",
+      "version": "2.7.2",
+      "description_zh": "与原生 input 的 `aria-label` 相同"
+    },
+    "border-color": {
+      "value": "",
+      "description": "border color of the switch ( use CSS var `--el-switch-border-color` instead )",
+      "default": "''",
+      "type": "string",
+      "deprecated": true,
+      "description_zh": "switch 的边框颜色（使用 CSS 变量 `--el-switch-border-color` 代替）"
+    },
+    "label": {
+      "value": "",
+      "description": "same as `aria-label` in native input",
+      "default": "—",
+      "type": "string",
+      "deprecated": true,
+      "description_zh": "与原生 input 的 `aria-label` 相同"
     }
   },
   "methods": [
     {
       "name": "focus",
-      "description": "Make the Switch get focus",
-      "params": "-",
-      "description_zh": "使 Switch 获取焦点",
-      "value": ""
+      "description": "manual focus to the switch component",
+      "type": "Function"
     }
   ],
   "events": [
     {
       "name": "change",
-      "description": "A callback function when the switch state changes",
-      "params": "新状态的值",
-      "description_zh": "switch 状态发生变化时的回调函数",
-      "value": ""
+      "description": "triggers when value changes",
+      "params": "boolean | string | number",
+      "type": "Function"
+    }
+  ],
+  "slots": [
+    {
+      "name": "active-action",
+      "description": "customize active action",
+      "version": "2.4.4"
+    },
+    {
+      "name": "inactive-action",
+      "description": "customize inactive action",
+      "version": "2.4.4"
     }
   ],
   "link": "https://element-plus.org/en-US/component/switch.html",

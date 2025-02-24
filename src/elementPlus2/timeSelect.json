@@ -3,49 +3,46 @@
   "props": {
     ":v-model": {
       "value": "",
-      "description": "Binding value",
+      "description": "binding value",
       "default": "—",
-      "type": "date(TimePicker) / string(TimeSelect)",
+      "type": "string",
       "description_zh": "绑定值",
       "required": true
     },
-    "readonly": {
-      "value": "",
-      "description": "Completely read-only",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "完全只读"
-    },
     "disabled": {
       "value": "",
-      "description": "disable",
+      "description": "whether TimeSelect is disabled",
       "default": "false",
       "type": "boolean",
       "description_zh": "禁用"
     },
     "editable": {
       "value": "",
-      "description": "Text boxes can be entered",
+      "description": "whether the input is editable",
       "default": "true",
       "type": "boolean",
       "description_zh": "文本框可输入"
     },
     "clearable": {
       "value": "",
-      "description": "Whether or not to display a clear button",
+      "description": "whether to show clear button",
       "default": "true",
       "type": "boolean",
       "description_zh": "是否显示清除按钮"
     },
+    "include-end-time": {
+      "value": "",
+      "description": "whether `end` is included in options",
+      "default": "false",
+      "type": "boolean",
+      "version": "2.9.3",
+      "description_zh": "是否包含结束时间"
+    },
     "size": {
-      "value": [
-        "medium",
-        "small",
-        "mini"
-      ],
-      "description": "Enter the size of the field",
-      "default": "—",
-      "type": "medium / small / mini",
+      "value": ["large", "default", "small"],
+      "description": "size of Input",
+      "default": "default",
+      "type": "enum",
       "description_zh": "输入框尺寸"
     },
     "placeholder": {
@@ -60,135 +57,91 @@
         "el-form-item.label"
       ]
     },
-    "start-placeholder": {
-      "value": "",
-      "description": "The placeholder content for the start date when the range is selected",
-      "default": "—",
-      "type": "string",
-      "description_zh": "范围选择时开始日期的占位内容"
-    },
-    "end-placeholder": {
-      "value": "",
-      "description": "The placeholder content for the start date when the range is selected",
-      "default": "—",
-      "type": "string",
-      "description_zh": "范围选择时开始日期的占位内容"
-    },
-    "is-range": {
-      "value": "",
-      "description": "Whether the time range is selected is valid only for <el-time-picker>you",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "是否为时间范围选择，仅对<el-time-picker>有效"
-    },
-    "arrow-control": {
-      "value": "",
-      "description": "Whether or not to use arrows for time selection is <el-time-picker>only valid",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "是否使用箭头进行时间选择，仅对<el-time-picker>有效"
-    },
-    "align": {
-      "value": [
-        "left",
-        "center",
-        "right"
-      ],
-      "description": "Alignment",
-      "default": "left",
-      "type": "left / center / right",
-      "description_zh": "对齐方式"
-    },
-    "popper-class": {
-      "value": "",
-      "description": "TimePicker 下拉框的类名",
-      "default": "—",
-      "type": "string",
-      "description_zh": "TimePicker 下拉框的类名"
-    },
-    ":picker-options": {
-      "value": "",
-      "description": "Refer to the following table for options specific to the current time and date selector",
-      "default": "{}",
-      "type": "object",
-      "description_zh": "当前时间日期选择器特有的选项参考下表"
-    },
-    "range-separator": {
-      "value": "-",
-      "description": "Separator when selecting a range",
-      "default": "-",
-      "type": "string",
-      "description_zh": "选择范围时的分隔符"
-    },
-    "value-format": {
-      "value": "见日期格式",
-      "description": "Optional, only available when TimePicker, bind the format of the value. If not specified, the binding value is a Date object",
-      "default": "—",
-      "type": "string",
-      "description_zh": "可选，仅TimePicker时可用，绑定值的格式。不指定则绑定值为 Date 对象"
-    },
-    "default-value": {
-      "value": "可被new Date()解析(TimePicker) / 可选值(TimeSelect)",
-      "description": "Optionally, the time displayed by default when the selector is turned on",
-      "default": "—",
-      "type": "Date(TimePicker) / string(TimeSelect)",
-      "description_zh": "可选，选择器打开时默认显示的时间"
-    },
     "name": {
       "value": "",
-      "description": "Native attributes",
+      "description": "same as `name` in native input",
       "default": "—",
       "type": "string",
       "description_zh": "原生属性"
     },
+    "effect": {
+      "value": ["dark", "light"],
+      "description": "Tooltip theme, built-in theme: `dark` / `light`",
+      "default": "light",
+      "type": "string | enum",
+      "description_zh": "Tooltip 主题，内置主题：`dark` / `light`"
+    },
     "prefix-icon": {
       "value": "",
-      "description": "Customize the class name of the head icon",
-      "default": "el-icon-time",
-      "type": "string",
-      "description_zh": "自定义头部图标的类名"
+      "description": "custom prefix icon component",
+      "default": "Clock",
+      "type": "string | Component",
+      "description_zh": "自定义前缀图标组件"
     },
     "clear-icon": {
       "value": "",
-      "description": "Customize the class name of the clear icon",
-      "default": "el-icon-circle-close",
-      "type": "string",
-      "description_zh": "自定义清空图标的类名"
+      "description": "custom clear icon component",
+      "default": "CircleClose",
+      "type": "string | Component",
+      "description_zh": "自定义清除图标组件"
     },
     "start": {
       "value": "",
-      "description": "Start time",
-      "default": "—",
+      "description": "start time",
+      "default": "09:00",
       "type": "string",
       "description_zh": "开始时间"
     },
     "end": {
       "value": "",
-      "description": "End time",
-      "default": "—",
+      "description": "end time",
+      "default": "18:00",
       "type": "string",
       "description_zh": "结束时间"
     },
     "step": {
       "value": "",
-      "description": "Interval",
-      "default": "—",
+      "description": "time step",
+      "default": "00:30",
       "type": "string",
       "description_zh": "间隔时间"
     },
-    "minTime": {
+    "min-time": {
       "value": "",
-      "description": "The minimum time, the time period less than that will be disabled",
+      "description": "minimum time, any time before this time will be disabled",
       "default": "—",
       "type": "string",
       "description_zh": "最小时间，小于该时间的时间段将被禁用"
     },
-    "maxTime": {
+    "max-time": {
       "value": "",
-      "description": "Maximum time, time periods greater than that will be disabled",
+      "description": "maximum time, any time after this time will be disabled",
       "default": "—",
       "type": "string",
       "description_zh": "最大时间，大于该时间的时间段将被禁用"
+    },
+    "format": {
+      "value": "",
+      "description": "set format of time",
+      "default": "HH:mm",
+      "type": "string",
+      "description_zh": "设置时间格式"
+    },
+    "empty-values": {
+      "value": "",
+      "description": "empty values of component",
+      "default": "—",
+      "type": "array",
+      "version": "2.7.0",
+      "description_zh": "组件的空值"
+    },
+    "value-on-clear": {
+      "value": "",
+      "description": "clear return value",
+      "default": "—",
+      "type": "string | number | boolean | Function",
+      "version": "2.7.0",
+      "description_zh": "清除返回值"
     }
   },
   "methods": [
@@ -237,24 +190,48 @@
   "events": [
     {
       "name": "change",
-      "description": "Triggered when the user confirms the selected value",
-      "description_zh": "用户确认选定的值时触发",
-      "params": "组件绑定值",
-      "value": ""
+      "description": "triggers when user confirms the value",
+      "params": "string",
+      "type": "(value: string) => void",
+      "description_zh": "用户确认选定的值时触发"
     },
     {
       "name": "blur",
-      "description": "Triggers when input loses focus",
-      "description_zh": "当 input 失去焦点时触发",
-      "params": "组件实例",
-      "value": ""
+      "description": "triggers when Input blurs",
+      "params": "(event: FocusEvent) => void",
+      "type": "Function",
+      "description_zh": "当 input 失去焦点时触发"
     },
     {
       "name": "focus",
-      "description": "Triggers when input gains focus",
-      "description_zh": "当 input 获得焦点时触发",
-      "params": "组件实例",
-      "value": ""
+      "description": "triggers when Input focuses",
+      "params": "(event: FocusEvent) => void",
+      "type": "Function",
+      "description_zh": "当 input 获得焦点时触发"
+    },
+    {
+      "name": "clear",
+      "description": "triggers when the clear icon is clicked in a clearable TimeSelect",
+      "params": "-",
+      "type": "() => void",
+      "version": "2.7.7",
+      "description_zh": "当可清除的 TimeSelect 中点击清除图标时触发"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "focus",
+      "description": "focus the Input component",
+      "params": "() => void",
+      "type": "Function",
+      "description_zh": "使 Input 组件获取焦点"
+    },
+    {
+      "name": "blur",
+      "description": "blur the Input component",
+      "params": "() => void",
+      "type": "Function",
+      "description_zh": "使 Input 组件失去焦点"
     }
   ],
   "link": "https://element-plus.org/en-US/component/time-select.html",

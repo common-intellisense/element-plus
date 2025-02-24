@@ -1,0 +1,390 @@
+{
+  "name": "ElTreeSelect",
+  "props": {
+    "value": {
+      "value": "",
+      "description": "Binding value",
+      "default": "—",
+      "type": "boolean | string | number",
+      "description_zh": "绑定值"
+    },
+    ":v-model": {
+      "value": "",
+      "description": "Binding value",
+      "default": "—",
+      "type": "boolean | string | number",
+      "description_zh": "绑定值",
+      "required": true,
+      "$model": "$model.$(el-form-item.label)",
+      "related": [
+        "el-form.model"
+      ]
+    },
+    "multiple": {
+      "value": "",
+      "description": "Whether to select more than one",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "是否多选"
+    },
+    "disabled": {
+      "value": "",
+      "description": "Whether to disable or not",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "是否禁用"
+    },
+    "value-key": {
+      "value": "",
+      "description": "As a key name that is uniquely identified by value, it is required if the binding value is an object type",
+      "default": "—",
+      "type": "string",
+      "description_zh": "作为 value 唯一标识的键名，绑定值为对象类型时必填"
+    },
+    "size": {
+      "value": [
+        "medium",
+        "small",
+        "mini"
+      ],
+      "description": "Enter the size of the field",
+      "default": "medium | small | mini",
+      "type": "string",
+      "description_zh": "输入框尺寸"
+    },
+    "clearable": {
+      "value": "",
+      "description": "Whether the option can be cleared",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否可以清空选项"
+    },
+    "collapse-tags": {
+      "value": "",
+      "description": "When multiple selections are made, whether the selected values are displayed in the form of text",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "多选时是否将选中值按文字的形式展示"
+    },
+    ":multiple-limit": {
+      "value": "",
+      "description": "When multi-selecting, the maximum number of items that a user can select is not limited if it is 0",
+      "default": "—",
+      "type": "number",
+      "description_zh": "多选时用户最多可以选择的项目数，为 0 则不限制"
+    },
+    "name": {
+      "value": "",
+      "description": "name attribute of select input",
+      "default": "—",
+      "type": "string",
+      "description_zh": "select input 的 name 属性"
+    },
+    "autocomplete": {
+      "value": "",
+      "description": "select input's autocomplete property",
+      "default": "—",
+      "type": "string",
+      "description_zh": "select input 的 autocomplete 属性"
+    },
+    "auto-complete": {
+      "value": "",
+      "description": "The next major version is deprecated",
+      "default": "—",
+      "type": "string",
+      "description_zh": "下个主版本弃用"
+    },
+    "placeholder": {
+      "value": "请选择",
+      "description": "Placeholders",
+      "default": "—",
+      "type": "string",
+      "required": true,
+      "description_zh": "占位符",
+      "$label": "请选择$label",
+      "related": [
+        "el-form-item.label"
+      ]
+    },
+    "filterable": {
+      "value": "",
+      "description": "Whether it is searchable",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "是否可搜索"
+    },
+    "allow-create": {
+      "value": "",
+      "description": "Whether or not to allow users to create new entries needs to be used with 'filterable'",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "是否允许用户创建新条目，需配合 `filterable` 使用"
+    },
+    ":filter-method": {
+      "value": "",
+      "description": "Customize the search method",
+      "default": "—",
+      "type": "function",
+      "description_zh": "自定义搜索方法"
+    },
+    "remote": {
+      "value": "",
+      "description": "Whether it is a remote search",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "是否为远程搜索"
+    },
+    ":remote-method": {
+      "value": "",
+      "description": "Remote search methods",
+      "default": "—",
+      "type": "function",
+      "description_zh": "远程搜索方法"
+    },
+    "loading": {
+      "value": "",
+      "description": "Whether data is being obtained from a remote location",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "是否正在从远程获取数据"
+    },
+    "loading-text": {
+      "value": "",
+      "description": "The text that is displayed when loaded remotely",
+      "default": "—",
+      "type": "string",
+      "description_zh": "远程加载时显示的文字"
+    },
+    "no-match-text": {
+      "value": "",
+      "description": "If the search conditions do not match, you can also use the 'slot=\"empty\"' setting",
+      "default": "—",
+      "type": "string",
+      "description_zh": "搜索条件无匹配时显示的文字，也可以使用`slot=\"empty\"`设置"
+    },
+    "no-data-text": {
+      "value": "",
+      "description": "The text that is displayed when the option is empty, you can also use the 'slot=\"empty\" setting",
+      "default": "—",
+      "type": "string",
+      "description_zh": "选项为空时显示的文字，也可以使用`slot=\"empty\"`设置"
+    },
+    "popper-class": {
+      "value": "",
+      "description": "Select drop-down box",
+      "default": "—",
+      "type": "string",
+      "description_zh": "Select 下拉框的类名"
+    },
+    "reserve-keyword": {
+      "value": "",
+      "description": "If you have multiple selections and are searchable, whether to keep the current search terms after selecting an option",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词"
+    },
+    "default-first-option": {
+      "value": "",
+      "description": "Press Enter in the input box and select the first match. Requires use with 'filterable' or 'remote'",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "在输入框按下回车，选择第一个匹配项。需配合 `filterable` 或 `remote` 使用"
+    },
+    "popper-append-to-body": {
+      "value": "",
+      "description": "Whether to insert a popover into the body element. If there is a problem with the positioning of the popover, you can set the property to false",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "是否将弹出框插入至 body 元素。在弹出框的定位出现问题时，可将该属性设置为 false"
+    },
+    "automatic-dropdown": {
+      "value": "",
+      "description": "For non-searchable Select, whether the options menu will automatically pop up after the input box gains focus",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "对于不可搜索的 Select，是否在输入框获得焦点后自动弹出选项菜单"
+    },
+    ":data": {
+      "value": "",
+      "description": "Present data",
+      "default": "—",
+      "type": "array",
+      "required": true,
+      "description_zh": "展示数据"
+    },
+    "empty-text": {
+      "value": "",
+      "description": "The text that is displayed when the content is empty",
+      "default": "—",
+      "type": "string",
+      "description_zh": "内容为空的时候展示的文本"
+    },
+    "node-key": {
+      "value": "",
+      "description": "Each tree node is used as a uniquely identified attribute, and the entire tree should be unique",
+      "default": "—",
+      "type": "string",
+      "description_zh": "每个树节点用来作为唯一标识的属性，整棵树应该是唯一的"
+    },
+    ":props": {
+      "value": "",
+      "description": "For configuration options, see the following table",
+      "default": "—",
+      "type": "object",
+      "description_zh": "配置选项，具体看下表",
+      "required": true
+    },
+    "render-after-expand": {
+      "value": "",
+      "description": "Whether to render a tree node after its children are first expanded",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否在第一次展开某个树节点后才渲染其子节点"
+    },
+    ":load": {
+      "value": "",
+      "description": "The method of loading subtree data, which only takes effect if the lazy property is true",
+      "default": "—",
+      "type": "function(node, resolve)",
+      "description_zh": "加载子树数据的方法，仅当 lazy 属性为true 时生效"
+    },
+    ":render-content": {
+      "value": "",
+      "description": "Rendering function for the content area of the tree node",
+      "default": "—",
+      "type": "Function(h, { node, data, store }",
+      "description_zh": "树节点的内容区的渲染 Function"
+    },
+    "highlight-current": {
+      "value": "",
+      "description": "Whether to highlight the currently selected node, the default value is false.",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否高亮当前选中节点，默认值是 false。"
+    },
+    "default-expand-all": {
+      "value": "",
+      "description": "Whether to expand all nodes by default",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否默认展开所有节点"
+    },
+    "expand-on-click-node": {
+      "value": "",
+      "description": "Whether to expand or contract a node when clicking on a node, the default value is true, if false, the node will only be expanded or contracted when the arrow icon is clicked.",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否在点击节点的时候展开或者收缩节点， 默认值为 true，如果为 false，则只有点箭头图标的时候才会展开或者收缩节点。"
+    },
+    "check-on-click-node": {
+      "value": "",
+      "description": "Whether to select a node when clicking on a node, the default value is false, that is, the node will only be selected when the checkbox is clicked.",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否在点击节点的时候选中节点，默认值为 false，即只有在点击复选框时才会选中节点。"
+    },
+    "auto-expand-parent": {
+      "value": "",
+      "description": "Whether the parent node is automatically expanded when the child node is expanded",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "展开子节点的时候是否自动展开父节点"
+    },
+    ":default-expanded-keys": {
+      "value": "",
+      "description": "An array of the keys of the nodes that are expanded by default",
+      "default": "—",
+      "type": "array",
+      "description_zh": "默认展开的节点的 key 的数组"
+    },
+    "show-checkbox": {
+      "value": "",
+      "description": "Whether the node can be selected",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "节点是否可被选择"
+    },
+    "check-strictly": {
+      "value": "",
+      "description": "In the case of the display of the check box, whether the practice of not associating father and son from each other is strictly followed, defaults to false",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "在显示复选框的情况下，是否严格的遵循父子不互相关联的做法，默认为 false"
+    },
+    ":default-checked-keys": {
+      "value": "",
+      "description": "An array of node keys that are checked by default",
+      "default": "—",
+      "type": "array",
+      "description_zh": "默认勾选的节点的 key 的数组"
+    },
+    "current-node-key": {
+      "value": "",
+      "description": "The currently selected node",
+      "default": "—",
+      "type": "string, number",
+      "description_zh": "当前选中的节点"
+    },
+    ":filter-node-method": {
+      "value": "",
+      "description": "When filtering a tree node, a method that returns true indicates that the node can be displayed, and a return of false indicates that the node will be hidden",
+      "default": "—",
+      "type": "Function(value, data, node)",
+      "description_zh": "对树节点进行筛选时执行的方法，返回 true 表示这个节点可以显示，返回 false 则表示这个节点会被隐藏"
+    },
+    "accordion": {
+      "value": "",
+      "description": "Whether to open only one sibling tree node at a time",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否每次只打开一个同级树节点展开"
+    },
+    ":indent": {
+      "value": "",
+      "description": "Horizontal indentation between adjacent nodes, in pixels",
+      "default": "—",
+      "type": "number",
+      "description_zh": "相邻级节点间的水平缩进，单位为像素"
+    },
+    "icon-class": {
+      "value": "",
+      "description": "Customize the icon of the tree node",
+      "default": "-",
+      "type": "string",
+      "description_zh": "自定义树节点的图标"
+    },
+    "lazy": {
+      "value": "",
+      "description": "Whether to lazy load child nodes or not needs to be used in conjunction with the load method",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否懒加载子节点，需与 load 方法结合使用"
+    },
+    "draggable": {
+      "value": "",
+      "description": "Whether to enable the drag and drop node function",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否开启拖拽节点功能"
+    },
+    ":allow-drag": {
+      "value": "",
+      "description": "Determine whether the node can be dragged or not",
+      "default": "—",
+      "type": "Function(node)",
+      "description_zh": "判断节点能否被拖拽"
+    },
+    ":allow-drop": {
+      "value": "",
+      "description": "Determines whether the target node can be placed when dragging. There are three cases for the 'type' parameter: 'prev', 'inner', and 'next', which represent placement before, insertion, and post-target nodes, respectively",
+      "default": "—",
+      "type": "Function(draggingNode, dropNode, type)",
+      "description_zh": "拖拽时判定目标节点能否被放置。`type` 参数有三种情况：'prev'、'inner' 和 'next'，分别表示放置在目标节点前、插入至目标节点和放置在目标节点后"
+    }
+  },
+  "methods": [],
+  "events": [],
+  "version": "2.1.8",
+  "link": "https://element-plus.org/en-US/component/tree-select.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/tree-select.html"
+}

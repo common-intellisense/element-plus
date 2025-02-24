@@ -81,6 +81,7 @@ import ElTour from './tour.json'
 import ElTourStep from './tourStep.json'
 import ElTransfer from './transfer.json'
 import ElTree from './tree.json'
+import ElTreeSelect from './treeSelect.json'
 import ElUpload from './upload.json'
 
 export function getPropsMap() {
@@ -169,6 +170,7 @@ export function getPropsMap() {
     ElOptionGroup,
     ElTour,
     ElTourStep,
+    ElTreeSelect,
   ]
 }
 
@@ -591,6 +593,17 @@ export function getComponentMap(isZh: boolean) {
           '漫游式引导步骤',
           '<el-tour-step></el-tour-step>',
         ],
+        [
+          ElTreeSelect,
+          '树选择',
+          '<el-tree-select></el-tree-select>',
+        ],
+        [
+          ElTimePicker,
+          '时间选择器',
+          '<el-time-picker></el-time-picker>',
+        ],
+
       ]
     : [
         [
@@ -884,11 +897,6 @@ export function getComponentMap(isZh: boolean) {
           '<el-dropdown-menu></el-dropdown-menu>',
         ],
         [
-          ElDropdownItem,
-          'Drop-down menu list item',
-          '<el-dropdown-item></el-dropdown-item>',
-        ],
-        [
           ElSteps,
           'step bar',
           '<el-steps></el-steps>',
@@ -987,6 +995,16 @@ export function getComponentMap(isZh: boolean) {
           ElTourStep,
           'tour step',
           '<el-tour-step></el-tour-step>',
+        ],
+        [
+          ElTreeSelect,
+          'tree selection',
+          '<el-tree-select></el-tree-select>',
+        ],
+        [
+          ElTimePicker,
+          'time picker',
+          '<el-time-picker></el-time-picker>',
         ],
       ]
 }

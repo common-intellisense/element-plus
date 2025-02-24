@@ -296,26 +296,26 @@
     {
       "name": "focus",
       "description": "focus the TimePicker component",
-      "params": "Function",
+      "params": "() => void",
       "description_zh": "使 TimePicker 组件获取焦点"
     },
     {
       "name": "blur",
       "description": "blur the TimePicker component",
-      "params": "Function",
+      "params": "() => void",
       "description_zh": "使 TimePicker 组件失去焦点"
     },
     {
       "name": "handleOpen",
       "description": "open the TimePicker popper",
-      "params": "Function",
+      "params": "() => void",
       "version": "2.2.16",
       "description_zh": "打开 TimePicker 弹出框"
     },
     {
       "name": "handleClose",
       "description": "close the TimePicker popper",
-      "params": "Function",
+      "params": "() => void",
       "version": "2.2.16",
       "description_zh": "关闭 TimePicker 弹出框"
     }

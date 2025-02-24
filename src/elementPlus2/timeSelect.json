@@ -127,7 +127,7 @@
       "type": "string",
       "description_zh": "设置时间格式"
     },
-    "empty-values": {
+    ":empty-values": {
       "value": "",
       "description": "empty values of component",
       "default": "—",
@@ -222,15 +222,13 @@
     {
       "name": "focus",
       "description": "focus the Input component",
-      "params": "() => void",
-      "type": "Function",
+      "detail": "() => void",
       "description_zh": "使 Input 组件获取焦点"
     },
     {
       "name": "blur",
       "description": "blur the Input component",
-      "params": "() => void",
-      "type": "Function",
+      "detail": "() => void",
       "description_zh": "使 Input 组件失去焦点"
     }
   ],

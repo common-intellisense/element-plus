@@ -54,7 +54,7 @@
     "disabled": {
       "value": "",
       "description": "Whether to disable or not",
-      "default": "—",
+      "default": "false",
       "type": "boolean",
       "description_zh": "是否禁用"
     },
@@ -75,7 +75,7 @@
     "collapse-tags": {
       "value": "",
       "description": "Whether to fold the tag in multi-select mode",
-      "default": "—",
+      "default": "false",
       "type": "boolean",
       "description_zh": "多选模式下是否折叠Tag"
     },
@@ -89,7 +89,7 @@
     "filterable": {
       "value": "",
       "description": "Whether the option is searchable",
-      "default": "—",
+      "default": "false",
       "type": "boolean",
       "description_zh": "是否可搜索选项"
     },

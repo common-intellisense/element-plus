@@ -56,21 +56,21 @@
     "value": {
       "value": "",
       "description": "Whether the status is visible or not",
-      "default": "—",
+      "default": "false",
       "type": "boolean",
       "description_zh": "状态是否可见"
     },
     ":v-model": {
       "value": "",
       "description": "Whether the status is visible or not",
-      "default": "—",
+      "default": "false",
       "type": "boolean",
       "description_zh": "状态是否可见"
     },
     "disabled": {
       "value": "",
       "description": "Whether Tooltip is available",
-      "default": "—",
+      "default": "false",
       "type": "boolean",
       "description_zh": "Tooltip 是否可用"
     },
@@ -91,7 +91,7 @@
     "visible-arrow": {
       "value": "",
       "description": "Whether or not to display the Tooltip arrow, more parameters can be seen in [vue-popper](https://github.com/element-component/vue-popper)",
-      "default": "—",
+      "default": "false",
       "type": "boolean",
       "description_zh": "是否显示 Tooltip 箭头，更多参数可见[Vue-popper](https://github.com/element-component/vue-popper)"
     },
@@ -112,7 +112,7 @@
     "manual": {
       "value": "",
       "description": "Manual control mode, when set to true, the mouseenter and mouseleave events will not take effect",
-      "default": "—",
+      "default": "false",
       "type": "boolean",
       "description_zh": "手动控制模式，设置为 true 后，mouseenter 和 mouseleave 事件将不会生效"
     },
@@ -182,7 +182,7 @@
     "virtual-triggering": {
       "value": "",
       "description": "Indicates whether virtual triggering is enabled",
-      "default": "-",
+      "default": "false",
       "type": "boolean",
       "description_zh": "用来标识虚拟触发是否被启用"
     },
@@ -203,7 +203,7 @@
     "persistent": {
       "value": "",
       "description": "When tooltip inactive and `persistent` is `false` , popconfirm will be destroyed",
-      "default": "-",
+      "default": "false",
       "type": "boolean",
       "description_zh": "当 tooltip 组件长时间不触发且 persistent 属性设置为 false 时, popconfirm 将会被删除"
     }

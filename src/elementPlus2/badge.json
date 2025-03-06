@@ -3,28 +3,28 @@
   "props": {
     "value": {
       "value": "",
-      "description": "Displays the value",
-      "default": "—",
-      "type": "string, number",
+      "description": "Display value",
+      "default": "",
+      "type": "string | number",
       "description_zh": "显示值"
     },
-    ":max": {
+    "max": {
       "value": "",
-      "description": "maximum, exceeding the maximum value will display '{max}+', and the value is required to be of type Number",
-      "default": "—",
+      "description": "Maximum value, shows {max}+ when exceeded. Only works if value is a number",
+      "default": "99",
       "type": "number",
       "description_zh": "最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型"
     },
     "is-dot": {
       "value": "",
-      "description": "Small dots",
+      "description": "If a little dot is displayed",
       "default": "false",
       "type": "boolean",
       "description_zh": "小圆点"
     },
     "hidden": {
       "value": "",
-      "description": "Hide badges",
+      "description": "Hidden badge",
       "default": "false",
       "type": "boolean",
       "description_zh": "隐藏 badge"
@@ -37,17 +37,71 @@
         "danger",
         "info"
       ],
-      "description": "type",
-      "default": "primary | success | warning | danger | info",
+      "description": "Badge type",
+      "default": "danger",
       "type": "string",
       "description_zh": "类型"
+    },
+    "show-zero": {
+      "value": "",
+      "description": "Whether to show badge when value is zero",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "当值为 0 时是否展示 Badge",
+      "version": "2.6.0"
+    },
+    "color": {
+      "value": "",
+      "description": "Background color of the dot",
+      "default": "",
+      "type": "string",
+      "description_zh": "小圆点的背景色",
+      "version": "2.6.3"
+    },
+    "offset": {
+      "value": "",
+      "description": "Offset of badge",
+      "default": "—",
+      "type": "[number, number]",
+      "description_zh": "Badge 的偏移量",
+      "version": "2.7.0"
+    },
+    ":badge-style": {
+      "value": "",
+      "description": "Custom style of badge",
+      "default": "—",
+      "type": "object",
+      "description_zh": "自定义徽章的样式",
+      "version": "2.7.1"
+    },
+    "badge-class": {
+      "value": "",
+      "description": "Custom class of badge",
+      "default": "—",
+      "type": "string",
+      "description_zh": "自定义徽章的类名",
+      "version": "2.7.1"
     }
   },
   "events": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Customize default content",
+      "description_zh": "自定义默认内容"
+    },
+    {
+      "name": "content",
+      "description": "Customize badge content",
+      "description_zh": "自定义徽章内容",
+      "params": "{ value: string }",
+      "version": "2.9.1"
+    }
+  ],
+  "methods": [],
   "suggestions": [
     "el-button"
   ],
   "link": "https://element-plus.org/en-US/component/badge.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/badge.html",
-  "methods": []
+  "link_zh": "https://element-plus.org/zh-CN/component/badge.html"
 }

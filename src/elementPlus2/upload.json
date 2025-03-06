@@ -4,218 +4,248 @@
     "action": {
       "value": "",
       "description": "Required parameter: The upload URL",
-      "default": "—",
+      "default": "#",
       "type": "string",
-      "description_zh": "必选参数，上传的地址"
+      "description_zh": "必选参数，上传的地址",
+      "required": true
     },
     ":headers": {
       "value": "",
-      "description": "Set the header of the uploaded request",
+      "description": "Request headers",
       "default": "—",
       "type": "object",
       "description_zh": "设置上传的请求头部"
     },
+    "method": {
+      "value": "",
+      "description": "Set upload request method",
+      "default": "post",
+      "type": "string",
+      "description_zh": "设置上传请求方法"
+    },
     "multiple": {
       "value": "",
-      "description": "Whether multi-select files are supported",
+      "description": "Whether uploading multiple files is permitted",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否支持多选文件"
     },
     ":data": {
       "value": "",
-      "description": "Extra parameters that come with the upload",
-      "default": "—",
-      "type": "object",
-      "required": true,
+      "description": "Additions options of request. Support `Awaitable` data and `Function` since v2.3.13",
+      "default": "{}",
+      "type": "object | function",
       "description_zh": "上传时附带的额外参数"
     },
     "name": {
       "value": "",
-      "description": "The name of the uploaded file field",
-      "default": "—",
+      "description": "Key name for uploaded file",
+      "default": "file",
       "type": "string",
       "description_zh": "上传的文件字段名"
     },
     "with-credentials": {
       "value": "",
-      "description": "Support for sending cookie credential information",
+      "description": "Whether cookies are sent",
       "default": "false",
       "type": "boolean",
       "description_zh": "支持发送 cookie 凭证信息"
     },
     "show-file-list": {
       "value": "",
-      "description": "Whether to display a list of uploaded files",
-      "default": "false",
+      "description": "Whether to show the uploaded file list",
+      "default": "true",
       "type": "boolean",
       "description_zh": "是否显示已上传文件列表"
     },
     "drag": {
       "value": "",
-      "description": "Whether to enable drag-and-drop uploads",
+      "description": "Whether to activate drag and drop mode",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否启用拖拽上传"
     },
     "accept": {
       "value": "",
-      "description": "Accept the uploaded [file type] (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept) (this parameter is not valid in thumbnail-mode mode)",
+      "description": "Accepted file types, will not work when thumbnail-mode is true",
+      "default": "",
+      "type": "string",
+      "description_zh": "接受上传的文件类型（thumbnail-mode 模式下此参数无效）"
+    },
+    "crossorigin": {
+      "value": ["", "anonymous", "use-credentials"],
+      "description": "Native attribute crossorigin",
       "default": "—",
       "type": "string",
-      "description_zh": "接受上传的[文件类型](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)（thumbnail-mode 模式下此参数无效）"
+      "description_zh": "原生 crossorigin 属性"
+    },
+    ":on-preview": {
+      "value": "",
+      "description": "Hook function when clicking the uploaded files",
+      "default": "—",
+      "type": "function(uploadFile: UploadFile)",
+      "description_zh": "点击文件列表中已上传的文件时的钩子"
+    },
+    ":on-remove": {
+      "value": "",
+      "description": "Hook function when files are removed",
+      "default": "—",
+      "type": "function(uploadFile: UploadFile, uploadFiles: UploadFiles)",
+      "description_zh": "文件列表移除文件时的钩子"
+    },
+    ":on-success": {
+      "value": "",
+      "description": "Hook function when uploaded successfully",
+      "default": "—",
+      "type": "function(response: any, uploadFile: UploadFile, uploadFiles: UploadFiles)",
+      "description_zh": "文件上传成功时的钩子"
+    },
+    ":on-error": {
+      "value": "",
+      "description": "Hook function when some errors occurs",
+      "default": "—",
+      "type": "function(error: Error, uploadFile: UploadFile, uploadFiles: UploadFiles)",
+      "description_zh": "文件上传失败时的钩子"
+    },
+    ":on-progress": {
+      "value": "",
+      "description": "Hook function when some progress occurs",
+      "default": "—",
+      "type": "function(evt: UploadProgressEvent, uploadFile: UploadFile, uploadFiles: UploadFiles)",
+      "description_zh": "文件上传时的钩子"
+    },
+    ":on-change": {
+      "value": "",
+      "description": "Hook function when select file or upload file success or upload file fail",
+      "default": "—",
+      "type": "function(uploadFile: UploadFile, uploadFiles: UploadFiles)",
+      "description_zh": "文件状态改变时的钩子，添加文件、上传成功和上传失败时都会被调用"
+    },
+    ":on-exceed": {
+      "value": "",
+      "description": "Hook function when limit is exceeded",
+      "default": "—",
+      "type": "function(files: File[], uploadFiles: UploadUserFile[])",
+      "description_zh": "文件超出个数限制时的钩子"
     },
     ":before-upload": {
       "value": "",
-      "description": "If the hook before uploading the file is the uploaded file, if it returns false or returns a Promise and is rejected, the upload will be stopped.",
+      "description": "Hook function before uploading with the file to be uploaded as its parameter. If false is returned or a Promise is returned and then is rejected, uploading will be aborted",
       "default": "—",
-      "type": "function(file)",
-      "description_zh": "上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。"
+      "type": "function(rawFile: UploadRawFile) => Awaitable<void | undefined | null | boolean | File | Blob>",
+      "description_zh": "上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传"
     },
     ":before-remove": {
       "value": "",
-      "description": "The hook before deleting a file, the parameter is the uploaded file and file list, if it returns false or returns a promise and is rejected, the deletion will be stopped.",
+      "description": "Hook function before removing a file with the file and file list as its parameters. If false is returned or a Promise is returned and then is rejected, removing will be aborted",
       "default": "—",
-      "type": "function(file, fileList)",
-      "description_zh": "删除文件之前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止删除。"
-    },
-    "list-type": {
-      "value": [
-        "text",
-        "picture",
-        "picture-card"
-      ],
-      "description": "The type of file list",
-      "default": "text | picture | picture-card",
-      "type": "string",
-      "description_zh": "文件列表的类型"
-    },
-    "auto-upload": {
-      "value": "",
-      "description": "Whether to upload files as soon as they are selected",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "是否在选取文件后立即进行上传"
+      "type": "function(uploadFile: UploadFile, uploadFiles: UploadFiles) => Awaitable<boolean>",
+      "description_zh": "删除文件之前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止删除"
     },
     ":file-list": {
       "value": "",
-      "description": "List of uploaded files, for example: [{name: 'food.jpg', url: 'https://xxx.cdn.com/xxx.jpg'}]",
-      "default": "—",
+      "description": "Default uploaded files",
+      "default": "[]",
       "type": "array",
-      "description_zh": "上传的文件列表, 例如: [{name: 'food.jpg', url: 'https://xxx.cdn.com/xxx.jpg'}]",
-      "required": true,
+      "description_zh": "上传的文件列表",
       "$model": "$model.$(el-form-item.prop || el-form-item.label)",
       "related": [
         "el-form.model"
       ]
     },
+    "list-type": {
+      "value": ["text", "picture", "picture-card"],
+      "description": "Type of file list",
+      "default": "text",
+      "type": "string",
+      "description_zh": "文件列表的类型"
+    },
+    "auto-upload": {
+      "value": "",
+      "description": "Whether to auto upload file",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否在选取文件后立即进行上传"
+    },
     ":http-request": {
       "value": "",
-      "description": "Override the default upload behavior, and you can customize the implementation of the upload",
-      "default": "—",
-      "type": "function",
+      "description": "Override default xhr behavior, allowing you to implement your own upload-file's request",
+      "default": "ajaxUpload",
+      "type": "function(options: UploadRequestOptions) => XMLHttpRequest | Promise<unknown>",
       "description_zh": "覆盖默认的上传行为，可以自定义上传的实现"
     },
     "disabled": {
       "value": "",
-      "description": "Whether to disable or not",
+      "description": "Whether to disable upload",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否禁用"
     },
-    ":limit": {
+    "limit": {
       "value": "",
-      "description": "The maximum number of uploads allowed",
+      "description": "Maximum number of uploads allowed",
       "default": "—",
       "type": "number",
       "description_zh": "最大允许上传个数"
-    },
-    ":on-preview": {
-      "value": "",
-      "description": "Click the hook when you upload a file in the file list",
-      "default": "—",
-      "type": "function(file)",
-      "description_zh": "点击文件列表中已上传的文件时的钩子"
-    },
-    ":on-remove": {
-      "value": "",
-      "description": "Hook when removing a file from the file list",
-      "default": "—",
-      "type": "function(file, fileList)",
-      "description_zh": "文件列表移除文件时的钩子"
-    },
-    ":on-success": {
-      "value": "",
-      "description": "The hook when the file is successfully uploaded",
-      "default": "—",
-      "type": "function(response, file, fileList)",
-      "description_zh": "文件上传成功时的钩子"
-    },
-    ":on-error": {
-      "value": "",
-      "description": "Hook when a file upload fails",
-      "default": "—",
-      "type": "function(err, file, fileList)",
-      "description_zh": "文件上传失败时的钩子"
-    },
-    ":on-progress": {
-      "value": "",
-      "description": "Hooks when the file is uploaded",
-      "default": "—",
-      "type": "function(event, file, fileList)",
-      "description_zh": "文件上传时的钩子"
-    },
-    ":on-change": {
-      "value": "",
-      "description": "The hook when the file status changes, is called when the file is added, when the upload is successful, and when the upload fails",
-      "default": "—",
-      "type": "function(file, fileList)",
-      "description_zh": "文件状态改变时的钩子，添加文件、上传成功和上传失败时都会被调用"
-    },
-    ":on-exceed": {
-      "value": "",
-      "description": "Hook when the number of files exceeds the limit",
-      "default": "—",
-      "type": "function(files, fileList)",
-      "description_zh": "文件超出个数限制时的钩子"
     }
   },
-  "methods": [
-    {
-      "name": "clearFiles",
-      "description": "Clear the list of uploaded files (this method cannot be called in before-upload)",
-      "params": "—",
-      "description_zh": "清空已上传的文件列表（该方法不支持在 before-upload 中调用）",
-      "value": ""
-    },
-    {
-      "name": "abort",
-      "description": "Cancel the upload request",
-      "params": "（ file: fileList 中的 file 对象 ）",
-      "description_zh": "取消上传请求",
-      "value": ""
-    },
-    {
-      "name": "submit",
-      "description": "Manually upload a list of files",
-      "params": "—",
-      "description_zh": "手动上传文件列表",
-      "value": ""
-    }
-  ],
+  "events": [],
+  "methods": [],
   "slots": [
     {
+      "name": "default",
+      "description": "Customize default content",
+      "description_zh": "自定义默认内容"
+    },
+    {
       "name": "trigger",
-      "description": "Triggers the contents of the file selection box",
+      "description": "Content which triggers file dialog",
       "description_zh": "触发文件选择框的内容"
     },
     {
       "name": "tip",
-      "description": "Prompt caption",
+      "description": "Content of tips",
       "description_zh": "提示说明文字"
+    },
+    {
+      "name": "file",
+      "description": "Content of thumbnail template",
+      "description_zh": "缩略图模板的内容",
+      "params": "{ file: UploadFile, index: number }"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "abort",
+      "description": "Cancel upload request",
+      "description_zh": "取消上传请求",
+      "detail": "(file: UploadFile) => void"
+    },
+    {
+      "name": "submit",
+      "description": "Upload the file list manually",
+      "description_zh": "手动上传文件列表",
+      "detail": "() => void"
+    },
+    {
+      "name": "clearFiles",
+      "description": "Clear the file list (this method is not supported in the before-upload hook)",
+      "description_zh": "清空已上传的文件列表（该方法不支持在 before-upload 中调用）",
+      "detail": "(status?: UploadStatus[]) => void"
+    },
+    {
+      "name": "handleStart",
+      "description": "Select the file manually",
+      "description_zh": "手动选择文件",
+      "detail": "(rawFile: UploadRawFile) => void"
+    },
+    {
+      "name": "handleRemove",
+      "description": "Remove the file manually",
+      "description_zh": "手动移除文件",
+      "detail": "(file: UploadFile | UploadRawFile, rawFile?: UploadRawFile) => void"
     }
   ],
   "link": "https://element-plus.org/en-US/component/upload.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/upload.html",
-  "events": []
+  "link_zh": "https://element-plus.org/zh-CN/component/upload.html"
 }

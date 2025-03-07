@@ -556,5 +556,61 @@
   ],
   "link": "https://element-plus.org/en-US/component/table.html",
   "link_zh": "https://element-plus.org/zh-CN/component/table.html",
-  "methods": []
+  "methods": [],
+  "typeDetail": {
+    "Sort": [
+      {
+        "name": "prop",
+        "type": "string",
+        "description": "Property to sort by"
+      },
+      {
+        "name": "order",
+        "type": "'ascending' | 'descending'",
+        "description": "Sort order"
+      },
+      {
+        "name": "init",
+        "type": "any",
+        "description": "Initial sort state"
+      },
+      {
+        "name": "silent",
+        "type": "any",
+        "description": "Whether to trigger events"
+      }
+    ],
+    "TreeNode": [
+      {
+        "name": "expanded",
+        "type": "boolean",
+        "description": "Whether node is expanded"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "description": "Whether node is loading"
+      },
+      {
+        "name": "noLazyChildren",
+        "type": "boolean",
+        "description": "Whether node has no lazy-loaded children"
+      },
+      {
+        "name": "indent",
+        "type": "number",
+        "description": "Indentation of the node"
+      },
+      {
+        "name": "level",
+        "type": "number",
+        "description": "Level of the node"
+      },
+      {
+        "name": "display",
+        "type": "boolean",
+        "description": "Whether the node is displayed"
+      }
+    ]
+  }
 }

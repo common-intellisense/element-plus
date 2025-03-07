@@ -3,12 +3,13 @@
   "props": {
     "type": {
       "value": [
+        "default",
         "selection",
         "index",
         "expand"
       ],
-      "description": "The type of the corresponding column. If selection is set, a multi-check box is displayed; If index is set, the index for that row is displayed (calculated from 1); If expand is set, it appears as an expandable button",
-      "default": "—",
+      "description": "Type of the column. If set to 'selection', the column will display checkbox. If set to 'index', the column will display index of the row (starting from 1). If set to 'expand', the column will display expand icon",
+      "default": "default",
       "type": "string",
       "description_zh": "对应列的类型。如果设置了 selection 则显示多选框；如果设置了 index 则显示该行的索引（从 1 开始计算）；如果设置了 expand 则显示为一个可展开的按钮"
     },
@@ -215,23 +216,116 @@
       "type": "boolean",
       "description_zh": "数据过滤的选项是否多选"
     },
-    "filter-method": {
+    ":filter-method": {
       "value": "",
       "description": "If it is a multi-select filter, it will be executed multiple times for each piece of data, and any time it returns true, it will be displayed.",
       "default": "—",
       "type": "Function(value, row, column)",
       "description_zh": "数据过滤使用的方法，如果是多选的筛选项，对每一条数据会执行多次，任意一次返回 true 就会显示。"
     },
-    "filtered-value": {
+    ":filtered-value": {
       "value": "",
       "description": "If you want to customize the rendering method of the header filter, you may need this property for the selected data filter.",
       "default": "—",
       "type": "Array",
       "description_zh": "选中的数据过滤项，如果需要自定义表头过滤的渲染方式，可能会需要此属性。"
+    },
+    "filter-class-name": {
+      "value": "",
+      "description": "className for the filter dropdown",
+      "default": "—",
+      "type": "string",
+      "version": "2.5.0",
+      "description_zh": "过滤弹出框的类名"
+    },
+    ":tooltip-formatter": {
+      "value": "",
+      "description": "Customize tooltip content when using show-overflow-tooltip",
+      "default": "—",
+      "type": "Function(data: { row, column, cellValue }) => VNode | string",
+      "version": "2.9.4",
+      "description_zh": "使用 show-overflow-tooltip 时自定义 tooltip 内容"
     }
   },
   "link": "https://element-plus.org/en-US/component/table-column.html",
   "link_zh": "https://element-plus.org/zh-CN/component/table-column.html",
   "methods": [],
-  "events": []
+  "events": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Custom content for table columns",
+      "description_zh": "自定义表格列的内容",
+      "params": "{ row, column, $index }"
+    },
+    {
+      "name": "header",
+      "description": "Custom content for table header",
+      "description_zh": "自定义表头内容",
+      "params": "{ column, $index }"
+    },
+    {
+      "name": "filter-icon",
+      "description": "Custom content for filter icon",
+      "description_zh": "自定义过滤图标",
+      "params": "{ filterOpened }",
+      "version": "2.7.8"
+    }
+  ],
+  "typeDetail": {
+    "Sort": [
+      {
+        "name": "prop",
+        "type": "string",
+        "description": "Property to sort by"
+      },
+      {
+        "name": "order",
+        "type": "'ascending' | 'descending'",
+        "description": "Sort order"
+      },
+      {
+        "name": "init",
+        "type": "any",
+        "description": "Initial sort state"
+      },
+      {
+        "name": "silent",
+        "type": "any",
+        "description": "Whether to trigger events"
+      }
+    ],
+    "TreeNode": [
+      {
+        "name": "expanded",
+        "type": "boolean",
+        "description": "Whether node is expanded"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "description": "Whether node is loading"
+      },
+      {
+        "name": "noLazyChildren",
+        "type": "boolean",
+        "description": "Whether node has no lazy-loaded children"
+      },
+      {
+        "name": "indent",
+        "type": "number",
+        "description": "Indentation of the node"
+      },
+      {
+        "name": "level",
+        "type": "number",
+        "description": "Level of the node"
+      },
+      {
+        "name": "display",
+        "type": "boolean",
+        "description": "Whether the node is displayed"
+      }
+    ]
+  }
 }

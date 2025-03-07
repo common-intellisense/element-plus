@@ -1,5 +1,6 @@
 {
   "name": "ElCountdown",
+  "version": "2.2.30",
   "props": {
     ":value": {
       "value": "",

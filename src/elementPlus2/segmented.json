@@ -1,0 +1,108 @@
+{
+  "name": "ElSegmented",
+  "version": "2.7.0",
+  "props": {
+    ":v-model": {
+      "value": "",
+      "description": "binding value",
+      "default": "—",
+      "type": "string | number | boolean",
+      "description_zh": "绑定值"
+    },
+    "options": {
+      "value": "",
+      "description": "data of the options",
+      "default": "[]",
+      "type": "Option[]",
+      "description_zh": "选项数据"
+    },
+    "size": {
+      "value": [
+        "",
+        "large",
+        "default",
+        "small"
+      ],
+      "description": "size of component",
+      "default": "''",
+      "type": "string",
+      "description_zh": "组件大小"
+    },
+    "block": {
+      "value": "",
+      "description": "fit width of parent content",
+      "default": "—",
+      "type": "boolean",
+      "description_zh": "适应父元素宽度"
+    },
+    "disabled": {
+      "value": "",
+      "description": "whether segmented is disabled",
+      "default": false,
+      "type": "boolean",
+      "description_zh": "是否禁用"
+    },
+    "validate-event": {
+      "value": "",
+      "description": "whether to trigger form validation",
+      "default": true,
+      "type": "boolean",
+      "description_zh": "是否触发表单验证"
+    },
+    "name": {
+      "value": "",
+      "description": "native `name` attribute",
+      "default": "—",
+      "type": "string",
+      "description_zh": "原生 `name` 属性"
+    },
+    "id": {
+      "value": "",
+      "description": "native `id` attribute",
+      "default": "—",
+      "type": "string",
+      "description_zh": "原生 `id` 属性"
+    },
+    "aria-label": {
+      "value": "",
+      "description": "native `aria-label` attribute",
+      "default": "—",
+      "type": "string",
+      "description_zh": "原生 `aria-label` 属性"
+    },
+    "direction": {
+      "value": [
+        "horizontal",
+        "vertical"
+      ],
+      "description": "display direction",
+      "default": "horizontal",
+      "type": "string",
+      "description_zh": "显示方向",
+      "version": "2.8.7"
+    }
+  },
+  "events": [
+    {
+      "name": "change",
+      "description": "triggers when the selected value changes, the param is current selected value",
+      "params": "(val: any) => void",
+      "description_zh": "所选值变化时触发，参数为当前所选值",
+      "value": ""
+    }
+  ],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "option renderer",
+      "description_zh": "选项渲染器",
+      "params": "{ item: Option }"
+    }
+  ],
+  "typeDetail": {
+    "Option": "{ label: string; value: string | number | boolean; disabled?: boolean; [key: string]: any } | string | number | boolean"
+  },
+  "link": "https://element-plus.org/en-US/component/segmented.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/segmented.html"
+}

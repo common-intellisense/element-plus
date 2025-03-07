@@ -58,6 +58,7 @@ import ElRadioGroup from './radioGroup.json'
 import ElRate from './rate.json'
 import ElResult from './result.json'
 import ElRow from './row.json'
+import ElSegmented from './segmented.json'
 import ElSelect from './select.json'
 import ElSkeleton from './skeleton.json'
 import ElSkeletonItem from './skeletonItem.json'
@@ -179,6 +180,7 @@ export function getPropsMap() {
     ElTreeSelect,
     ElTableV2,
     ElCountdown,
+    ElSegmented,
   ]
 }
 
@@ -631,6 +633,11 @@ export function getComponentMap(isZh: boolean) {
           '倒计时',
           '<el-countdown></el-countdown>',
         ],
+        [
+          ElSegmented,
+          '分段器',
+          '<el-segmented></el-segmented>',
+        ],
       ]
     : [
         [
@@ -1052,6 +1059,11 @@ export function getComponentMap(isZh: boolean) {
           ElCountdown,
           'countdown',
           '<el-countdown></el-countdown>',
+        ],
+        [
+          ElSegmented,
+          'segmented',
+          '<el-segmented></el-segmented>',
         ],
       ]
 }

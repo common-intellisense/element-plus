@@ -1,0 +1,427 @@
+{
+  "name": "ElTableV2",
+  "version": "2.2.0",
+  "props": {
+    ":cache": {
+      "value": "",
+      "description": "Number of rows rendered in advance to boost the performance",
+      "default": "2",
+      "type": "number",
+      "description_zh": "提前渲染的行数，用于提高性能"
+    },
+    ":estimated-row-height": {
+      "value": "",
+      "description": "The estimated row height for rendering dynamic height rows",
+      "default": "—",
+      "type": "number",
+      "description_zh": "用于渲染动态高度行的估计行高"
+    },
+    "header-class": {
+      "value": "",
+      "description": "Customized class name passed to header wrapper",
+      "default": "—",
+      "type": "string | Function<HeaderClassGetter>",
+      "description_zh": "传递给头部包装器的自定义类名"
+    },
+    ":header-props": {
+      "value": "",
+      "description": "Customized props name passed to header component",
+      "default": "—",
+      "type": "object | Function<HeaderPropsGetter>",
+      "description_zh": "传递给头部组件的自定义 props"
+    },
+    ":header-cell-props": {
+      "value": "",
+      "description": "Customized props name passed to header cell component",
+      "default": "—",
+      "type": "object | Function<HeaderCellPropsGetter>",
+      "description_zh": "传递给头部单元格组件的自定义 props"
+    },
+    ":header-height": {
+      "value": "",
+      "description": "The height of the header is set by `height`. If given an array, it renders header rows equal to its length",
+      "default": "50",
+      "type": "number | number[]",
+      "description_zh": "表头的高度，由 `height` 设置。如果给定一个数组，则渲染的表头行数等于其长度"
+    },
+    ":footer-height": {
+      "value": "",
+      "description": "The height of the footer element, when provided, will be part to the calculation of the table's height",
+      "default": "0",
+      "type": "number",
+      "description_zh": "页脚元素的高度，提供后，将成为表格高度计算的一部分"
+    },
+    "row-class": {
+      "value": "",
+      "description": "Customized class name passed to row wrapper",
+      "default": "—",
+      "type": "string | Function<RowClassGetter>",
+      "description_zh": "传递给行包装器的自定义类名"
+    },
+    "row-key": {
+      "value": "",
+      "description": "The key of each row, if not provided, will be the index of the row",
+      "default": "id",
+      "type": "string | Symbol | number",
+      "description_zh": "每一行的唯一标识，如果未提供，则为行的索引"
+    },
+    ":row-props": {
+      "value": "",
+      "description": "Customized props name passed to row component",
+      "default": "—",
+      "type": "object | Function<RowPropsGetter>",
+      "description_zh": "传递给行组件的自定义 props"
+    },
+    ":row-height": {
+      "value": "",
+      "description": "The height of each row, used for calculating the total height of the table",
+      "default": "50",
+      "type": "number",
+      "description_zh": "每行的高度，用于计算表格的总高度"
+    },
+    ":cell-props": {
+      "value": "",
+      "description": "Extra props passed to each cell (except header cells)",
+      "default": "—",
+      "type": "object | Function<CellPropsGetter>",
+      "description_zh": "传递给每个单元格的额外 props（表头单元格除外）"
+    },
+    ":columns": {
+      "value": "",
+      "description": "An array of column definitions",
+      "default": "—",
+      "type": "Column[]",
+      "description_zh": "列定义数组"
+    },
+    ":data": {
+      "value": "",
+      "description": "An array of data to be rendered in the table",
+      "default": "[]",
+      "type": "Data[]",
+      "description_zh": "表格中要渲染的数据数组",
+      "required": true
+    },
+    ":data-getter": {
+      "value": "",
+      "description": "A method to customize data fetch from the data source",
+      "default": "—",
+      "type": "Function<DataGetter<T>>",
+      "description_zh": "自定义从数据源获取数据的方法"
+    },
+    ":fixed-data": {
+      "value": "",
+      "description": "Data for rendering rows above the main content and below the header",
+      "default": "—",
+      "type": "object<Data>",
+      "description_zh": "用于在主内容上方和表头下方渲染行的数据"
+    },
+    "expand-column-key": {
+      "value": "",
+      "description": "The column key indicates which row is expandable",
+      "default": "—",
+      "type": "string",
+      "description_zh": "指示哪一行可展开的列键"
+    },
+    ":expanded-row-keys": {
+      "value": "",
+      "description": "An array of keys for expanded rows, can be used with `v-model`",
+      "default": "—",
+      "type": "KeyType[]",
+      "description_zh": "展开行的键数组，可与 `v-model` 一起使用"
+    },
+    ":default-expanded-row-keys": {
+      "value": "",
+      "description": "An array of keys for default expanded rows, **NON REACTIVE**",
+      "default": "—",
+      "type": "KeyType[]",
+      "description_zh": "默认展开行的键数组，**非响应式**"
+    },
+    "class": {
+      "value": "",
+      "description": "Class name for the virtual table, will be applied to all three tables (left, right, main)",
+      "default": "—",
+      "type": "string | array | object",
+      "description_zh": "虚拟表的类名，将应用于所有三个表（左、右、主）"
+    },
+    "fixed": {
+      "value": "",
+      "description": "Flag indicates the table column's width to be fixed or flexible",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "指示表列宽度是固定还是灵活的标志"
+    },
+    ":width": {
+      "value": "",
+      "description": "Width of the table",
+      "default": "—",
+      "type": "number",
+      "description_zh": "表格的宽度",
+      "required": true
+    },
+    ":height": {
+      "value": "",
+      "description": "Height of the table",
+      "default": "—",
+      "type": "number",
+      "description_zh": "表格的高度",
+      "required": true
+    },
+    ":max-height": {
+      "value": "",
+      "description": "Maximum height of the table",
+      "default": "—",
+      "type": "number",
+      "description_zh": "表格的最大高度"
+    },
+    ":indent-size": {
+      "value": "",
+      "description": "Horizontal indentation of tree table",
+      "default": "12",
+      "type": "number",
+      "description_zh": "树表的水平缩进"
+    },
+    ":h-scrollbar-size": {
+      "value": "",
+      "description": "Indicates the horizontal scrollbar's size for the table, used to prevent the horizontal and vertical scrollbar to collapse",
+      "default": "6",
+      "type": "number",
+      "description_zh": "表格的水平滚动条大小，用于防止水平和垂直滚动条重叠"
+    },
+    ":v-scrollbar-size": {
+      "value": "",
+      "description": "Indicates the vertical scrollbar's size for the table, used to prevent the horizontal and vertical scrollbar to collapse",
+      "default": "6",
+      "type": "number",
+      "description_zh": "表格的垂直滚动条大小，用于防止水平和垂直滚动条重叠"
+    },
+    "scrollbar-always-on": {
+      "value": "",
+      "description": "If true, the scrollbar will always be shown instead of when mouse is placed above the table",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "如果为 true，滚动条将始终显示，而不是当鼠标放在表格上方时显示"
+    },
+    ":sort-by": {
+      "value": "",
+      "description": "Sort indicator",
+      "default": "{}",
+      "type": "object<SortBy>",
+      "description_zh": "排序指示器"
+    },
+    ":sort-state": {
+      "value": "",
+      "description": "Multiple sort indicator",
+      "default": "undefined",
+      "type": "object<SortState>",
+      "description_zh": "多重排序指示器"
+    }
+  },
+  "events": [
+    {
+      "name": "column-sort",
+      "description": "Invoked when column sorted",
+      "params": "object<ColumnSortParam>",
+      "description_zh": "当列排序时调用"
+    },
+    {
+      "name": "expanded-rows-change",
+      "description": "Invoked when expanded rows changed",
+      "params": "KeyType[]",
+      "description_zh": "当展开的行更改时调用"
+    },
+    {
+      "name": "end-reached",
+      "description": "Invoked when the end of the table is reached",
+      "params": "—",
+      "description_zh": "当达到表格末尾时调用"
+    },
+    {
+      "name": "scroll",
+      "description": "Invoked after scrolling",
+      "params": "object<ScrollParams>",
+      "description_zh": "滚动后调用"
+    },
+    {
+      "name": "rows-rendered",
+      "description": "Invoked when rows are rendered",
+      "params": "object<RowsRenderedParams>",
+      "description_zh": "当行渲染时调用"
+    },
+    {
+      "name": "row-expand",
+      "description": "Invoked when expand/collapse the tree node by clicking the arrow icon",
+      "params": "object<RowExpandParams>",
+      "description_zh": "当通过点击箭头图标展开/折叠树节点时调用"
+    },
+    {
+      "name": "row-event-handlers",
+      "description": "A collection of handlers attached to each row",
+      "params": "object<RowEventHandlers>",
+      "description_zh": "附加到每一行的处理程序集合"
+    }
+  ],
+  "methods": [
+    {
+      "name": "scrollTo",
+      "description": "Scroll to a given position",
+      "params": "(param: {scrollLeft?: number, scrollTop?: number}) => void",
+      "description_zh": "滚动到指定位置"
+    },
+    {
+      "name": "scrollToLeft",
+      "description": "Scroll to a given horizontal position",
+      "params": "(scrollLeft: number) => void",
+      "description_zh": "滚动到指定水平位置"
+    },
+    {
+      "name": "scrollToTop",
+      "description": "Scroll to a given vertical position",
+      "params": "(scrollTop: number) => void",
+      "description_zh": "滚动到指定垂直位置"
+    },
+    {
+      "name": "scrollToRow",
+      "description": "Scroll to a given row with specified scroll strategy",
+      "params": "(row: number, strategy?: 'center' | 'end' | 'start' | 'smart') => void",
+      "description_zh": "使用指定的滚动策略滚动到指定行"
+    }
+  ],
+  "slots": [
+    {
+      "name": "cell",
+      "description": "Custom cell content",
+      "params": "object<CellSlotProps>",
+      "description_zh": "自定义单元格内容"
+    },
+    {
+      "name": "header",
+      "description": "Custom header content",
+      "params": "object<HeaderSlotProps>",
+      "description_zh": "自定义表头内容"
+    },
+    {
+      "name": "header-cell",
+      "description": "Custom header cell content",
+      "params": "object<HeaderCellSlotProps>",
+      "description_zh": "自定义表头单元格内容"
+    },
+    {
+      "name": "row",
+      "description": "Custom row content",
+      "params": "object<RowSlotProps>",
+      "description_zh": "自定义行内容"
+    },
+    {
+      "name": "footer",
+      "description": "Custom footer content",
+      "params": "—",
+      "description_zh": "自定义页脚内容"
+    },
+    {
+      "name": "empty",
+      "description": "Custom empty content when no data is available",
+      "params": "—",
+      "description_zh": "没有数据时的自定义空内容"
+    },
+    {
+      "name": "overlay",
+      "description": "Custom overlay content",
+      "params": "—",
+      "description_zh": "自定义覆盖层内容"
+    }
+  ],
+  "typeDetail": {
+    "HeaderClassGetter": "Function that returns the class for a header",
+    "HeaderPropsGetter": "Function that returns props for a header",
+    "HeaderCellPropsGetter": "Function that returns props for a header cell",
+    "RowClassGetter": "Function that returns the class for a row",
+    "RowPropsGetter": "Function that returns props for a row",
+    "CellPropsGetter": "Function that returns props for a cell",
+    "DataGetter": "Function that retrieves data from the data source",
+    "KeyType": "string | number | symbol",
+    "SortBy": [
+      {
+        "name": "key",
+        "type": "string",
+        "description": "Column key to sort by"
+      },
+      {
+        "name": "order",
+        "type": "'asc' | 'desc'",
+        "description": "Sort order"
+      }
+    ],
+    "SortState": [
+      {
+        "name": "key",
+        "type": "string",
+        "description": "Column key"
+      },
+      {
+        "name": "order",
+        "type": "'asc' | 'desc'",
+        "description": "Sort order"
+      },
+      {
+        "name": "sorter",
+        "type": "Function",
+        "description": "Sort function"
+      }
+    ],
+    "ColumnSortParam": [
+      {
+        "name": "key",
+        "type": "string",
+        "description": "Column key"
+      },
+      {
+        "name": "order",
+        "type": "'asc' | 'desc'",
+        "description": "Sort order"
+      }
+    ],
+    "ScrollParams": [
+      {
+        "name": "scrollLeft",
+        "type": "number",
+        "description": "Horizontal scroll position"
+      },
+      {
+        "name": "scrollTop",
+        "type": "number",
+        "description": "Vertical scroll position"
+      }
+    ],
+    "RowsRenderedParams": [
+      {
+        "name": "start",
+        "type": "number",
+        "description": "Start index of rendered rows"
+      },
+      {
+        "name": "end",
+        "type": "number",
+        "description": "End index of rendered rows"
+      }
+    ],
+    "RowExpandParams": [
+      {
+        "name": "expanded",
+        "type": "boolean",
+        "description": "Whether the row is expanded"
+      },
+      {
+        "name": "rowKey",
+        "type": "KeyType",
+        "description": "Key of the expanded row"
+      },
+      {
+        "name": "row",
+        "type": "object",
+        "description": "Row data"
+      }
+    ]
+  },
+  "link": "https://element-plus.org/en-US/component/table-v2.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/table-v2.html"
+}

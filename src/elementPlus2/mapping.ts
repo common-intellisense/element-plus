@@ -68,6 +68,7 @@ import ElSubmenu from './submenu.json'
 import ElSwitch from './switch.json'
 import ElTable from './table.json'
 import ElTableColumn from './tableColumn.json'
+import ElTableV2 from './tableV2.json'
 import ElTabPane from './tabPane.json'
 import ElTabs from './tabs.json'
 import ElTag from './tag.json'
@@ -171,6 +172,7 @@ export function getPropsMap() {
     ElTour,
     ElTourStep,
     ElTreeSelect,
+    ElTableV2,
   ]
 }
 
@@ -603,7 +605,11 @@ export function getComponentMap(isZh: boolean) {
           '时间选择器',
           '<el-time-picker></el-time-picker>',
         ],
-
+        [
+          ElTableV2,
+          '虚拟化表格',
+          '<el-table-v2></el-table-v2>',
+        ],
       ]
     : [
         [
@@ -1005,6 +1011,11 @@ export function getComponentMap(isZh: boolean) {
           ElTimePicker,
           'time picker',
           '<el-time-picker></el-time-picker>',
+        ],
+        [
+          ElTableV2,
+          'Virtualized table',
+          '<el-table-v2></el-table-v2>',
         ],
       ]
 }

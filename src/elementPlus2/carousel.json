@@ -3,51 +3,50 @@
   "props": {
     "height": {
       "value": "",
-      "description": "The height of the marquee",
-      "default": "—",
+      "description": "Height of the carousel",
+      "default": "",
       "type": "string",
       "description_zh": "走马灯的高度"
     },
-    ":initial-index": {
+    "initial-index": {
       "value": "",
-      "description": "The index of the slides that are active in the initial state, starting at 0",
-      "default": "—",
+      "description": "Index of the initially active slide (starting from 0)",
+      "default": "0",
       "type": "number",
       "description_zh": "初始状态激活的幻灯片的索引，从 0 开始"
     },
     "trigger": {
       "value": [
-        "click",
         "hover",
-        "focus",
-        "manual"
+        "click"
       ],
-      "description": "How the indicator is triggered",
-      "default": "click",
+      "description": "How indicators are triggered",
+      "default": "hover",
       "type": "string",
       "description_zh": "指示器的触发方式"
     },
     "autoplay": {
       "value": "",
-      "description": "Whether or not to switch automatically",
-      "default": "false",
+      "description": "Whether automatically loop the slides",
+      "default": "true",
       "type": "boolean",
       "description_zh": "是否自动切换"
     },
     ":interval": {
       "value": "",
-      "description": "The time interval between automatic switching, in milliseconds",
-      "default": "—",
+      "description": "Interval of the auto loop, in milliseconds",
+      "default": "3000",
       "type": "number",
       "description_zh": "自动切换的时间间隔，单位为毫秒"
     },
     "indicator-position": {
       "value": [
+        "",
         "outside",
         "none"
       ],
-      "description": "The location of the indicator",
-      "default": "outside | none",
+      "description": "Position of the indicators",
+      "default": "''",
       "type": "string",
       "description_zh": "指示器的位置"
     },
@@ -57,22 +56,33 @@
         "hover",
         "never"
       ],
-      "description": "Toggles when the arrows are displayed",
-      "default": "always | hover | never",
+      "description": "When arrows are shown",
+      "default": "hover",
       "type": "string",
       "description_zh": "切换箭头的显示时机"
     },
     "type": {
-      "value": "",
-      "description": "Types of marquees",
-      "default": "card",
+      "value": [
+        "",
+        "card"
+      ],
+      "description": "Type of the Carousel",
+      "default": "''",
       "type": "string",
       "description_zh": "走马灯的类型"
     },
+    ":cardScale": {
+      "value": "",
+      "description": "When type is card, scaled size of secondary cards",
+      "default": "0.83",
+      "type": "number",
+      "description_zh": "当 type 为 card 时，次要卡片的缩放比例",
+      "version": "2.7.8"
+    },
     "loop": {
       "value": "",
-      "description": "Whether to cycle through the display",
-      "default": "false",
+      "description": "Display the items in loop",
+      "default": "true",
       "type": "boolean",
       "description_zh": "是否循环显示"
     },
@@ -81,43 +91,72 @@
         "horizontal",
         "vertical"
       ],
-      "description": "The direction of the marquee display",
-      "default": "horizontal | vertical",
+      "description": "Display direction",
+      "default": "horizontal",
       "type": "string",
       "description_zh": "走马灯展示的方向"
+    },
+    "pause-on-hover": {
+      "value": "",
+      "description": "Pause autoplay when hover",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "鼠标悬浮时暂停自动切换"
+    },
+    "motion-blur": {
+      "value": "",
+      "description": "Infuse dynamism and smoothness into the carousel",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "为走马灯注入动态流畅度",
+      "version": "2.6.0"
     }
   },
-  "methods": [
+  "events": [
+    {
+      "name": "change",
+      "description": "Triggers when the active slide switches",
+      "params": "(current: number, prev: number) => boolean",
+      "description_zh": "幻灯片切换时触发",
+      "value": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Customize default content",
+      "description_zh": "自定义默认内容"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "activeIndex",
+      "description": "Active slide index",
+      "description_zh": "当前活动幻灯片的索引",
+      "detail": "number",
+      "version": "2.7.8"
+    },
     {
       "name": "setActiveItem",
-      "description": "Manually switch slides",
-      "params": "需要切换的幻灯片的索引，从 0 开始；或相应 `el-carousel-item` 的 `name` 属性值",
+      "description": "Manually switch slide, index of the slide to be switched to, starting from 0; or the name of corresponding el-carousel-item",
       "description_zh": "手动切换幻灯片",
-      "value": ""
+      "detail": "(index: string | number) => void"
     },
     {
       "name": "prev",
       "description": "Switch to the previous slide",
-      "params": "—",
       "description_zh": "切换至上一张幻灯片",
-      "value": ""
+      "detail": "() => void"
     },
     {
       "name": "next",
       "description": "Switch to the next slide",
-      "params": "—",
       "description_zh": "切换至下一张幻灯片",
-      "value": ""
+      "detail": "() => void"
     }
   ],
-  "events": [
-    {
-      "name": "change",
-      "description": "Triggered when the slide is switched",
-      "params": "目前激活的幻灯片的索引，原幻灯片的索引",
-      "description_zh": "幻灯片切换时触发",
-      "value": ""
-    }
+  "suggestions": [
+    "el-carousel-item"
   ],
   "link": "https://element-plus.org/en-US/component/carousel.html",
   "link_zh": "https://element-plus.org/zh-CN/component/carousel.html"

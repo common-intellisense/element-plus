@@ -3,17 +3,33 @@
   "props": {
     "header": {
       "value": "",
-      "description": "Set the header, or pass in the DOM via slot#header",
+      "description": "Title of the card. Also accepts a DOM passed by slot#header",
       "default": "—",
       "type": "string",
       "description_zh": "设置 header，也可以通过 slot#header 传入 DOM"
     },
-    ":body-style": {
+    "footer": {
       "value": "",
-      "description": "Style the body",
-      "default": "{ padding: '20px' }",
+      "description": "Footer of the card. Also accepts a DOM passed by slot#footer",
+      "default": "—",
+      "type": "string",
+      "description_zh": "设置 footer，也可以通过 slot#footer 传入 DOM",
+      "version": "2.4.3"
+    },
+    "：body-style": {
+      "value": "",
+      "description": "CSS style of card body",
+      "default": "—",
       "type": "object",
       "description_zh": "设置 body 的样式"
+    },
+    "body-class": {
+      "value": "",
+      "description": "Custom class name of card body",
+      "default": "—",
+      "type": "string",
+      "description_zh": "自定义 body 的类名",
+      "version": "2.3.10"
     },
     "shadow": {
       "value": [
@@ -21,12 +37,29 @@
         "hover",
         "never"
       ],
-      "description": "Set when the shadows are displayed",
+      "description": "When to show card shadows",
       "default": "always",
       "type": "string",
       "description_zh": "设置阴影显示时机"
     }
   },
+  "slots": [
+    {
+      "name": "default",
+      "description": "Customize default content",
+      "description_zh": "自定义默认内容"
+    },
+    {
+      "name": "header",
+      "description": "Content of the Card header",
+      "description_zh": "卡片标题内容"
+    },
+    {
+      "name": "footer",
+      "description": "Content of the Card footer",
+      "description_zh": "卡片底部内容"
+    }
+  ],
   "link": "https://element-plus.org/en-US/component/card.html",
   "link_zh": "https://element-plus.org/zh-CN/component/card.html",
   "methods": [],

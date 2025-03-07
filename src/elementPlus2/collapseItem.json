@@ -3,28 +3,54 @@
   "props": {
     "name": {
       "value": "",
-      "description": "Unique marker",
+      "description": "Unique identification of the panel",
       "default": "—",
       "type": "string | number",
       "description_zh": "唯一标志符"
     },
     "title": {
       "value": "",
-      "description": "Panel title",
-      "default": "—",
+      "description": "Title of the panel",
+      "default": "''",
       "type": "string",
-      "description_zh": "面板标题",
-      "required": true
+      "description_zh": "面板标题"
+    },
+    "icon": {
+      "value": "",
+      "description": "Icon of the collapse item",
+      "default": "ArrowRight",
+      "type": "string | Component",
+      "description_zh": "折叠面板的图标",
+      "version": "2.8.3"
     },
     "disabled": {
       "value": "",
-      "description": "Whether to disable or not",
+      "description": "Disable the collapse item",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否禁用"
     }
   },
   "events": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Content of Collapse Item",
+      "description_zh": "折叠面板的内容"
+    },
+    {
+      "name": "title",
+      "description": "Content of Collapse Item title",
+      "description_zh": "折叠面板标题区域的内容"
+    },
+    {
+      "name": "icon",
+      "description": "Content of Collapse Item icon",
+      "description_zh": "折叠面板图标区域的内容",
+      "params": "{ isActive: boolean }",
+      "version": "2.8.3"
+    }
+  ],
   "link": "https://element-plus.org/en-US/component/collapse-item.html",
   "link_zh": "https://element-plus.org/zh-CN/component/collapse-item.html",
   "methods": []

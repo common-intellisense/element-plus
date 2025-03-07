@@ -4,7 +4,7 @@
     "value": {
       "value": "",
       "description": "Currently active panel (if in accordion mode, the binding value type needs to be 'string', otherwise 'array')",
-      "default": "—",
+      "default": "",
       "type": "string | array",
       "description_zh": "当前激活的面板(如果是手风琴模式，绑定值类型需要为`string`，否则为`array`)"
     },
@@ -18,7 +18,7 @@
     },
     "accordion": {
       "value": "",
-      "description": "Accordion mode or not",
+      "description": "Whether to activate accordion mode",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否手风琴模式"

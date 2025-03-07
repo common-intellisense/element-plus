@@ -4,56 +4,90 @@
     "label": {
       "value": "",
       "description": "Label text",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "标签文本",
-      "required": true
+      "default": "",
+      "type": "string",
+      "description_zh": "标签文本"
     },
     ":span": {
       "value": "",
-      "description": "The number of columns",
+      "description": "Colspan of column",
       "default": "1",
       "type": "number",
       "description_zh": "列的数量"
     },
-    "labelClassName": {
+    ":rowspan": {
       "value": "",
-      "description": "Customize the tag class name",
-      "default": "—",
+      "description": "The number of rows a cell should span",
+      "default": "1",
+      "type": "number",
+      "description_zh": "单元格行数",
+      "version": "2.8.1"
+    },
+    "width": {
+      "value": "",
+      "description": "Column width, the width of the same column in different rows is set by the max value (If no border, width contains label and content)",
+      "default": "''",
+      "type": "string | number",
+      "description_zh": "列宽度，同一列不同行的宽度按照最大值设置（如果没有设置 border，宽度包含标签和内容）"
+    },
+    "min-width": {
+      "value": "",
+      "description": "Column minimum width, columns with width has a fixed width, while columns with min-width has a width that is distributed in proportion (If no border, width contains label and content)",
+      "default": "''",
+      "type": "string | number",
+      "description_zh": "列最小宽度，与 width 的区别是 width 是固定的，min-width 会把剩余宽度按比例分配给设置了 min-width 的列（如果没有设置 border，宽度包含标签和内容）"
+    },
+    "label-width": {
+      "value": "",
+      "description": "Column label width, if not set, it will be the same as the width of the column. Higher priority than the label-width of Descriptions",
+      "default": "''",
+      "type": "string | number",
+      "description_zh": "列标签宽度，如果未设置，则为列宽度，优先级高于 Descriptions 的 label-width",
+      "version": "2.8.8"
+    },
+    "align": {
+      "value": ["left", "center", "right"],
+      "description": "Column content alignment (If no border, effective for both label and content)",
+      "default": "left",
       "type": "string",
-      "description_zh": "自定义标签类名"
+      "description_zh": "列内容对齐方式（如果没有设置 border，对标签和内容均生效）"
     },
-    "contentClassName": {
-      "value": "",
-      "description": "Custom content class name",
-      "default": "—",
+    "label-align": {
+      "value": ["left", "center", "right"],
+      "description": "Column label alignment, if omitted, the value of the above align attribute will be applied (If no border, please use align attribute)",
+      "default": "''",
       "type": "string",
-      "description_zh": "自定义内容类名"
+      "description_zh": "列标签对齐方式，如果未设置，则使用 align 的值（如果没有设置 border，请使用 align 属性）"
     },
-    ":labelStyle": {
+    "class-name": {
       "value": "",
-      "description": "Customize label styles",
-      "default": "—",
-      "type": "object",
-      "description_zh": "自定义标签样式"
+      "description": "Column content custom class name",
+      "default": "''",
+      "type": "string",
+      "description_zh": "列内容自定义类名"
     },
-    ":contentStyle": {
+    "label-class-name": {
       "value": "",
-      "description": "Customize content styles",
-      "default": "—",
-      "type": "object",
-      "description_zh": "自定义内容样式"
+      "description": "Column label custom class name",
+      "default": "''",
+      "type": "string",
+      "description_zh": "列标签自定义类名"
     }
   },
   "slots": [
     {
+      "name": "default",
+      "description": "Customize default content",
+      "description_zh": "自定义默认内容"
+    },
+    {
       "name": "label",
-      "description": "Customize the label text",
-      "description_zh": "自定义标签文本"
+      "description": "Custom label",
+      "description_zh": "自定义标签"
     }
   ],
   "events": [],
-  "link": "https://element-plus.org/en-US/component/description-item.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/description-item.html",
+  "link": "https://element-plus.org/en-US/component/descriptions-item.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/descriptions-item.html",
   "methods": []
 }

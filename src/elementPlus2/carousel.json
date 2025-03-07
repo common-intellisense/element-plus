@@ -8,7 +8,7 @@
       "type": "string",
       "description_zh": "走马灯的高度"
     },
-    "initial-index": {
+    ":initial-index": {
       "value": "",
       "description": "Index of the initially active slide (starting from 0)",
       "default": "0",

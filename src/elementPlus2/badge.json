@@ -8,7 +8,7 @@
       "type": "string | number",
       "description_zh": "显示值"
     },
-    "max": {
+    ":max": {
       "value": "",
       "description": "Maximum value, shows {max}+ when exceeded. Only works if value is a number",
       "default": "99",

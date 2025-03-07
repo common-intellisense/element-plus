@@ -2,55 +2,53 @@
   "name": "ElSkeleton",
   "props": {
     "animated": {
-      "value": [
-        "true",
-        "false"
-      ],
-      "description": "Whether or not to use animations",
-      "default": "true | false",
+      "value": "",
+      "description": "Whether showing the animation",
+      "default": "false",
       "type": "boolean",
       "description_zh": "是否使用动画"
     },
     ":count": {
       "value": "",
-      "description": "For as many templates as possible to render, it is recommended to use the smallest number possible",
-      "default": "integer",
+      "description": "How many fake items to render to the DOM",
+      "default": "1",
       "type": "number",
-      "description_zh": "渲染多少个 template, 建议使用尽可能小的数字",
-      "required": true
+      "description_zh": "渲染多少个 template, 建议使用尽可能小的数字"
     },
-    ":loading": {
+    "loading": {
       "value": "",
-      "description": "Whether to display the skeleton screen",
-      "default": "true",
+      "description": "Whether showing the real DOM",
+      "default": "false",
       "type": "boolean",
       "description_zh": "是否显示 skeleton 骨架屏"
     },
     ":rows": {
       "value": "",
-      "description": "The number of skeletal screen paragraphs",
-      "default": "正整数",
+      "description": "Numbers of the row, only useful when no template slot were given",
+      "default": "3",
       "type": "number",
       "description_zh": "骨架屏段落数量"
     },
     ":throttle": {
       "value": "",
-      "description": "The time it takes for a deferred placeholder DOM to render, in milliseconds",
-      "default": "正整数",
-      "type": "number",
+      "description": "Rendering delay in milliseconds. Numbers represent delayed display, and can also be set to delay hide, for example { leading: 500, trailing: 500 }. When needing to control the initial value of loading, you can set { initVal: true }",
+      "default": "0",
+      "type": "number | { leading?: number, trailing?: number, initVal?: boolean }",
       "description_zh": "延迟占位 DOM 渲染的时间, 单位是毫秒"
     }
   },
   "slots": [
     {
       "name": "default",
-      "description": "Used to show the real UI",
-      "description_zh": "用来展示真实 UI"
+      "description": "Real rendering DOM",
+      "description_zh": "用来展示真实 UI",
+      "params": "$attrs"
     },
     {
       "name": "template",
-      "description": "Used to display custom placeholders",
-      "description_zh": "用来展示自定义占位符"
+      "description": "Content as rendering skeleton template",
+      "description_zh": "用来展示自定义占位符",
+      "params": "{ key: number }"
     }
   ],
   "events": [],

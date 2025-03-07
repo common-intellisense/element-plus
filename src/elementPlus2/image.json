@@ -3,105 +3,224 @@
   "props": {
     "src": {
       "value": "",
-      "description": "Image source, same as original",
-      "default": "—",
+      "description": "Image source, same as native",
+      "default": "''",
       "type": "string",
       "description_zh": "图片源，同原生",
       "required": true
     },
     "fit": {
       "value": [
+        "",
         "fill",
         "contain",
         "cover",
         "none",
         "scale-down"
       ],
-      "description": "Determine how the image fits into the container box, the same as native [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)",
-      "default": "fill | contain | cover | none | scale-down",
+      "description": "Indicate how the image should be resized to fit its container, same as object-fit",
+      "default": "''",
       "type": "string",
-      "description_zh": "确定图片如何适应容器框，同原生 [object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)"
+      "description_zh": "确定图片如何适应容器框，同原生 object-fit"
     },
     "alt": {
       "value": "",
-      "description": "Native alt",
-      "default": "-",
+      "description": "Native attribute alt",
+      "default": "—",
       "type": "string",
       "description_zh": "原生 alt",
       "required": true
     },
-    "referrer-policy": {
+    "referrerpolicy": {
       "value": "",
-      "description": "Native referrerPolicy",
-      "default": "-",
+      "description": "Native attribute referrerPolicy",
+      "default": "—",
       "type": "string",
       "description_zh": "原生 referrerPolicy"
     },
     "lazy": {
       "value": "",
-      "description": "Whether to enable lazy loading",
+      "description": "Whether to use lazy load",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否开启懒加载"
     },
     "scroll-container": {
       "value": "",
-      "description": "After lazy loading is enabled, listen to the container for scroll events",
+      "description": "The container to add scroll listener when using lazy load",
       "default": "—",
       "type": "string | HTMLElement",
       "description_zh": "开启懒加载后，监听 scroll 事件的容器"
     },
     ":preview-src-list": {
       "value": "",
-      "description": "Turn on the image preview feature",
-      "default": "—",
-      "type": "Array",
+      "description": "Allow big image preview",
+      "default": "[]",
+      "type": "string[]",
       "description_zh": "开启图片预览功能"
     },
     ":z-index": {
       "value": "",
-      "description": "Set the z-index of the image preview",
+      "description": "Set image preview z-index",
       "default": "—",
       "type": "number",
       "description_zh": "设置图片预览的 z-index"
     },
     ":initial-index": {
       "value": "",
-      "description": "Image preview: initial image index",
-      "default": "—",
+      "description": "Initial preview image index, less than the length of url-list",
+      "default": "0",
       "type": "number",
-      "description_zh": "图片预览初始图片index"
+      "description_zh": "图片预览初始图片索引"
+    },
+    "hide-on-click-modal": {
+      "value": "",
+      "description": "When enabling preview, use this flag to control whether clicking on backdrop can exit preview mode",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "在启用预览功能时点击遮罩层是否可以退出预览模式"
+    },
+    "loading": {
+      "value": ["eager", "lazy"],
+      "description": "Indicates how the browser should load the image, same as native",
+      "default": "—",
+      "type": "string",
+      "description_zh": "指示浏览器应如何加载图像，同原生",
+      "version": "2.2.3"
+    },
+    "crossorigin": {
+      "value": ["", "anonymous", "use-credentials"],
+      "description": "Native attribute crossorigin",
+      "default": "—",
+      "type": "string",
+      "description_zh": "原生 crossorigin 属性"
+    },
+    "close-on-press-escape": {
+      "value": "",
+      "description": "Whether the image-viewer can be closed by pressing ESC",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否可以通过按下 ESC 关闭图像查看器"
+    },
+    "preview-teleported": {
+      "value": "",
+      "description": "Whether to append image-viewer to body. A nested parent element attribute transform should have this attribute set to true",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "是否将图像查看器添加到 body。嵌套的父元素属性 transform 应该将此属性设置为 true"
+    },
+    "infinite": {
+      "value": "",
+      "description": "Whether the viewer preview is infinite",
+      "default": "true",
+      "type": "boolean",
+      "description_zh": "是否无限循环预览"
+    },
+    ":zoom-rate": {
+      "value": "",
+      "description": "The zoom rate of the image viewer zoom event",
+      "default": "1.2",
+      "type": "number",
+      "description_zh": "图像查看器缩放事件的缩放比率"
+    },
+    ":min-scale": {
+      "value": "",
+      "description": "The min scale of the image viewer zoom event",
+      "default": "0.2",
+      "type": "number",
+      "description_zh": "图像查看器缩放事件的最小缩放比例",
+      "version": "2.4.0"
+    },
+    ":max-scale": {
+      "value": "",
+      "description": "The max scale of the image viewer zoom event",
+      "default": "7",
+      "type": "number",
+      "description_zh": "图像查看器缩放事件的最大缩放比例",
+      "version": "2.4.0"
     }
   },
   "events": [
     {
       "name": "load",
-      "description": "The image is triggered when it loads successfully",
-      "params": "(e: Event)",
+      "description": "Same as native load",
+      "params": "(e: Event) => void",
       "description_zh": "图片加载成功触发",
       "value": ""
     },
     {
       "name": "error",
-      "description": "Triggered when the image fails to load",
-      "params": "(e: Error)",
+      "description": "Same as native error",
+      "params": "(e: Event) => void",
       "description_zh": "图片加载失败触发",
+      "value": ""
+    },
+    {
+      "name": "switch",
+      "description": "Trigger when switching images",
+      "params": "(index: number) => void",
+      "description_zh": "切换图片时触发",
+      "value": ""
+    },
+    {
+      "name": "close",
+      "description": "Trigger when clicking on close button or when hide-on-click-modal enabled clicking on backdrop",
+      "params": "() => void",
+      "description_zh": "关闭图片预览时触发",
+      "value": ""
+    },
+    {
+      "name": "show",
+      "description": "Trigger when the viewer displays",
+      "params": "() => void",
+      "description_zh": "图片预览显示时触发",
       "value": ""
     }
   ],
   "slots": [
     {
       "name": "placeholder",
-      "description": "Placeholder content that isn't loaded in the image",
+      "description": "Custom placeholder content when image hasn't loaded yet",
       "description_zh": "图片未加载的占位内容"
     },
     {
       "name": "error",
-      "description": "Failed to load content",
+      "description": "Custom image load failed content",
       "description_zh": "加载失败的内容"
+    },
+    {
+      "name": "viewer",
+      "description": "Custom content when image preview",
+      "description_zh": "图片预览的自定义内容"
+    },
+    {
+      "name": "progress",
+      "description": "Custom progress content when image preview",
+      "description_zh": "预览图片时的自定义进度内容",
+      "params": "{ activeIndex: number, total: number }",
+      "version": "2.9.4"
+    },
+    {
+      "name": "toolbar",
+      "description": "Custom toolbar content when image preview",
+      "description_zh": "预览图片时的自定义工具栏内容",
+      "params": "{actions: (action: ImageViewerAction, options?: ImageViewerActionOptions ) => void, prev: ()=> void, next: () => void, reset: () => void, activeIndex: number }",
+      "version": "2.9.4"
     }
   ],
+  "exposed": [
+    {
+      "name": "showPreview",
+      "description": "Manually open preview big image",
+      "description_zh": "手动打开预览大图",
+      "detail": "() => void",
+      "version": "2.9.4"
+    }
+  ],
+  "typeDetail": {
+    "ImageViewerAction": "'zoomIn' | 'zoomOut' | 'clockwise' | 'anticlockwise'",
+    "ImageViewerActionOptions": "{enableTransition?: boolean, zoomRate?: number, rotateDeg?: number}"
+  },
   "link": "https://element-plus.org/en-US/component/image.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/image.html",
-  "methods": []
+  "link_zh": "https://element-plus.org/zh-CN/component/image.html"
 }

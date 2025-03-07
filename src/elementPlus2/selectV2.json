@@ -253,7 +253,7 @@
       "default": "true",
       "type": "boolean"
     },
-    "offset": {
+    ":offset": {
       "value": "",
       "description": "The offset of the drop-down box",
       "description_zh": "下拉框的偏移量",
@@ -293,7 +293,7 @@
       "type": "boolean",
       "version": "2.3.0"
     },
-    "max-collapse-tags": {
+    ":max-collapse-tags": {
       "value": "",
       "description": "Maximum number of tags displayed when tags are collapsed",
       "description_zh": "多选时最多显示的 tag 个数",

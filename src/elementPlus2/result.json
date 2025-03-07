@@ -3,16 +3,16 @@
   "props": {
     "title": {
       "value": "",
-      "description": "title",
-      "default": "—",
+      "description": "Title of result",
+      "default": "''",
       "type": "string",
       "description_zh": "标题",
       "required": true
     },
     "sub-title": {
       "value": "",
-      "description": "Secondary headings",
-      "default": "—",
+      "description": "Sub title of result",
+      "default": "''",
       "type": "string",
       "description_zh": "二级标题"
     },
@@ -23,8 +23,8 @@
         "info",
         "error"
       ],
-      "description": "Icon type",
-      "default": "success | warning | info | error",
+      "description": "Icon type of result",
+      "default": "info",
       "type": "string",
       "description_zh": "图标类型"
     }
@@ -32,22 +32,22 @@
   "slots": [
     {
       "name": "icon",
-      "description": "Customize the icon",
+      "description": "Content as result icon",
       "description_zh": "自定义图标"
     },
     {
       "name": "title",
-      "description": "Customize the title",
+      "description": "Content as result title",
       "description_zh": "自定义标题"
     },
     {
-      "name": "subTitle",
-      "description": "Customize secondary titles",
+      "name": "sub-title",
+      "description": "Content as result sub title",
       "description_zh": "自定义二级标题"
     },
     {
       "name": "extra",
-      "description": "Customize the bottom extra area",
+      "description": "Content as result extra area",
       "description_zh": "自定义底部额外区域"
     }
   ],

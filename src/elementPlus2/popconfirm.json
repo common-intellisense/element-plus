@@ -58,7 +58,7 @@
       "type": "boolean",
       "description_zh": "是否隐藏 Icon"
     },
-    "hide-after": {
+    ":hide-after": {
       "value": "",
       "description": "Delay of disappear, in millisecond",
       "default": "200",

@@ -150,7 +150,7 @@
       "type": "boolean",
       "description_zh": "是否触发校验事件"
     },
-    "max-collapse-tags": {
+    ":max-collapse-tags": {
       "value": "",
       "description": "The maximum number of tags to display Only effective when collapse-tags is set to true",
       "default": "1",

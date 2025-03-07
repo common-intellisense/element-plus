@@ -6,8 +6,7 @@
       "description": "Binding value",
       "default": "—",
       "type": "Date",
-      "description_zh": "绑定值",
-      "$model": true
+      "description_zh": "绑定值"
     },
     ":range": {
       "value": "",

@@ -64,7 +64,7 @@
       "description_zh": "打开引导",
       "required": true
     },
-    "current": {
+    ":current": {
       "value": "",
       "description": "what is the current step",
       "default": "—",
@@ -78,7 +78,7 @@
       "type": "boolean | ScrollIntoViewOptions",
       "description_zh": "是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数"
     },
-    "z-index": {
+    ":z-index": {
       "value": "",
       "description": "Tour's zIndex",
       "default": "2001",

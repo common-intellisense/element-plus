@@ -87,14 +87,14 @@
       "type": "string",
       "description_zh": "Dialog 的自定义类名"
     },
-    "open-delay": {
+    ":open-delay": {
       "value": "",
       "description": "Time(milliseconds) before open",
       "default": "0",
       "type": "number",
       "description_zh": "Dialog 打开的延时时间，单位毫秒"
     },
-    "close-delay": {
+    ":close-delay": {
       "value": "",
       "description": "Time(milliseconds) before close",
       "default": "0",
@@ -164,7 +164,7 @@
       "type": "string / Component",
       "description_zh": "是否水平垂直对齐对话框"
     },
-    "z-index": {
+    ":z-index": {
       "value": "",
       "description": "Same as z-index in native CSS, z-order of dialog",
       "default": "-",

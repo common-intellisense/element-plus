@@ -66,7 +66,7 @@
       "type": "boolean",
       "description_zh": "状态是否可见"
     },
-    "offset": {
+    ":offset": {
       "value": "",
       "description": "The offset of the occurrence position",
       "default": "0",
@@ -115,28 +115,28 @@
       "type": "string | object",
       "description_zh": "为 popper 自定义样式"
     },
-    "show-after": {
+    ":show-after": {
       "value": "",
       "description": "Delay of appearance, in millisecond",
       "default": "0",
       "type": "number",
       "description_zh": "在触发后多久显示内容，单位毫秒"
     },
-    "hide-after": {
+    ":hide-after": {
       "value": "",
       "description": "Delay of disappear, in millisecond",
       "default": "200",
       "type": "number",
       "description_zh": "延迟关闭，单位毫秒"
     },
-    "auto-close": {
+    ":auto-close": {
       "value": "",
       "description": "Timeout in milliseconds to hide tooltip",
       "default": "0",
       "type": "number",
       "description_zh": "tooltip 出现后自动隐藏延时，单位毫秒"
     },
-    "open-delay": {
+    ":open-delay": {
       "value": "",
       "description": "The display delay in milliseconds when the trigger mode is Hover",
       "default": "—",

@@ -181,7 +181,7 @@
       "type": "boolean",
       "description_zh": "是否禁用"
     },
-    "limit": {
+    ":limit": {
       "value": "",
       "description": "Maximum number of uploads allowed",
       "default": "—",

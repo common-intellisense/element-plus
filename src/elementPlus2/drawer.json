@@ -36,14 +36,14 @@
       "type": "boolean",
       "description_zh": "是否可以通过按下 ESC 关闭 Drawer"
     },
-    "open-delay": {
+    ":open-delay": {
       "value": "",
       "description": "Time(milliseconds) before open",
       "default": "0",
       "type": "number",
       "description_zh": "Drawer 打开的延时时间，单位毫秒"
     },
-    "close-delay": {
+    ":close-delay": {
       "value": "",
       "description": "Time(milliseconds) before close",
       "default": "0",
@@ -139,7 +139,7 @@
       "type": "string",
       "description_zh": "遮罩层的自定义类名"
     },
-    "z-index": {
+    ":z-index": {
       "value": "",
       "description": "Set z-index",
       "default": "—",

@@ -1,56 +1,111 @@
 {
-  "name": "ElSubmenu",
+  "name": "ElSubMenu",
   "props": {
     "index": {
       "value": "",
-      "description": "Unique logo",
+      "description": "unique identification",
       "default": "—",
-      "type": "string | null",
+      "type": "string",
       "description_zh": "唯一标志",
       "required": true
     },
     "popper-class": {
       "value": "",
-      "description": "Custom class name for the pop-up menu",
+      "description": "custom class name for the popup menu",
       "default": "—",
       "type": "string",
       "description_zh": "弹出菜单的自定义类名"
     },
     ":show-timeout": {
       "value": "",
-      "description": "Expand the delay of the sub-menu",
+      "description": "timeout before showing a sub-menu(inherit `show-timeout` of the menu by default.)",
       "default": "—",
       "type": "number",
-      "description_zh": "展开 sub-menu 的延时"
+      "description_zh": "展开 sub-menu 的延时（默认继承自 menu 的 show-timeout）"
     },
     ":hide-timeout": {
       "value": "",
-      "description": "Collapse the delay for the sub-menu",
+      "description": "timeout before hiding a sub-menu(inherit `hide-timeout` of the menu by default.)",
       "default": "—",
       "type": "number",
-      "description_zh": "收起 sub-menu 的延时"
+      "description_zh": "收起 sub-menu 的延时（默认继承自 menu 的 hide-timeout）"
     },
     "disabled": {
       "value": "",
-      "description": "Whether to disable or not",
-      "default": "false",
+      "description": "whether the sub-menu is disabled",
+      "default": false,
       "type": "boolean",
       "description_zh": "是否禁用"
     },
-    "popper-append-to-body": {
+    "teleported": {
       "value": "",
-      "description": "Whether to insert a pop-up menu into the body element. If you're having trouble positioning the menu, you can try modifying the attribute",
-      "default": "false",
+      "description": "whether popup menu is teleported to the body, the default is true for the level one SubMenu, false for other SubMenus",
+      "default": "undefined",
       "type": "boolean",
-      "description_zh": "是否将弹出菜单插入至 body 元素。在菜单的定位出现问题时，可尝试修改该属性"
+      "description_zh": "是否将弹出菜单插入至 body 元素，对于嵌套的 SubMenu，默认 true 用于一级 SubMenu，false 用于其他 SubMenu"
+    },
+    ":popper-offset": {
+      "value": "",
+      "description": "offset of the popper (overrides the `popper` of menu)",
+      "default": "—",
+      "type": "number",
+      "description_zh": "弹出菜单的偏移量（覆盖 menu 的 popper-offset 属性）"
+    },
+    "expand-close-icon": {
+      "value": "",
+      "description": "Icon when menu are expanded and submenu are closed, `expand-close-icon` and `expand-open-icon` need to be passed together to take effect",
+      "default": "—",
+      "type": "string | Component",
+      "description_zh": "菜单展开且子菜单关闭时的图标，`expand-close-icon` 和 `expand-open-icon` 需要一起传入才会生效"
+    },
+    "expand-open-icon": {
+      "value": "",
+      "description": "Icon when menu are expanded and submenu are opened, `expand-open-icon` and `expand-close-icon` need to be passed together to take effect",
+      "default": "—",
+      "type": "string | Component",
+      "description_zh": "菜单展开且子菜单打开时的图标，`expand-open-icon` 和 `expand-close-icon` 需要一起传入才会生效"
+    },
+    "collapse-close-icon": {
+      "value": "",
+      "description": "Icon when menu are collapsed and submenu are closed, `collapse-close-icon` and `collapse-open-icon` need to be passed together to take effect",
+      "default": "—",
+      "type": "string | Component",
+      "description_zh": "菜单收起且子菜单关闭时的图标，`collapse-close-icon` 和 `collapse-open-icon` 需要一起传入才会生效"
+    },
+    "collapse-open-icon": {
+      "value": "",
+      "description": "Icon when menu are collapsed and submenu are opened, `collapse-open-icon` and `collapse-close-icon` need to be passed together to take effect",
+      "default": "—",
+      "type": "string | Component",
+      "description_zh": "菜单收起且子菜单打开时的图标，`collapse-open-icon` 和 `collapse-close-icon` 需要一起传入才会生效"
     }
   },
   "events": [],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "customize default content",
+      "description_zh": "自定义默认内容"
+    },
+    {
+      "name": "title",
+      "description": "customize title content",
+      "description_zh": "自定义标题内容"
+    }
+  ],
   "suggestions": [
     "el-menu-item",
-    "el-submenu"
+    "el-sub-menu",
+    "el-menu-item-group"
   ],
-  "link": "https://element-plus.org/en-US/component/submenu.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/submenu.html",
-  "methods": []
+  "typeDetail": {
+    "MenuSelectEvent": "(index: string, indexPath: string[], item: MenuItemClicked, routerResult?: Promise<void | NavigationFailure>) => void",
+    "MenuOpenEvent": "(index: string, indexPath: string[]) => void",
+    "MenuCloseEvent": "(index: string, indexPath: string[]) => void",
+    "MenuItemRegistered": "{ index: string, indexPath: string[], active: boolean }",
+    "MenuItemClicked": "{ index: string, indexPath: string[], route?: RouteLocationRaw }"
+  },
+  "link": "https://element-plus.org/en-US/component/menu.html#submenu-api",
+  "link_zh": "https://element-plus.org/zh-CN/component/menu.html#submenu-api"
 }

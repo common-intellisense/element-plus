@@ -6,10 +6,28 @@
         "horizontal",
         "vertical"
       ],
-      "description": "Sets the direction of the dividing line",
-      "default": "horizontal | vertical",
+      "description": "Set divider's direction",
+      "default": "horizontal",
       "type": "string",
       "description_zh": "设置分割线方向"
+    },
+    "border-style": {
+      "value": [
+        "none",
+        "solid",
+        "hidden",
+        "dashed",
+        "dotted",
+        "double",
+        "groove",
+        "ridge",
+        "inset",
+        "outset"
+      ],
+      "description": "Set the style of divider",
+      "default": "solid",
+      "type": "string",
+      "description_zh": "设置分隔符样式"
     },
     "content-position": {
       "value": [
@@ -17,12 +35,19 @@
         "right",
         "center"
       ],
-      "description": "Set the location of the dividing line copy",
-      "default": "left | right | center",
+      "description": "the position of the customized content on the divider line",
+      "default": "center",
       "type": "string",
       "description_zh": "设置分割线文案的位置"
     }
   },
+  "slots": [
+    {
+      "name": "default",
+      "description": "customized content on the divider line",
+      "description_zh": "分隔线中自定义的内容"
+    }
+  ],
   "events": [],
   "link": "https://element-plus.org/en-US/component/divider.html",
   "link_zh": "https://element-plus.org/zh-CN/component/divider.html",

@@ -4,7 +4,7 @@
     "timestamp": {
       "value": "",
       "description": "timestamp content",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "时间戳内容",
       "foreach": true,
@@ -43,7 +43,7 @@
         "info"
       ],
       "description": "node type",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "节点类型"
     },
@@ -55,7 +55,7 @@
         "rgb"
       ],
       "description": "background color of node",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "节点背景色"
     },

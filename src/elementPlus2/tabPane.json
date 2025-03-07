@@ -3,37 +3,37 @@
   "props": {
     "label": {
       "value": "",
-      "description": "Tab title",
-      "default": "—",
+      "description": "title of the tab",
+      "default": "",
       "type": "string",
       "description_zh": "选项卡标题",
       "required": true
     },
     "disabled": {
       "value": "",
-      "description": "Whether to disable or not",
+      "description": "whether Tab is disabled",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否禁用"
     },
     "name": {
       "value": "",
-      "description": "The identifier corresponding to the value of the tab binding, which represents the tab alias",
-      "default": "该选项卡在选项卡列表中的序数值，第一个选项卡为 '0'",
+      "description": "identifier corresponding to the name of Tabs, representing the alias of the tab-pane, the default is ordinal number of the tab-pane in the sequence, e.g. the first tab-pane is '0'",
+      "default": "",
       "type": "string | number",
       "description_zh": "与选项卡绑定值 value 对应的标识符，表示选项卡别名",
       "required": true
     },
     "closable": {
       "value": "",
-      "description": "Whether the label can be closed",
+      "description": "whether Tab is closable",
       "default": "false",
       "type": "boolean",
       "description_zh": "标签是否可关闭"
     },
     "lazy": {
       "value": "",
-      "description": "tag whether the rendering is delayed",
+      "description": "whether Tab is lazily rendered",
       "default": "false",
       "type": "boolean",
       "description_zh": "标签是否延迟渲染"
@@ -41,13 +41,18 @@
   },
   "slots": [
     {
-      "value": "label",
+      "name": "default",
+      "description": "Tab-pane's content",
+      "description_zh": "Tab-pane 的内容"
+    },
+    {
+      "name": "label",
       "description": "Tab-pane's label",
       "description_zh": "Tab-pane 的标题内容"
     }
   ],
   "events": [],
-  "link": "https://element-plus.org/en-US/component/tab-pane.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/tab-pane.html",
+  "link": "https://element-plus.org/en-US/component/tabs.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/tabs.html",
   "methods": []
 }

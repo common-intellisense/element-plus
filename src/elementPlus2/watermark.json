@@ -1,0 +1,133 @@
+{
+  "name": "ElWatermark",
+  "version": "2.4.0",
+  "props": {
+    ":width": {
+      "value": "",
+      "description": "The width of the watermark, the default value of `content` is its own width",
+      "default": "120",
+      "type": "number",
+      "description_zh": "水印的宽度，`content` 的默认值是其自身的宽度"
+    },
+    ":height": {
+      "value": "",
+      "description": "The height of the watermark, the default value of `content` is its own height",
+      "default": "64",
+      "type": "number",
+      "description_zh": "水印的高度，`content` 的默认值是其自身的高度"
+    },
+    ":rotate": {
+      "value": "",
+      "description": "When the watermark is drawn, the rotation Angle, unit `°`",
+      "default": "-22",
+      "type": "number",
+      "description_zh": "水印绘制时的旋转角度，单位 `°`"
+    },
+    ":zIndex": {
+      "value": "",
+      "description": "The z-index of the appended watermark element",
+      "default": "9",
+      "type": "number",
+      "description_zh": "追加的水印元素的 z-index"
+    },
+    "image": {
+      "value": "",
+      "description": "Image source, it is recommended to export 2x or 3x image, high priority",
+      "default": "—",
+      "type": "string",
+      "description_zh": "图片源，建议导出 2x 或 3x 图片，优先级高"
+    },
+    "content": {
+      "value": "",
+      "description": "Watermark text content",
+      "default": "—",
+      "type": "string | string[]",
+      "description_zh": "水印文字内容"
+    },
+    ":font": {
+      "value": "",
+      "description": "Text style",
+      "default": "{ color: 'rgba(0,0,0,.15)', fontSize: 16, fontWeight: 'normal', fontFamily: 'sans-serif', fontStyle: 'normal', textAlign: 'center', textBaseline: 'hanging' }",
+      "type": "object",
+      "description_zh": "文字样式"
+    },
+    ":gap": {
+      "value": "",
+      "description": "The spacing between watermarks",
+      "default": "[100, 100]",
+      "type": "[number, number]",
+      "description_zh": "水印之间的间距"
+    },
+    ":offset": {
+      "value": "",
+      "description": "The offset of the watermark from the upper left corner of the container. The default is `gap/2`",
+      "default": "[gap[0]/2, gap[1]/2]",
+      "type": "[number, number]",
+      "description_zh": "水印距离容器左上角的偏移量。默认值为 `gap/2`"
+    }
+  },
+  "typeDetail": {
+    "Font": [
+      {
+        "name": "color",
+        "description": "font color",
+        "type": "string",
+        "description_zh": "字体颜色",
+        "default": "rgba(0,0,0,.15)"
+      },
+      {
+        "name": "fontSize",
+        "description": "font size",
+        "type": "number",
+        "description_zh": "字体大小",
+        "default": "16"
+      },
+      {
+        "name": "fontWeight",
+        "description": "font weight",
+        "type": "'normal' | 'light' | 'weight' | number",
+        "description_zh": "字体粗细",
+        "default": "normal"
+      },
+      {
+        "name": "fontFamily",
+        "description": "font family",
+        "type": "string",
+        "description_zh": "字体类型",
+        "default": "sans-serif"
+      },
+      {
+        "name": "fontStyle",
+        "description": "font style",
+        "type": "'none' | 'normal' | 'italic' | 'oblique'",
+        "description_zh": "字体样式",
+        "default": "normal"
+      },
+      {
+        "name": "textAlign",
+        "description": "text align",
+        "type": "'left' | 'right' | 'center' | 'start' | 'end'",
+        "description_zh": "文字对齐方式",
+        "default": "center"
+      },
+      {
+        "name": "textBaseline",
+        "description": "text baseline",
+        "type": "'top' | 'hanging' | 'middle' | 'alphabetic' | 'ideographic' | 'bottom'",
+        "description_zh": "文字基线",
+        "default": "hanging"
+      }
+    ]
+  },
+  "slots": [
+    {
+      "name": "default",
+      "description": "container for adding watermark",
+      "description_zh": "添加水印的容器"
+    }
+  ],
+  "events": [],
+  "link": "https://element-plus.org/en-US/component/watermark.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/watermark.html",
+  "methods": []
+}

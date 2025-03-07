@@ -11,7 +11,7 @@
     "title": {
       "value": "",
       "description": "Title of the panel",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "面板标题"
     },

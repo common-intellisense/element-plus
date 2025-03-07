@@ -4,7 +4,7 @@
     "src": {
       "value": "",
       "description": "Image source, same as native",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "图片源，同原生",
       "required": true
@@ -19,7 +19,7 @@
         "scale-down"
       ],
       "description": "Indicate how the image should be resized to fit its container, same as object-fit",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "确定图片如何适应容器框，同原生 object-fit"
     },

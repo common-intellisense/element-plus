@@ -24,7 +24,7 @@
         "small"
       ],
       "description": "size of component",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "组件大小"
     },

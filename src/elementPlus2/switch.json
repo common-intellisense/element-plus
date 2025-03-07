@@ -42,7 +42,7 @@
         "small"
       ],
       "description": "size of Switch",
-      "default": "''",
+      "default": "",
       "type": "enum",
       "description_zh": "switch 的尺寸"
     },
@@ -93,14 +93,14 @@
     "active-text": {
       "value": "",
       "description": "text displayed when in `on` state",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "switch 打开时的文字描述"
     },
     "inactive-text": {
       "value": "",
       "description": "text displayed when in `off` state",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "switch 关闭时的文字描述"
     },
@@ -178,7 +178,7 @@
     "border-color": {
       "value": "",
       "description": "border color of the switch ( use CSS var `--el-switch-border-color` instead )",
-      "default": "''",
+      "default": "",
       "type": "string",
       "deprecated": true,
       "description_zh": "switch 的边框颜色（使用 CSS 变量 `--el-switch-border-color` 代替）"

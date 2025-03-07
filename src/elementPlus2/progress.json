@@ -62,7 +62,7 @@
     "color": {
       "value": "",
       "description": "Background color of progress bar. Overrides status prop",
-      "default": "''",
+      "default": "",
       "type": "string | function(percentage: number) => string | { color: string; percentage: number }[]",
       "description_zh": "进度条背景色（会覆盖 status 状态颜色）"
     },

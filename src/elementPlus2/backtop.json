@@ -3,35 +3,50 @@
   "props": {
     "target": {
       "value": "",
-      "description": "The object that triggers the scroll",
-      "default": "",
+      "description": "the target to trigger scroll.",
+      "default": "—",
       "type": "string",
       "description_zh": "触发滚动的对象"
     },
     ":visibility-height": {
       "value": "",
-      "description": "The roll height does not appear until this parameter value is reached",
-      "default": "",
+      "description": "the button will not show until the scroll height reaches this value.",
+      "default": 200,
       "type": "number",
       "description_zh": "滚动高度达到此参数值才出现"
     },
     ":right": {
       "value": "",
-      "description": "Controls where it is displayed, from the right margin of the page",
-      "default": "",
+      "description": "right distance.",
+      "default": 40,
       "type": "number",
       "description_zh": "控制其显示位置, 距离页面右边距"
     },
     ":bottom": {
       "value": "",
-      "description": "Controls where it is displayed, from the bottom of the page",
-      "default": "",
+      "description": "bottom distance.",
+      "default": 40,
       "type": "number",
       "description_zh": "控制其显示位置, 距离页面底部距离"
     }
   },
-  "events": [],
+  "events": [
+    {
+      "name": "click",
+      "description": "triggers when click.",
+      "params": "(evt: MouseEvent) => void",
+      "description_zh": "点击按钮时触发",
+      "value": ""
+    }
+  ],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "customize default content.",
+      "description_zh": "自定义默认内容"
+    }
+  ],
   "link": "https://element-plus.org/en-US/component/backtop.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/backtop.html",
-  "methods": []
+  "link_zh": "https://element-plus.org/zh-CN/component/backtop.html"
 }

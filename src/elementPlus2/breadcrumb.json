@@ -3,21 +3,32 @@
   "props": {
     "separator": {
       "value": "",
-      "description": "separator",
-      "default": "—",
+      "description": "separator character",
+      "default": "/",
       "type": "string",
       "description_zh": "分隔符"
     },
-    "separator-class": {
+    "separator-icon": {
       "value": "",
-      "description": "Icon separator class",
+      "description": "icon component of icon separator",
       "default": "—",
-      "type": "string",
-      "description_zh": "图标分隔符 class"
+      "type": "string | Component",
+      "description_zh": "图标分隔符组件"
     }
   },
   "events": [],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "customize default content",
+      "description_zh": "自定义默认内容",
+      "params": "Breadcrumb Item"
+    }
+  ],
+  "suggestions": [
+    "el-breadcrumb-item"
+  ],
   "link": "https://element-plus.org/en-US/component/breadcrumb.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/breadcrumb.html",
-  "methods": []
+  "link_zh": "https://element-plus.org/zh-CN/component/breadcrumb.html"
 }

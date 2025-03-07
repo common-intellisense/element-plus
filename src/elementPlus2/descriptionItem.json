@@ -26,21 +26,21 @@
     "width": {
       "value": "",
       "description": "Column width, the width of the same column in different rows is set by the max value (If no border, width contains label and content)",
-      "default": "''",
+      "default": "",
       "type": "string | number",
       "description_zh": "列宽度，同一列不同行的宽度按照最大值设置（如果没有设置 border，宽度包含标签和内容）"
     },
     "min-width": {
       "value": "",
       "description": "Column minimum width, columns with width has a fixed width, while columns with min-width has a width that is distributed in proportion (If no border, width contains label and content)",
-      "default": "''",
+      "default": "",
       "type": "string | number",
       "description_zh": "列最小宽度，与 width 的区别是 width 是固定的，min-width 会把剩余宽度按比例分配给设置了 min-width 的列（如果没有设置 border，宽度包含标签和内容）"
     },
     "label-width": {
       "value": "",
       "description": "Column label width, if not set, it will be the same as the width of the column. Higher priority than the label-width of Descriptions",
-      "default": "''",
+      "default": "",
       "type": "string | number",
       "description_zh": "列标签宽度，如果未设置，则为列宽度，优先级高于 Descriptions 的 label-width",
       "version": "2.8.8"
@@ -55,21 +55,21 @@
     "label-align": {
       "value": ["left", "center", "right"],
       "description": "Column label alignment, if omitted, the value of the above align attribute will be applied (If no border, please use align attribute)",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "列标签对齐方式，如果未设置，则使用 align 的值（如果没有设置 border，请使用 align 属性）"
     },
     "class-name": {
       "value": "",
       "description": "Column content custom class name",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "列内容自定义类名"
     },
     "label-class-name": {
       "value": "",
       "description": "Column label custom class name",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "列标签自定义类名"
     }

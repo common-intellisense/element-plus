@@ -46,7 +46,7 @@
         "none"
       ],
       "description": "Position of the indicators",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "指示器的位置"
     },
@@ -67,7 +67,7 @@
         "card"
       ],
       "description": "Type of the Carousel",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "走马灯的类型"
     },

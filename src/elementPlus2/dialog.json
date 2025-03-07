@@ -3,236 +3,282 @@
   "props": {
     ":v-model": {
       "value": "",
-      "description": "Whether or not to display Dialog, with support for the .sync modifier",
-      "default": "false",
+      "description": "visibility of Dialog",
+      "default": "",
       "type": "boolean",
-      "required": true,
-      "description_zh": "是否显示 Dialog，支持 .sync 修饰符"
+      "description_zh": "是否显示 Dialog"
     },
     "title": {
       "value": "",
-      "description": "The title of the dialog can also be passed in via a named slot (see table below).",
+      "description": "title of Dialog. Can also be passed with a named slot (see the following table)",
       "default": "",
       "type": "string",
-      "description_zh": "Dialog 的标题，也可通过具名 slot （见下表）传入",
-      "required": true
+      "description_zh": "Dialog 的标题，也可通过具名 slot 传入"
     },
     "width": {
       "value": "",
-      "description": "The width of the dialog",
+      "description": "width of Dialog, default is 50%",
       "default": "",
       "type": "string | number",
       "description_zh": "Dialog 的宽度"
     },
     "fullscreen": {
       "value": "",
-      "description": "Whether it is a full-screen dialog",
+      "description": "whether the Dialog takes up full screen",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否为全屏 Dialog"
     },
     "top": {
       "value": "",
-      "description": "The margin-top value in Dialog CSS",
+      "description": "value for `margin-top` of Dialog CSS, default is 15vh",
       "default": "",
       "type": "string",
       "description_zh": "Dialog CSS 中的 margin-top 值"
     },
     "modal": {
       "value": "",
-      "description": "Whether a mask layer is required",
+      "description": "whether a mask is displayed",
       "default": "true",
       "type": "boolean",
       "description_zh": "是否需要遮罩层"
     },
     "modal-class": {
       "value": "",
-      "description": "Extra class names for shadowing layer",
+      "description": "custom class names for mask",
       "default": "—",
       "type": "string",
       "description_zh": "遮罩层的自定义类名"
     },
-    "modal-append-to-body": {
+    "header-class": {
       "value": "",
-      "description": "Whether the mask layer is inserted on the body element, if false, the mask layer is inserted on the parent element of the dialog",
-      "default": "false",
-      "type": "boolean",
-      "description_zh": "遮罩层是否插入至 body 元素上，若为 false，则遮罩层会插入至 Dialog 的父元素上"
+      "description": "custom class names for header wrapper",
+      "default": "—",
+      "type": "string",
+      "description_zh": "header 包装器的自定义类名",
+      "version": "2.9.3"
+    },
+    "body-class": {
+      "value": "",
+      "description": "custom class names for body wrapper",
+      "default": "—",
+      "type": "string",
+      "description_zh": "body 包装器的自定义类名",
+      "version": "2.9.3"
+    },
+    "footer-class": {
+      "value": "",
+      "description": "custom class names for footer wrapper",
+      "default": "—",
+      "type": "string",
+      "description_zh": "footer 包装器的自定义类名",
+      "version": "2.9.3"
     },
     "append-to-body": {
       "value": "",
-      "description": "Whether the dialog itself is inserted on the body element. Nested Dialogs must specify the property and assign it to true",
+      "description": "whether to append Dialog itself to body. A nested Dialog should have this attribute set to `true`",
       "default": "false",
       "type": "boolean",
       "description_zh": "Dialog 自身是否插入至 body 元素上。嵌套的 Dialog 必须指定该属性并赋值为 true"
     },
     "append-to": {
       "value": "",
-      "description": "Which element the Dialog appends to. Will override `append-to-body`",
+      "description": "which element the Dialog appends to. Will override `append-to-body`",
       "default": "body",
-      "type": "string",
-      "description_zh": "Dialog 挂载到哪个 DOM 元素 将覆盖 append-to-body"
+      "type": "string | HTMLElement",
+      "description_zh": "Dialog 挂载到哪个 DOM 元素 将覆盖 append-to-body",
+      "version": "2.4.3"
     },
     "lock-scroll": {
       "value": "",
-      "description": "Whether to lock the body scroll when the dialog appears",
+      "description": "whether scroll of body is disabled while Dialog is displayed",
       "default": "true",
       "type": "boolean",
       "description_zh": "是否在 Dialog 出现时将 body 滚动锁定"
     },
-    "custom-class": {
-      "value": "",
-      "description": "Dialog's custom class name",
-      "default": "",
-      "type": "string",
-      "description_zh": "Dialog 的自定义类名"
-    },
     ":open-delay": {
       "value": "",
-      "description": "Time(milliseconds) before open",
+      "description": "the Time(milliseconds) before open",
       "default": "0",
       "type": "number",
       "description_zh": "Dialog 打开的延时时间，单位毫秒"
     },
     ":close-delay": {
       "value": "",
-      "description": "Time(milliseconds) before close",
+      "description": "the Time(milliseconds) before close",
       "default": "0",
       "type": "number",
-      "description_zh": "Drawer 关闭的延时时间，单位毫秒"
+      "description_zh": "Dialog 关闭的延时时间，单位毫秒"
     },
     "close-on-click-modal": {
       "value": "",
-      "description": "Is it possible to turn off Dialog by clicking on modal",
+      "description": "whether the Dialog can be closed by clicking the mask",
       "default": "true",
       "type": "boolean",
       "description_zh": "是否可以通过点击 modal 关闭 Dialog"
     },
     "close-on-press-escape": {
       "value": "",
-      "description": "Is it possible to turn off the Dialog by pressing ESC",
+      "description": "whether the Dialog can be closed by pressing ESC",
       "default": "true",
       "type": "boolean",
       "description_zh": "是否可以通过按下 ESC 关闭 Dialog"
     },
     "show-close": {
       "value": "",
-      "description": "Whether or not to display a close button",
+      "description": "whether to show a close button",
       "default": "true",
       "type": "boolean",
       "description_zh": "是否显示关闭按钮"
     },
     ":before-close": {
       "value": "",
-      "description": "The callback before closing pauses the closure of the dialog",
+      "description": "callback before Dialog closes, and it will prevent Dialog from closing, use done to close the dialog",
       "default": "—",
-      "type": "function(done)，done 用于关闭 Dialog",
+      "type": "Function(done: DoneFn) => void",
       "description_zh": "关闭前的回调，会暂停 Dialog 的关闭. 回调函数内执行 done 参数方法的时候才是真正关闭对话框的时候."
     },
     "draggable": {
       "value": "",
-      "description": "Enable dragging feature for Dialog",
+      "description": "enable dragging feature for Dialog",
       "default": "false",
       "type": "boolean",
       "description_zh": "为 Dialog 启用可拖拽功能"
     },
+    "overflow": {
+      "value": "",
+      "description": "draggable Dialog can overflow the viewport",
+      "default": "false",
+      "type": "boolean",
+      "description_zh": "可拖拽的 Dialog 是否可以超出视口边界",
+      "version": "2.5.4"
+    },
     "center": {
       "value": "",
-      "description": "Whether or not to have a centered layout for the head and bottom",
+      "description": "whether to align the header and footer in center",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否让 Dialog 的 header 和 footer 部分居中排列"
     },
     "align-center": {
       "value": "",
-      "description": "Whether to align the dialog both horizontally and vertically",
+      "description": "whether to align the dialog both horizontally and vertically",
       "default": "false",
       "type": "boolean",
-      "description_zh": "是否水平垂直对齐对话框"
+      "description_zh": "是否水平垂直对齐对话框",
+      "version": "2.2.16"
     },
     "destroy-on-close": {
       "value": "",
-      "description": "Destroys the element in the dialog when it is closed",
+      "description": "destroy elements in Dialog when closed",
       "default": "false",
       "type": "boolean",
       "description_zh": "关闭时销毁 Dialog 中的元素"
     },
     "close-icon": {
       "value": "",
-      "description": "Custom close icon, default is Close",
-      "default": "-",
-      "type": "string / Component",
-      "description_zh": "是否水平垂直对齐对话框"
+      "description": "custom close icon, default is Close",
+      "default": "—",
+      "type": "string | Component",
+      "description_zh": "自定义关闭图标，默认为 Close"
     },
     ":z-index": {
       "value": "",
-      "description": "Same as z-index in native CSS, z-order of dialog",
-      "default": "-",
+      "description": "same as z-index in native CSS, z-order of dialog",
+      "default": "—",
       "type": "number",
       "description_zh": "和原生的 CSS 的 z-index 相同，改变 z 轴的顺序"
     },
     "header-aria-level": {
       "value": "",
-      "description": "Header's `aria-level` attribute",
+      "description": "header's `aria-level` attribute",
       "default": "2",
       "type": "string",
       "description_zh": "header 的 aria-level 属性"
+    },
+    "custom-class": {
+      "value": "",
+      "description": "custom class names for Dialog",
+      "default": "",
+      "type": "string",
+      "description_zh": "Dialog 的自定义类名",
+      "deprecated": true
     }
   },
   "events": [
     {
       "name": "open",
-      "description": "Dialog-opened callbacks",
-      "params": "_",
+      "description": "triggers when the Dialog opens",
+      "params": "() => void",
       "description_zh": "Dialog 打开的回调",
       "value": ""
     },
     {
       "name": "opened",
-      "description": "The dialog opens the callback at the end of the animation",
-      "params": "_",
+      "description": "triggers when the Dialog opening animation ends",
+      "params": "() => void",
       "description_zh": "Dialog 打开动画结束时的回调",
       "value": ""
     },
     {
       "name": "close",
-      "description": "Dialog-closed callbacks",
-      "params": "_",
+      "description": "triggers when the Dialog closes",
+      "params": "() => void",
       "description_zh": "Dialog 关闭的回调",
       "value": ""
     },
     {
       "name": "closed",
-      "description": "Dialog closes the callback at the end of the animation",
-      "params": "_",
+      "description": "triggers when the Dialog closing animation ends",
+      "params": "() => void",
       "description_zh": "Dialog 关闭动画结束时的回调",
       "value": ""
     },
     {
       "name": "open-auto-focus",
-      "description": "Triggers after Dialog opens and content focused",
-      "params": "_",
+      "description": "triggers after Dialog opens and content focused",
+      "params": "() => void",
       "description_zh": "输入焦点聚焦在 Dialog 内容时的回调",
       "value": ""
     },
     {
       "name": "close-auto-focus",
-      "description": "Triggers after Dialog closed and content focused",
-      "params": "_",
+      "description": "triggers after Dialog closed and content focused",
+      "params": "() => void",
       "description_zh": "输入焦点从 Dialog 内容失焦时的回调",
       "value": ""
     }
   ],
   "slots": [
     {
-      "name": "title",
-      "description": "The contents of the dialog header area",
-      "description_zh": "Dialog 标题区的内容"
+      "name": "default",
+      "description": "default content of Dialog",
+      "description_zh": "Dialog 的内容"
+    },
+    {
+      "name": "header",
+      "description": "content of the Dialog header; Replacing this removes the title, but does not remove the close button.",
+      "description_zh": "Dialog 头部的内容；会替换标题部分，但不会移除关闭按钮"
     },
     {
       "name": "footer",
-      "description": "The contents of the dialog button action area",
+      "description": "content of the Dialog footer",
       "description_zh": "Dialog 按钮操作区的内容"
+    },
+    {
+      "name": "title",
+      "description": "works the same as the header slot. Use that instead.",
+      "description_zh": "与 header 插槽功能相同，请使用 header 插槽",
+      "deprecated": true
+    }
+  ],
+  "exposed": [
+    {
+      "name": "resetPosition",
+      "description": "reset position",
+      "description_zh": "重置位置",
+      "detail": "() => void",
+      "version": "2.8.1"
     }
   ],
   "link": "https://element-plus.org/en-US/component/dialog.html",

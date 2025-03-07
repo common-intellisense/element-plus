@@ -3,29 +3,57 @@
   "props": {
     "index": {
       "value": "",
-      "description": "Unique logo",
-      "default": "—",
-      "type": "string",
+      "description": "unique identification",
+      "default": "null",
+      "type": "string | null",
       "description_zh": "唯一标志",
       "required": true
     },
-    ":route": {
+    "route": {
       "value": "",
-      "description": "Vue Router path object",
+      "description": "Vue Router Route Location Parameters",
       "default": "—",
-      "type": "Object",
+      "type": "string | object",
       "description_zh": "Vue Router 路径对象"
     },
     "disabled": {
       "value": "",
-      "description": "Whether to disable or not",
-      "default": "false",
+      "description": "whether disabled",
+      "default": false,
       "type": "boolean",
       "description_zh": "是否禁用"
     }
   },
-  "events": [],
-  "link": "https://element-plus.org/en-US/component/menu-item.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/menu-item.html",
-  "methods": []
+  "events": [
+    {
+      "name": "click",
+      "description": "callback function when menu-item is clicked, the param is menu-item instance",
+      "params": "(item: MenuItemRegistered) => void",
+      "description_zh": "菜单项点击时的回调函数，参数为菜单项实例",
+      "value": ""
+    }
+  ],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "customize default content",
+      "description_zh": "自定义默认内容"
+    },
+    {
+      "name": "title",
+      "description": "customize title content",
+      "description_zh": "自定义标题内容"
+    }
+  ],
+  "typeDetail": {
+    "MenuSelectEvent": "(index: string, indexPath: string[], item: MenuItemClicked, routerResult?: Promise<void | NavigationFailure>) => void",
+    "MenuOpenEvent": "(index: string, indexPath: string[]) => void",
+    "MenuCloseEvent": "(index: string, indexPath: string[]) => void",
+    "MenuItemRegistered": "{ index: string, indexPath: string[], active: boolean }",
+    "MenuItemClicked": "{ index: string, indexPath: string[], route?: RouteLocationRaw }"
+  },
+  "suggestions": [],
+  "link": "https://element-plus.org/en-US/component/menu.html#menu-item-api",
+  "link_zh": "https://element-plus.org/zh-CN/component/menu.html#menu-item-api"
 }

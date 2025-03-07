@@ -40,21 +40,21 @@
     "title": {
       "value": "",
       "description": "Title text, display on the top left",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "标题文本，显示在左上方"
     },
     "extra": {
       "value": "",
       "description": "Extra text, display on the top right",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "操作区文本，显示在右上方"
     },
     "label-width": {
       "value": "",
       "description": "Label width of every column",
-      "default": "''",
+      "default": "",
       "type": "string | number",
       "description_zh": "每一列的标签宽度",
       "version": "2.8.8"

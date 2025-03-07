@@ -2,34 +2,37 @@
   "name": "ElDropdown",
   "props": {
     "type": {
-      "value": "",
-      "description": "Menu button type, same as Button component (only valid if 'split-button' is true)",
-      "default": "—",
+      "value": ["", "default", "primary", "success", "warning", "info", "danger", "text"],
+      "description": "menu button type, refer to `Button` Component, only works when `split-button` is true",
+      "default": "",
       "type": "string",
       "description_zh": "菜单按钮类型，同 Button 组件(只在`split-button`为 true 的情况下有效)"
     },
     "size": {
-      "value": [
-        "larget",
-        "defalut",
-        "small"
-      ],
-      "description": "Menu size, which also works for trigger buttons if 'split-button' is true",
-      "default": "default",
-      "type": "large / default / small",
-      "description_zh": "菜单尺寸，在 split-button 为 true 的情况下也对触发按钮生效。"
+      "value": ["", "large", "default", "small"],
+      "description": "menu size, also works on the split button",
+      "default": "",
+      "type": "string",
+      "description_zh": "菜单尺寸，在 split-button 为 true 的情况下也对触发按钮生效"
+    },
+    ":button-props": {
+      "value": "",
+      "description": "props for the button component, refer to Button Attributes",
+      "default": "—",
+      "type": "object",
+      "description_zh": "按钮组件的属性，参考 Button 组件"
     },
     "max-height": {
       "value": "",
-      "description": "The maximum height of the Menu",
-      "description_zh": "菜单最大高度",
-      "default": "—",
-      "type": "string / number"
+      "description": "the max height of menu",
+      "default": "",
+      "type": "string | number",
+      "description_zh": "菜单最大高度"
     },
     "split-button": {
       "value": "",
-      "description": "Drop-down trigger elements are rendered as groups of buttons",
-      "default": "false",
+      "description": "whether a button group is displayed",
+      "default": false,
       "type": "boolean",
       "description_zh": "下拉触发元素呈现为按钮组"
     },
@@ -42,9 +45,9 @@
         "bottom-start",
         "bottom-end"
       ],
-      "description": "Menu pop-up location",
+      "description": "placement of pop menu",
       "default": "bottom",
-      "type": "top / top-start / top-end / bottom / bottom-start / bottom-end",
+      "type": "string",
       "description_zh": "菜单弹出位置"
     },
     "trigger": {
@@ -53,124 +56,144 @@
         "click",
         "contextmenu"
       ],
-      "description": "Triggers the act of pulling down",
+      "description": "how to trigger",
       "default": "hover",
       "type": "string",
       "description_zh": "触发下拉的行为"
     },
+    ":trigger-keys": {
+      "value": "",
+      "description": "specify which keys on the keyboard can trigger when pressed",
+      "default": "['Enter', 'Space', 'ArrowDown', 'NumpadEnter']",
+      "type": "string[]",
+      "description_zh": "指定哪些按键可以触发下拉菜单",
+      "version": "2.9.1"
+    },
     "hide-on-click": {
       "value": "",
-      "description": "Whether to hide the menu after clicking on the menu item",
-      "default": "true",
+      "description": "whether to hide menu after clicking menu-item",
+      "default": true,
       "type": "boolean",
       "description_zh": "是否在点击菜单项后隐藏菜单"
     },
     ":show-timeout": {
       "value": "",
-      "description": "Expand the delay of the drop-down menu (only valid if the trigger is hover)",
-      "default": "250",
+      "description": "delay time before show a dropdown (only works when trigger is `hover`)",
+      "default": 150,
       "type": "number",
       "description_zh": "展开下拉菜单的延时（仅在 trigger 为 hover 时有效）"
     },
     ":hide-timeout": {
       "value": "",
-      "description": "Collapse drop-down menu delay (only works when trigger is hover)",
-      "default": "150",
+      "description": "delay time before hide a dropdown (only works when trigger is `hover`)",
+      "default": 150,
       "type": "number",
       "description_zh": "收起下拉菜单的延时（仅在 trigger 为 hover 时有效）"
     },
     "role": {
-      "value": "",
-      "description": "The ARIA role attribute for the dropdown menu. Depending on the use case, you may want to change this to 'navigation' | string",
+      "value": ["dialog", "grid", "group", "listbox", "menu", "navigation", "tooltip", "tree"],
+      "description": "the ARIA role attribute for the dropdown menu. Depending on the use case, you may want to change this to 'navigation'",
       "default": "menu",
       "type": "string",
-      "description_zh": "下拉菜单的 ARIA 属性。 根据具体场景，您可能想要将此更改为“navigation”"
+      "description_zh": "下拉菜单的 ARIA 属性。 根据具体场景，您可能想要将此更改为'navigation'"
     },
-    ":tabindex": {
+    "tabindex": {
       "value": "",
-      "description": "[tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) for the Dropdown component",
-      "default": "0",
-      "type": "number",
+      "description": "[tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) of Dropdown",
+      "default": 0,
+      "type": "number | string",
       "description_zh": "Dropdown 组件的 [tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex)"
     },
     "popper-class": {
       "value": "",
-      "description": "Custom class name for Dropdown's dropdown",
-      "default": "—",
+      "description": "custom class name for Dropdown's dropdown",
+      "default": "",
       "type": "string",
       "description_zh": "自定义浮层类名"
     },
     ":popper-options": {
       "value": "",
-      "description": "[popper.js] (https://popper.js.org/docs/v2/).",
+      "description": "[popper.js](https://popper.js.org/docs/v2/) parameters",
       "default": "{modifiers: [{name: 'computeStyles',options: {gpuAcceleration: false}}]}",
-      "type": "Object",
+      "type": "object",
       "description_zh": "[popper.js](https://popper.js.org/docs/v2/) 的参数"
     },
     "teleported": {
       "value": "",
-      "description": "Whether the dropdown popup is teleported to the body",
-      "default": "true",
+      "description": "whether the dropdown popup is teleported to the body",
+      "default": true,
       "type": "boolean",
-      "description_zh": "是否将下拉列表插入至 body 元素"
+      "description_zh": "是否将下拉列表插入至 body 元素",
+      "version": "2.2.20"
     },
     "disabled": {
       "value": "",
-      "description": "Whether to disable or not",
-      "default": "false",
+      "description": "whether to disable",
+      "default": false,
       "type": "boolean",
       "description_zh": "是否禁用"
+    },
+    "persistent": {
+      "value": "",
+      "description": "when dropdown inactive and `persistent` is `false` , dropdown menu will be destroyed",
+      "default": true,
+      "type": "boolean",
+      "description_zh": "当下拉菜单未激活并且 `persistent` 为 `false` 时，下拉菜单将被销毁",
+      "version": "2.9.5"
     }
   },
   "events": [
     {
       "name": "click",
-      "description": "'split-button' is true, click the callback of the button on the left",
-      "params": "—",
+      "description": "if `split-button` is `true`, triggers when left button is clicked",
+      "params": "(e: MouseEvent) => void",
       "description_zh": "`split-button` 为 true 时，点击左侧按钮的回调",
       "value": ""
     },
     {
       "name": "command",
-      "description": "Click on the event callback triggered by the menu item",
-      "params": "dropdown-item 的指令",
+      "description": "triggers when a dropdown item is clicked, the parameters is the command dispatched from the dropdown item",
+      "params": "(...args: any[]) => void",
       "description_zh": "点击菜单项触发的事件回调",
       "value": ""
     },
     {
       "name": "visible-change",
-      "description": "Triggered when the drop-down box appears/hides",
-      "params": "出现则为 true，隐藏则为 false",
+      "description": "triggers when the dropdown appears/disappears, the param is true when it appears, and false otherwise",
+      "params": "(val: boolean) => void",
       "description_zh": "下拉框出现/隐藏时触发",
       "value": ""
     }
   ],
   "slots": [
     {
+      "name": "default",
+      "description": "content of Dropdown. Notice: Must be a valid html dom element (ex. `<span>, <button> etc.`) or `el-component`, to attach the trigger listener",
+      "description_zh": "下拉菜单的内容。 注意：必须是有效的html dom元素（例如 `<span>, <button> 等`）或 `el-component`，以附加触发监听器"
+    },
+    {
       "name": "dropdown",
-      "description": "drop-down list, usually <el-dropdown-menu> a component",
+      "description": "content of the Dropdown Menu, usually a `<el-dropdown-menu>` element",
       "description_zh": "下拉列表，通常是 <el-dropdown-menu> 组件"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "handleOpen",
+      "description": "open the dropdown menu",
+      "description_zh": "打开下拉菜单",
+      "detail": "() => void"
+    },
+    {
+      "name": "handleClose",
+      "description": "close the dropdown menu",
+      "description_zh": "关闭下拉菜单",
+      "detail": "() => void"
     }
   ],
   "suggestions": [
     "el-dropdown-menu"
   ],
   "link": "https://element-plus.org/en-US/component/dropdown.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/dropdown.html",
-  "methods": [
-    {
-      "name": "handleOpen",
-      "description": "Open the dropdown menu",
-      "params": "",
-      "description_zh": "打开下拉菜单",
-      "value": ""
-    },
-    {
-      "name": "handleClose",
-      "description": "Close the dropdown menu",
-      "params": "",
-      "description_zh": "关闭下拉菜单",
-      "value": ""
-    }
-  ]
+  "link_zh": "https://element-plus.org/zh-CN/component/dropdown.html"
 }

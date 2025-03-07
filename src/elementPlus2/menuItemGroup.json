@@ -1,0 +1,39 @@
+{
+  "name": "ElMenuItemGroup",
+  "props": {
+    "title": {
+      "value": "",
+      "description": "group title",
+      "default": "—",
+      "type": "string",
+      "description_zh": "分组标题"
+    }
+  },
+  "events": [],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "customize default content",
+      "description_zh": "自定义默认内容"
+    },
+    {
+      "name": "title",
+      "description": "customize group title",
+      "description_zh": "自定义分组标题"
+    }
+  ],
+  "suggestions": [
+    "el-menu",
+    "el-menu-item"
+  ],
+  "typeDetail": {
+    "MenuSelectEvent": "(index: string, indexPath: string[], item: MenuItemClicked, routerResult?: Promise<void | NavigationFailure>) => void",
+    "MenuOpenEvent": "(index: string, indexPath: string[]) => void",
+    "MenuCloseEvent": "(index: string, indexPath: string[]) => void",
+    "MenuItemRegistered": "{ index: string, indexPath: string[], active: boolean }",
+    "MenuItemClicked": "{ index: string, indexPath: string[], route?: RouteLocationRaw }"
+  },
+  "link": "https://element-plus.org/en-US/component/menu.html#menu-item-group-api",
+  "link_zh": "https://element-plus.org/zh-CN/component/menu.html#menu-item-group-api"
+}

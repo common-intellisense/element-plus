@@ -7,6 +7,7 @@ import ElAvatar from './avatar.json'
 import ElBacktop from './backtop.json'
 import ElBadge from './badge.json'
 import ElBreadcrumb from './breadcrumb.json'
+import ElBreadcrumbItem from './breadcrumbItem.json'
 import ElButton from './button.json'
 import ElButtonGroup from './buttonGroup.json'
 import ElCalendar from './calendar.json'
@@ -47,6 +48,7 @@ import ElLink from './link.json'
 import ElMain from './main.json'
 import ElMenu from './menu.json'
 import ElMenuItem from './menuItem.json'
+import ElMenuItemGroup from './menuItemGroup.json'
 import ElOption from './option.json'
 import ElOptionGroup from './optionGroup.json'
 import ElPageHeader from './pageHeader.json'
@@ -90,6 +92,7 @@ import ElTree from './tree.json'
 import ElTreeSelect from './treeSelect.json'
 import ElTreeV2 from './treeV2.json'
 import ElUpload from './upload.json'
+import ElWatermark from './watermark.json'
 
 export function getPropsMap() {
   return [
@@ -125,6 +128,7 @@ export function getPropsMap() {
     ElCheckboxButton,
     ElBadge,
     ElBreadcrumb,
+    ElBreadcrumbItem,
     ElCarousel,
     ElCarouselItem,
     ElCollapse,
@@ -145,6 +149,7 @@ export function getPropsMap() {
     ElMain,
     ElMenu,
     ElMenuItem,
+    ElMenuItemGroup,
     ElPageHeader,
     ElPagination,
     ElPopconfirm,
@@ -185,6 +190,7 @@ export function getPropsMap() {
     ElSegmented,
     ElAnchor,
     ElAnchorLink,
+    ElWatermark,
   ]
 }
 
@@ -478,6 +484,11 @@ export function getComponentMap(isZh: boolean) {
           '<el-menu-item></el-menu-item>',
         ],
         [
+          ElMenuItemGroup,
+          '导航菜单项组',
+          '<el-menu-item-group></el-menu-item-group>',
+        ],
+        [
           ElTabs,
           '标签页',
           '<el-tabs></el-tabs>',
@@ -493,7 +504,7 @@ export function getComponentMap(isZh: boolean) {
           '<el-breadcrumb></el-breadcrumb>',
         ],
         [
-          'el-breadcrumb-item',
+          ElBreadcrumbItem,
           '面包屑项',
           '<el-breadcrumb-item></el-breadcrumb-item>',
         ],
@@ -651,6 +662,11 @@ export function getComponentMap(isZh: boolean) {
           ElAnchorLink,
           '锚点链接',
           '<el-anchor-link></el-anchor-link>',
+        ],
+        [
+          ElWatermark,
+          '水印',
+          '<el-watermark></el-watermark>',
         ],
       ]
     : [
@@ -920,6 +936,11 @@ export function getComponentMap(isZh: boolean) {
           '<el-menu-item></el-menu-item>',
         ],
         [
+          ElMenuItemGroup,
+          'Navigation menu item group',
+          '<el-menu-item-group></el-menu-item-group>',
+        ],
+        [
           ElTabs,
           'Bookmark page',
           '<el-tabs></el-tabs>',
@@ -935,7 +956,7 @@ export function getComponentMap(isZh: boolean) {
           '<el-breadcrumb></el-breadcrumb>',
         ],
         [
-          'el-breadcrumb-item',
+          ElBreadcrumbItem,
           'Breadcrumb item',
           '<el-breadcrumb-item></el-breadcrumb-item>',
         ],
@@ -1088,6 +1109,11 @@ export function getComponentMap(isZh: boolean) {
           ElAnchorLink,
           'anchor link',
           '<el-anchor-link></el-anchor-link>',
+        ],
+        [
+          ElWatermark,
+          'watermark',
+          '<el-watermark></el-watermark>',
         ],
       ]
 }

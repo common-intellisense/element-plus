@@ -101,14 +101,14 @@
     "popper-class": {
       "value": "",
       "description": "Custom class name for the page size Select's dropdown",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "每页显示个数选择器的下拉框类名"
     },
     "prev-text": {
       "value": "",
       "description": "Text for the prev button",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "替代图标显示的上一页文字"
     },
@@ -122,7 +122,7 @@
     "next-text": {
       "value": "",
       "description": "Text for the next button",
-      "default": "''",
+      "default": "",
       "type": "string",
       "description_zh": "替代图标显示的下一页文字"
     },

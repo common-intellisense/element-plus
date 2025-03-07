@@ -1,41 +1,68 @@
 {
   "name": "ElPageHeader",
   "props": {
+    "icon": {
+      "value": "",
+      "description": "icon component of page header",
+      "default": "Back",
+      "type": "string | Component",
+      "description_zh": "页面头部图标组件"
+    },
     "title": {
       "value": "",
-      "description": "title",
-      "default": "—",
+      "description": "main title of page header, default is Back that built-in a11y",
+      "default": "",
       "type": "string",
-      "description_zh": "标题"
+      "description_zh": "页面头部标题"
     },
     "content": {
       "value": "",
-      "description": "content",
-      "default": "—",
+      "description": "content of page header",
+      "default": "",
       "type": "string",
-      "description_zh": "内容",
+      "description_zh": "页面头部内容",
       "required": true
     }
   },
   "events": [
     {
       "name": "back",
-      "description": "Click the area on the left to trigger",
-      "params": "—",
+      "description": "triggers when right side is clicked",
+      "params": "() => void",
       "description_zh": "点击左侧区域触发",
       "value": ""
     }
   ],
   "slots": [
     {
+      "name": "icon",
+      "description": "content as icon",
+      "description_zh": "图标内容"
+    },
+    {
+      "name": "title",
+      "description": "content as title",
+      "description_zh": "标题内容"
+    },
+    {
       "name": "content",
       "description": "content",
       "description_zh": "内容"
     },
     {
-      "name": "title",
-      "description": "Title content",
-      "description_zh": "标题内容"
+      "name": "extra",
+      "description": "extra",
+      "description_zh": "额外内容"
+    },
+    {
+      "name": "breadcrumb",
+      "description": "content as breadcrumb",
+      "description_zh": "面包屑内容"
+    },
+    {
+      "name": "default",
+      "description": "main content",
+      "description_zh": "主要内容"
     }
   ],
   "link": "https://element-plus.org/en-US/component/page-header.html",

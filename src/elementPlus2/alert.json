@@ -3,54 +3,54 @@
   "props": {
     "title": {
       "value": "",
-      "description": "title",
+      "description": "alert title.",
       "default": "—",
       "type": "string",
       "description_zh": "标题"
     },
     "type": {
       "value": [
-        "info",
         "success",
         "warning",
+        "info",
         "error"
       ],
-      "description": "topic",
+      "description": "alert type.",
       "default": "info",
       "type": "string",
       "description_zh": "主题"
     },
     "description": {
       "value": "",
-      "description": "Supporting text. You can also pass in via the default slot",
+      "description": "descriptive text.",
       "default": "—",
       "type": "string",
       "description_zh": "辅助性文字。也可通过默认 slot 传入"
     },
     "closable": {
       "value": "",
-      "description": "Whether it can be turned off",
+      "description": "whether alert can be dismissed.",
       "default": "true",
       "type": "boolean",
       "description_zh": "是否可关闭"
     },
     "center": {
       "value": "",
-      "description": "Whether the text is centered or not",
+      "description": "whether content is placed in the center.",
       "default": "false",
       "type": "boolean",
       "description_zh": "文字是否居中"
     },
-    "closeText": {
+    "close-text": {
       "value": "",
-      "description": "Close button custom text",
+      "description": "customized close button text.",
       "default": "—",
       "type": "string",
       "description_zh": "关闭按钮自定义文本"
     },
-    "showIcon": {
+    "show-icon": {
       "value": "",
-      "description": "Whether or not to display the icon",
+      "description": "whether a type icon is displayed.",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否显示图标"
@@ -60,7 +60,7 @@
         "light",
         "dark"
       ],
-      "description": "Select the theme offered",
+      "description": "theme style.",
       "default": "light",
       "type": "string",
       "description_zh": "选择提供的主题"
@@ -69,16 +69,21 @@
   "events": [
     {
       "name": "close",
-      "description": "An event that is triggered when an alert is closed",
-      "params": "",
+      "description": "trigger when alert is closed.",
+      "params": "(event: MouseEvent) => void",
       "description_zh": "关闭alert时触发的事件",
       "value": ""
     }
   ],
   "slots": [
     {
+      "name": "default",
+      "description": "content of the alert description.",
+      "description_zh": "描述区域的内容"
+    },
+    {
       "name": "title",
-      "description": "The content of the title",
+      "description": "content of the alert title.",
       "description_zh": "标题的内容"
     }
   ],

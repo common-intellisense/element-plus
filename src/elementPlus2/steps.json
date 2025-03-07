@@ -3,8 +3,8 @@
   "props": {
     "space": {
       "value": "",
-      "description": "The spacing of each step, if not filled in will be adaptive. Percentage of support.",
-      "default": "—",
+      "description": "the spacing of each step, will be responsive if omitted. Supports percentage.",
+      "default": "",
       "type": "number | string",
       "description_zh": "每个 step 的间距，不填写将自适应间距。支持百分比。"
     },
@@ -13,18 +13,17 @@
         "vertical",
         "horizontal"
       ],
-      "description": "Display orientation",
+      "description": "display direction",
       "default": "horizontal",
-      "type": "vertical / horizontal",
+      "type": "string",
       "description_zh": "显示方向"
     },
     ":active": {
       "value": "",
-      "description": "Sets the current activation step",
+      "description": "current activation step",
       "default": "0",
       "type": "number",
-      "description_zh": "设置当前激活步骤",
-      "required": true
+      "description_zh": "设置当前激活步骤"
     },
     "process-status": {
       "value": [
@@ -34,9 +33,9 @@
         "error",
         "success"
       ],
-      "description": "Sets the status of the current step",
+      "description": "status of current step",
       "default": "process",
-      "type": "wait / process / finish / error / success",
+      "type": "string",
       "description_zh": "设置当前步骤的状态"
     },
     "finish-status": {
@@ -47,27 +46,34 @@
         "error",
         "success"
       ],
-      "description": "Sets the status of the end step",
+      "description": "status of end step",
       "default": "finish",
-      "type": "wait / process / finish / error / success",
+      "type": "string",
       "description_zh": "设置结束步骤的状态"
     },
     "align-center": {
       "value": "",
-      "description": "Make a center alignment",
+      "description": "center title and description",
       "default": "false",
       "type": "boolean",
       "description_zh": "进行居中对齐"
     },
     "simple": {
       "value": "",
-      "description": "Whether or not to apply a clean style",
+      "description": "whether to apply simple theme",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否应用简洁风格"
     }
   },
   "events": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "customize default content",
+      "description_zh": "自定义默认内容"
+    }
+  ],
   "suggestions": [
     "el-step"
   ],

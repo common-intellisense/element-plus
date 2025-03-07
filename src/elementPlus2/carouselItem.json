@@ -11,7 +11,7 @@
     "label": {
       "value": "",
       "description": "The text of the indicator for which the slide corresponds",
-      "default": "''",
+      "default": "",
       "type": "string | number",
       "description_zh": "该幻灯片所对应指示器的文本"
     }

@@ -1,33 +1,34 @@
 {
   "name": "ElTourStep",
+  "version": "2.5.0",
   "props": {
-    ":target": {
+    "target": {
       "value": "",
       "description": "get the element the guide card points to. Empty makes it show in center of screen. the string and Function types are supported since 2.5.2. the string type is selectors of document.querySelector.",
-      "default": "-",
+      "default": "—",
       "type": "HTMLElement | string | Function",
       "description_zh": "获取引导卡片指向的元素， 为空时居中于屏幕。 自2.5.2以来支持字符串和函数类型。 字符串类型是文档.querySelector的选择器。",
+      "version": "2.5.2",
       "required": true
     },
     "show-arrow": {
       "value": "",
       "description": "whether to show the arrow",
-      "default": "true",
+      "default": true,
       "type": "boolean",
       "description_zh": "是否显示箭头"
     },
     "title": {
       "value": "",
       "description": "title",
-      "default": "*",
+      "default": "—",
       "type": "string",
-      "description_zh": "标题",
-      "required": true
+      "description_zh": "标题"
     },
     "description": {
       "value": "",
       "description": "description",
-      "default": "-",
+      "default": "—",
       "type": "string",
       "description_zh": "主要描述部分"
     },
@@ -48,62 +49,65 @@
       ],
       "description": "position of the guide card relative to the target element",
       "default": "bottom",
-      "type": "top / top-start / top-end / bottom /bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end",
+      "type": "string",
       "description_zh": "引导卡片相对于目标元素的位置"
     },
     "content-style": {
       "value": "",
       "description": "custom style for content",
-      "default": "*",
+      "default": "—",
       "type": "CSSProperties",
       "description_zh": "为content自定义样式"
     },
     "mask": {
       "value": "",
       "description": "whether to enable masking, change mask style and fill color by pass custom props",
-      "default": "true",
+      "default": true,
       "type": "boolean | Object",
       "description_zh": "是否启用蒙层，也可传入配置改变蒙层样式和填充色"
     },
     "type": {
-      "value": "",
+      "value": [
+        "default",
+        "primary"
+      ],
       "description": "type, affects the background color and text color",
       "default": "default",
-      "type": "default | primary",
+      "type": "string",
       "description_zh": "类型，影响底色与文字颜色"
     },
     "next-button-props": {
       "value": "",
       "description": "properties of the Next button",
-      "default": "-",
+      "default": "—",
       "type": "Object",
-      "description_zh": "“下一步”按钮的属性"
+      "description_zh": "\"下一步\"按钮的属性"
     },
     "prev-button-props": {
       "value": "",
       "description": "properties of the previous button",
-      "default": "*",
+      "default": "—",
       "type": "Object",
-      "description_zh": "“上一步”按钮的属性"
+      "description_zh": "\"上一步\"按钮的属性"
     },
     "scroll-into-view-options": {
       "value": "",
       "description": "support pass custom scrollIntoView options, the default follows the scrollIntoViewOptions property of Tour",
-      "default": "-",
+      "default": "—",
       "type": "boolean | ScrollIntoViewOptions",
       "description_zh": "是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数，默认跟随 Tour 的 scrollIntoViewOptions 属性"
     },
     "show-close": {
       "value": "",
       "description": "whether to show a close button",
-      "default": "true",
+      "default": true,
       "type": "boolean",
       "description_zh": "是否显示关闭按钮"
     },
     "close-icon": {
       "value": "",
       "description": "custom close icon, default is Close",
-      "default": "*",
+      "default": "—",
       "type": "string | Component",
       "description_zh": "自定义关闭图标，默认Close"
     }
@@ -112,7 +116,7 @@
     {
       "name": "close",
       "description": "callback function on shutdown",
-      "params": "",
+      "params": "() => void",
       "description_zh": "关闭引导时的回调函数",
       "value": ""
     }

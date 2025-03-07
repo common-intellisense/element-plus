@@ -16,11 +16,13 @@ import ElCascaderPanel from './cascaderPanel.json'
 import ElCheckbox from './checkbox.json'
 import ElCheckboxButton from './checkboxButton.json'
 import ElCheckboxGroup from './checkboxGroup.json'
+import ElCheckTag from './checkTag.json'
 import ElCol from './col.json'
 import ElCollapse from './collapse.json'
 import ElCollapseItem from './collapseItem.json'
 import ElColorPicker from './colorPicker.json'
 import ElContainer from './container.json'
+import ElCountdown from './countdown.json'
 import ElDatePicker from './datePicker.json'
 import ElDatetimePicker from './datetimePicker.json'
 import ElDescriptionItem from './descriptionItem.json'
@@ -83,6 +85,7 @@ import ElTourStep from './tourStep.json'
 import ElTransfer from './transfer.json'
 import ElTree from './tree.json'
 import ElTreeSelect from './treeSelect.json'
+import ElTreeV2 from './treeV2.json'
 import ElUpload from './upload.json'
 
 export function getPropsMap() {
@@ -157,6 +160,7 @@ export function getPropsMap() {
     ElTabPane,
     ElTabs,
     ElTag,
+    ElCheckTag,
     ElTimeline,
     ElTimelineItem,
     ElTimePicker,
@@ -164,6 +168,7 @@ export function getPropsMap() {
     ElTooltip,
     ElTransfer,
     ElTree,
+    ElTreeV2,
     ElUpload,
     ElAvatar,
     ElBacktop,
@@ -173,6 +178,7 @@ export function getPropsMap() {
     ElTourStep,
     ElTreeSelect,
     ElTableV2,
+    ElCountdown,
   ]
 }
 
@@ -370,6 +376,11 @@ export function getComponentMap(isZh: boolean) {
           '<el-tag></el-tag>',
         ],
         [
+          ElCheckTag,
+          '标签',
+          '<el-check-tag></el-check-tag>',
+        ],
+        [
           ElProgress,
           '进度条',
           '<el-progress></el-progress>',
@@ -378,6 +389,11 @@ export function getComponentMap(isZh: boolean) {
           ElTree,
           '树形控件',
           '<el-tree></el-tree>',
+        ],
+        [
+          ElTreeV2,
+          '虚拟化树形控件',
+          '<el-tree-v2></el-tree-v2>',
         ],
         [
           ElPagination,
@@ -610,6 +626,11 @@ export function getComponentMap(isZh: boolean) {
           '虚拟化表格',
           '<el-table-v2></el-table-v2>',
         ],
+        [
+          ElCountdown,
+          '倒计时',
+          '<el-countdown></el-countdown>',
+        ],
       ]
     : [
         [
@@ -793,6 +814,11 @@ export function getComponentMap(isZh: boolean) {
           '<el-tag></el-tag>',
         ],
         [
+          ElCheckTag,
+          'Label',
+          '<el-check-tag></el-check-tag>',
+        ],
+        [
           ElProgress,
           'progress bar',
           '<el-progress></el-progress>',
@@ -801,6 +827,11 @@ export function getComponentMap(isZh: boolean) {
           ElTree,
           'Tree control',
           '<el-tree></el-tree>',
+        ],
+        [
+          ElTreeV2,
+          'Virtualized tree control',
+          '<el-tree-v2></el-tree-v2>',
         ],
         [
           ElPagination,
@@ -1016,6 +1047,11 @@ export function getComponentMap(isZh: boolean) {
           ElTableV2,
           'Virtualized table',
           '<el-table-v2></el-table-v2>',
+        ],
+        [
+          ElCountdown,
+          'countdown',
+          '<el-countdown></el-countdown>',
         ],
       ]
 }

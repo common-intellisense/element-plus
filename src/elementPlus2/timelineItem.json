@@ -1,29 +1,36 @@
 {
   "name": "ElTimelineItem",
   "props": {
-    ":timestamp": {
+    "timestamp": {
       "value": "",
-      "description": "timestamp",
-      "default": "-",
+      "description": "timestamp content",
+      "default": "''",
       "type": "string",
-      "description_zh": "时间戳",
+      "description_zh": "时间戳内容",
       "foreach": true,
       "required": true
     },
     "hide-timestamp": {
       "value": "",
-      "description": "Whether to hide timestamps",
-      "default": "false",
+      "description": "whether to show timestamp",
+      "default": false,
       "type": "boolean",
       "description_zh": "是否隐藏时间戳"
+    },
+    "center": {
+      "value": "",
+      "description": "whether vertically centered",
+      "default": false,
+      "type": "boolean",
+      "description_zh": "是否垂直居中"
     },
     "placement": {
       "value": [
         "top",
         "bottom"
       ],
-      "description": "Timestamp location",
-      "default": "top | bottom",
+      "description": "position of timestamp",
+      "default": "bottom",
       "type": "string",
       "description_zh": "时间戳位置"
     },
@@ -35,8 +42,8 @@
         "danger",
         "info"
       ],
-      "description": "Node type",
-      "default": "primary | success | warning | danger | info",
+      "description": "node type",
+      "default": "''",
       "type": "string",
       "description_zh": "节点类型"
     },
@@ -47,38 +54,50 @@
         "hex",
         "rgb"
       ],
-      "description": "Node color",
-      "default": "hsl | hsv | hex | rgb",
+      "description": "background color of node",
+      "default": "''",
       "type": "string",
-      "description_zh": "节点颜色"
+      "description_zh": "节点背景色"
     },
     "size": {
       "value": [
         "normal",
         "large"
       ],
-      "description": "Node size",
-      "default": "normal | large",
+      "description": "node size",
+      "default": "normal",
       "type": "string",
       "description_zh": "节点尺寸"
     },
     "icon": {
       "value": "",
-      "description": "node icon",
+      "description": "icon component",
       "default": "—",
       "type": "string",
       "description_zh": "节点图标"
+    },
+    "hollow": {
+      "value": "",
+      "description": "icon is hollow",
+      "default": false,
+      "type": "boolean",
+      "description_zh": "图标是否为空心"
     }
   },
   "slots": [
     {
+      "name": "default",
+      "description": "customize default content for timeline item",
+      "description_zh": "自定义时间线项的默认内容"
+    },
+    {
       "name": "dot",
-      "description": "Custom nodes",
+      "description": "customize defined node for timeline item",
       "description_zh": "自定义节点"
     }
   ],
   "events": [],
+  "methods": [],
   "link": "https://element-plus.org/en-US/component/timeline-item.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/timeline-item.html",
-  "methods": []
+  "link_zh": "https://element-plus.org/zh-CN/component/timeline-item.html"
 }

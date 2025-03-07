@@ -3,29 +3,29 @@
   "props": {
     ":data": {
       "value": "",
-      "description": "Present data",
+      "description": "tree data",
       "default": "—",
-      "type": "array",
-      "required": true,
-      "description_zh": "展示数据"
+      "type": "Array<{[key: string]: any}>",
+      "description_zh": "展示数据",
+      "required": true
     },
     "empty-text": {
       "value": "",
-      "description": "The text that is displayed when the content is empty",
+      "description": "text displayed when data is void",
       "default": "—",
       "type": "string",
       "description_zh": "内容为空的时候展示的文本"
     },
     "node-key": {
       "value": "",
-      "description": "Each tree node is used as a uniquely identified attribute, and the entire tree should be unique",
+      "description": "unique identity key name for nodes, its value should be unique across the whole tree",
       "default": "—",
       "type": "string",
       "description_zh": "每个树节点用来作为唯一标识的属性，整棵树应该是唯一的"
     },
     ":props": {
       "value": "",
-      "description": "For configuration options, see the following table",
+      "description": "configuration options, see the following table",
       "default": "—",
       "type": "object",
       "description_zh": "配置选项，具体看下表",
@@ -33,276 +33,276 @@
     },
     "render-after-expand": {
       "value": "",
-      "description": "Whether to render a tree node after its children are first expanded",
-      "default": "false",
+      "description": "whether to render child nodes only after a parent node is expanded for the first time",
+      "default": "true",
       "type": "boolean",
       "description_zh": "是否在第一次展开某个树节点后才渲染其子节点"
     },
     ":load": {
       "value": "",
-      "description": "The method of loading subtree data, which only takes effect if the lazy property is true",
+      "description": "method for loading subtree data, only works when `lazy` is true",
       "default": "—",
-      "type": "function(node, resolve)",
+      "type": "Function(node, resolve, reject) => void",
       "description_zh": "加载子树数据的方法，仅当 lazy 属性为true 时生效"
     },
     ":render-content": {
       "value": "",
-      "description": "Rendering function for the content area of the tree node",
+      "description": "render function for tree node",
       "default": "—",
-      "type": "Function(h, { node, data, store }",
+      "type": "Function(h, { node, data, store }) => void",
       "description_zh": "树节点的内容区的渲染 Function"
     },
     "highlight-current": {
       "value": "",
-      "description": "Whether to highlight the currently selected node, the default value is false.",
+      "description": "whether current node is highlighted",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否高亮当前选中节点，默认值是 false。"
     },
     "default-expand-all": {
       "value": "",
-      "description": "Whether to expand all nodes by default",
+      "description": "whether to expand all nodes by default",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否默认展开所有节点"
     },
     "expand-on-click-node": {
       "value": "",
-      "description": "Whether to expand or contract a node when clicking on a node, the default value is true, if false, the node will only be expanded or contracted when the arrow icon is clicked.",
-      "default": "false",
+      "description": "whether to expand or collapse node when clicking on the node, if false, then expand or collapse node only when clicking on the arrow icon.",
+      "default": "true",
       "type": "boolean",
       "description_zh": "是否在点击节点的时候展开或者收缩节点， 默认值为 true，如果为 false，则只有点箭头图标的时候才会展开或者收缩节点。"
     },
     "check-on-click-node": {
       "value": "",
-      "description": "Whether to select a node when clicking on a node, the default value is false, that is, the node will only be selected when the checkbox is clicked.",
+      "description": "whether to check or uncheck node when clicking on the node, if false, the node can only be checked or unchecked by clicking on the checkbox.",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否在点击节点的时候选中节点，默认值为 false，即只有在点击复选框时才会选中节点。"
     },
     "auto-expand-parent": {
       "value": "",
-      "description": "Whether the parent node is automatically expanded when the child node is expanded",
-      "default": "false",
+      "description": "whether to expand father node when a child node is expanded",
+      "default": "true",
       "type": "boolean",
       "description_zh": "展开子节点的时候是否自动展开父节点"
     },
     ":default-expanded-keys": {
       "value": "",
-      "description": "An array of the keys of the nodes that are expanded by default",
+      "description": "array of keys of initially expanded nodes",
       "default": "—",
-      "type": "array",
+      "type": "Array<string | number>",
       "description_zh": "默认展开的节点的 key 的数组"
     },
     "show-checkbox": {
       "value": "",
-      "description": "Whether the node can be selected",
+      "description": "whether node is selectable",
       "default": "false",
       "type": "boolean",
       "description_zh": "节点是否可被选择"
     },
     "check-strictly": {
       "value": "",
-      "description": "In the case of the display of the check box, whether the practice of not associating father and son from each other is strictly followed, defaults to false",
+      "description": "whether checked state of a node not affects its father and child nodes when `show-checkbox` is `true`",
       "default": "false",
       "type": "boolean",
       "description_zh": "在显示复选框的情况下，是否严格的遵循父子不互相关联的做法，默认为 false"
     },
     ":default-checked-keys": {
       "value": "",
-      "description": "An array of node keys that are checked by default",
+      "description": "array of keys of initially checked nodes",
       "default": "—",
-      "type": "array",
+      "type": "Array<string | number>",
       "description_zh": "默认勾选的节点的 key 的数组"
     },
     "current-node-key": {
       "value": "",
-      "description": "The currently selected node",
+      "description": "key of initially selected node",
       "default": "—",
-      "type": "string, number",
+      "type": "string | number",
       "description_zh": "当前选中的节点"
     },
     ":filter-node-method": {
       "value": "",
-      "description": "When filtering a tree node, a method that returns true indicates that the node can be displayed, and a return of false indicates that the node will be hidden",
+      "description": "this function will be executed on each node when use filter method. if return `false`, tree node will be hidden.",
       "default": "—",
-      "type": "Function(value, data, node)",
+      "type": "Function(value, data, node) => boolean",
       "description_zh": "对树节点进行筛选时执行的方法，返回 true 表示这个节点可以显示，返回 false 则表示这个节点会被隐藏"
     },
     "accordion": {
       "value": "",
-      "description": "Whether to open only one sibling tree node at a time",
+      "description": "whether only one node among the same level can be expanded at one time",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否每次只打开一个同级树节点展开"
     },
     ":indent": {
       "value": "",
-      "description": "Horizontal indentation between adjacent nodes, in pixels",
-      "default": "—",
+      "description": "horizontal indentation of nodes in adjacent levels in pixels",
+      "default": "18",
       "type": "number",
       "description_zh": "相邻级节点间的水平缩进，单位为像素"
     },
-    "icon-class": {
+    "icon": {
       "value": "",
-      "description": "Customize the icon of the tree node",
-      "default": "-",
-      "type": "string",
+      "description": "custom tree node icon component",
+      "default": "—",
+      "type": "string | Component",
       "description_zh": "自定义树节点的图标"
     },
     "lazy": {
       "value": "",
-      "description": "Whether to lazy load child nodes or not needs to be used in conjunction with the load method",
+      "description": "whether to lazy load leaf node, used with `load` attribute",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否懒加载子节点，需与 load 方法结合使用"
     },
     "draggable": {
       "value": "",
-      "description": "Whether to enable the drag and drop node function",
+      "description": "whether enable tree nodes drag and drop",
       "default": "false",
       "type": "boolean",
       "description_zh": "是否开启拖拽节点功能"
     },
     ":allow-drag": {
       "value": "",
-      "description": "Determine whether the node can be dragged or not",
+      "description": "this function will be executed before dragging a node. If `false` is returned, the node can not be dragged",
       "default": "—",
-      "type": "Function(node)",
+      "type": "Function(node) => boolean",
       "description_zh": "判断节点能否被拖拽"
     },
     ":allow-drop": {
       "value": "",
-      "description": "Determines whether the target node can be placed when dragging. There are three cases for the 'type' parameter: 'prev', 'inner', and 'next', which represent placement before, insertion, and post-target nodes, respectively",
+      "description": "this function will be executed before the dragging node is dropped. If `false` is returned, the dragging node can not be dropped at the target node. `type` has three possible values: 'prev' (inserting the dragging node before the target node), 'inner' (inserting the dragging node to the target node) and 'next' (inserting the dragging node after the target node)",
       "default": "—",
-      "type": "Function(draggingNode, dropNode, type)",
+      "type": "Function(draggingNode, dropNode, type) => boolean",
       "description_zh": "拖拽时判定目标节点能否被放置。`type` 参数有三种情况：'prev'、'inner' 和 'next'，分别表示放置在目标节点前、插入至目标节点和放置在目标节点后"
     }
   },
   "methods": [
     {
       "name": "filter",
-      "description": "Filter tree nodes",
-      "params": "接收一个任意类型的参数，该参数会在 filter-node-method 中作为第一个参数",
+      "description": "filter all tree nodes, filtered nodes will be hidden",
+      "params": "Accept a parameter which will be used as first parameter for filter-node-method",
       "description_zh": "对树节点进行筛选操作",
       "value": ""
     },
     {
       "name": "updateKeyChildren",
-      "description": "Node child elements are set via keys, and the node-key property must be set using this method",
-      "params": "(key, data) 接收两个参数，1. 节点 key 2. 节点数据的数组",
+      "description": "set new data to node, only works when `node-key` is assigned",
+      "params": "(key, data) Accept two parameters: 1. key of node 2. new data",
       "description_zh": "通过 keys 设置节点子元素，使用此方法必须设置 node-key 属性",
       "value": ""
     },
     {
       "name": "getCheckedNodes",
-      "description": "If the node is selectable (i.e. 'show-checkbox' is 'true'), an array of currently selected nodes is returned",
-      "params": "(leafOnly, includeHalfChecked) 接收两个 boolean 类型的参数，1. 是否只是叶子节点，默认值为 `false` 2. 是否包含半选节点，默认值为 false",
+      "description": "If the node can be selected (`show-checkbox` is `true`), it returns the currently selected array of nodes",
+      "params": "(leafOnly, includeHalfChecked) Accept two boolean type parameters: 1. default value is `false`. If the parameter is `true`, it only returns the currently selected array of sub-nodes. 2. default value is `false`. If the parameter is `true`, the return value contains halfchecked nodes",
       "description_zh": "若节点可被选择（即 `show-checkbox` 为 `true`），则返回目前被选中的节点所组成的数组",
       "value": ""
     },
     {
       "name": "setCheckedNodes",
-      "description": "To set the node that is currently checked, you must set the node-key property to use this method",
-      "params": "(nodes) 接收勾选节点数据的数组",
+      "description": "set certain nodes to be checked, only works when `node-key` is assigned",
+      "params": "an array of nodes to be checked",
       "description_zh": "设置目前勾选的节点，使用此方法必须设置 node-key 属性",
       "value": ""
     },
     {
       "name": "getCheckedKeys",
-      "description": "If the node can be selected (i.e. 'show-checkbox' is 'true'), an array of the keys of the currently selected node is returned",
-      "params": "(leafOnly) 接收一个 boolean 类型的参数，若为 `true` 则仅返回被选中的叶子节点的 keys，默认值为 false",
+      "description": "If the node can be selected (`show-checkbox` is `true`), it returns the currently selected array of node's keys",
+      "params": "(leafOnly) Accept a boolean type parameter whose default value is `false`. If the parameter is `true`, it only returns the currently selected array of sub-nodes.",
       "description_zh": "若节点可被选择（即 `show-checkbox` 为 `true`），则返回目前被选中的节点的 key 所组成的数组",
       "value": ""
     },
     {
       "name": "setCheckedKeys",
-      "description": "To set the node currently selected by keys, you must set the node-key property to use this method",
-      "params": "(keys, leafOnly) 接收两个参数，1. 勾选节点的 key 的数组 2. boolean 类型的参数，若为 `true` 则仅设置叶子节点的选中状态，默认值为 false",
+      "description": "set certain nodes to be checked, only works when `node-key` is assigned",
+      "params": "(keys, leafOnly) Accept two parameters: 1. an array of node's keys to be checked 2. a boolean parameter. If set to `true`, only the checked status of leaf nodes will be set. The default value is `false`.",
       "description_zh": "通过 keys 设置目前勾选的节点，使用此方法必须设置 node-key 属性",
       "value": ""
     },
     {
       "name": "setChecked",
-      "description": "Use key / data to set the check status of a node, and you must set the node-key property to use this method",
-      "params": "(key/data, checked, deep) 接收三个参数，1. 勾选节点的 key 或者 data 2. boolean 类型，节点是否选中  3. boolean 类型，是否设置子节点 ，默认为 false",
+      "description": "set node to be checked or not, only works when `node-key` is assigned",
+      "params": "(key/data, checked, deep) Accept three parameters: 1. node's key or data to be checked 2. a boolean typed parameter indicating checked or not. 3. a boolean typed parameter indicating deep or not.",
       "description_zh": "通过 key / data 设置某个节点的勾选状态，使用此方法必须设置 node-key 属性",
       "value": ""
     },
     {
       "name": "getHalfCheckedNodes",
-      "description": "If the nodes are selectable (i.e. 'show-checkbox' is 'true'), an array of currently semi-selected nodes is returned",
-      "params": "-",
+      "description": "If the node can be selected (`show-checkbox` is `true`), it returns the currently half selected array of nodes",
+      "params": "—",
       "description_zh": "若节点可被选择（即 `show-checkbox` 为 `true`），则返回目前半选中的节点所组成的数组",
       "value": ""
     },
     {
       "name": "getHalfCheckedKeys",
-      "description": "If the node can be selected (i.e. 'show-checkbox' is 'true'), an array of the keys of the currently semi-selected node is returned",
-      "params": "-",
+      "description": "If the node can be selected (`show-checkbox` is `true`), it returns the currently half selected array of node's keys",
+      "params": "—",
       "description_zh": "若节点可被选择（即 `show-checkbox` 为 `true`），则返回目前半选中的节点的 key 所组成的数组",
       "value": ""
     },
     {
       "name": "getCurrentKey",
-      "description": "To get the key of the currently selected node, you must set the node-key property to use this method, and return null if no node is selected",
+      "description": "return the highlight node's key (null if no node is highlighted)",
       "params": "—",
       "description_zh": "获取当前被选中节点的 key，使用此方法必须设置 node-key 属性，若没有节点被选中则返回 null",
       "value": ""
     },
     {
       "name": "getCurrentNode",
-      "description": "Gets the data of the currently selected node, and returns null if no node is selected",
+      "description": "return the highlight node's data (null if no node is highlighted)",
       "params": "—",
       "description_zh": "获取当前被选中节点的 data，若没有节点被选中则返回 null",
       "value": ""
     },
     {
       "name": "setCurrentKey",
-      "description": "Sets the currently selected state of a node by key, which must be set with the node-key property",
-      "params": "(key) 待被选节点的 key，若为 null 则取消当前高亮的节点",
+      "description": "set highlighted node by key, only works when `node-key` is assigned",
+      "params": "(key, shouldAutoExpandParent=true) 1. the node's key to be highlighted. If `null`, cancel the currently highlighted node 2. whether to automatically expand parent node",
       "description_zh": "通过 key 设置某个节点的当前选中状态，使用此方法必须设置 node-key 属性",
       "value": ""
     },
     {
       "name": "setCurrentNode",
-      "description": "Node sets the currently selected state of a node, using which you must set the node-key property",
-      "params": "(node) 待被选节点的 node",
+      "description": "set highlighted node, only works when `node-key` is assigned",
+      "params": "(node, shouldAutoExpandParent=true) 1. the node to be highlighted 2. whether to automatically expand parent node",
       "description_zh": "通过 node 设置某个节点的当前选中状态，使用此方法必须设置 node-key 属性",
       "value": ""
     },
     {
       "name": "getNode",
-      "description": "According to the data or key, get the node in the tree component",
-      "params": "(data) 要获得 node 的 key 或者 data",
+      "description": "get node by data or key",
+      "params": "(data) the node's data or key",
       "description_zh": "根据 data 或者 key 拿到 Tree 组件中的 node",
       "value": ""
     },
     {
       "name": "remove",
-      "description": "To delete a node in the tree, you must set the node-key property using this method",
-      "params": "(data) 要删除的节点的 data 或者 node",
+      "description": "remove a node, only works when node-key is assigned",
+      "params": "(data) the node's data or node to be deleted",
       "description_zh": "删除 Tree 中的一个节点，使用此方法必须设置 node-key 属性",
       "value": ""
     },
     {
       "name": "append",
-      "description": "Append a child node to a node in the tree",
-      "params": "(data, parentNode) 接收两个参数，1. 要追加的子节点的 data 2. 子节点的 parent 的 data、key 或者 node",
+      "description": "append a child node to a given node in the tree",
+      "params": "(data, parentNode) 1. child node's data to be appended 2. parent node's data, key or node",
       "description_zh": "为 Tree 中的一个节点追加一个子节点",
       "value": ""
     },
     {
       "name": "insertBefore",
-      "description": "Add a node in front of one of the nodes of the tree",
-      "params": "(data, refNode) 接收两个参数，1. 要增加的节点的 data 2. 要增加的节点的后一个节点的 data、key 或者 node",
+      "description": "insert a node before a given node in the tree",
+      "params": "(data, refNode) 1. node's data to be inserted 2. reference node's data, key or node",
       "description_zh": "为 Tree 的一个节点的前面增加一个节点",
       "value": ""
     },
     {
       "name": "insertAfter",
-      "description": "Add a node to the back of one of the nodes of the tree",
-      "params": "(data, refNode) 接收两个参数，1. 要增加的节点的 data 2. 要增加的节点的前一个节点的 data、key 或者 node",
+      "description": "insert a node after a given node in the tree",
+      "params": "(data, refNode) 1. node's data to be inserted 2. reference node's data, key or node",
       "description_zh": "为 Tree 的一个节点的后面增加一个节点",
       "value": ""
     }
@@ -310,96 +310,148 @@
   "events": [
     {
       "name": "node-click",
-      "description": "Callback when a node is clicked",
-      "params": "共三个参数，依次为：传递给 `data` 属性的数组中该节点所对应的对象、节点对应的 Node、节点组件本身。",
+      "description": "triggers when a node is clicked",
+      "params": "four parameters: node object corresponding to the node clicked, `node` property of TreeNode, TreeNode itself, event object",
       "description_zh": "节点被点击时的回调",
       "value": ""
     },
     {
       "name": "node-contextmenu",
-      "description": "This event is triggered when a node is right-clicked",
-      "params": "共四个参数，依次为：event、传递给 `data` 属性的数组中该节点所对应的对象、节点对应的 Node、节点组件本身。",
+      "description": "triggers when a node is clicked by right button",
+      "params": "four parameters: event, node object corresponding to the node clicked, `node` property of TreeNode, TreeNode itself",
       "description_zh": "当某一节点被鼠标右键点击时会触发该事件",
       "value": ""
     },
     {
       "name": "check-change",
-      "description": "A callback when the selected state of a node changes",
-      "params": "共三个参数，依次为：传递给 `data` 属性的数组中该节点所对应的对象、节点本身是否被选中、节点的子树中是否有被选中的节点",
+      "description": "triggers when the selected state of the node changes",
+      "params": "three parameters: node object corresponding to the node whose selected state is changed, whether the node is selected, whether node's subtree has selected nodes",
       "description_zh": "节点选中状态发生变化时的回调",
       "value": ""
     },
     {
       "name": "check",
-      "description": "Triggers when a checkbox is clicked",
-      "params": "共两个参数，依次为：传递给 `data` 属性的数组中该节点所对应的对象、树目前的选中状态对象，包含 checkedNodes、checkedKeys、halfCheckedNodes、halfCheckedKeys 四个属性",
+      "description": "triggers after clicking the checkbox of a node",
+      "params": "two parameters: node object corresponding to the node that is checked / unchecked, tree checked status object which has four props: checkedNodes, checkedKeys, halfCheckedNodes, halfCheckedKeys",
       "description_zh": "当复选框被点击的时候触发",
       "value": ""
     },
     {
       "name": "current-change",
-      "description": "An event that is triggered when the currently selected node changes",
-      "params": "共两个参数，依次为：当前节点的数据，当前节点的 Node 对象",
+      "description": "triggers when current node changes",
+      "params": "two parameters: node object corresponding to the current node, `node` property of TreeNode",
       "description_zh": "当前选中节点变化时触发的事件",
       "value": ""
     },
     {
       "name": "node-expand",
-      "description": "An event that is triggered when a node is expanded",
-      "params": "共三个参数，依次为：传递给 `data` 属性的数组中该节点所对应的对象、节点对应的 Node、节点组件本身",
+      "description": "triggers when current node open",
+      "params": "three parameters: node object corresponding to the node opened, `node` property of TreeNode, TreeNode itself",
       "description_zh": "节点被展开时触发的事件",
       "value": ""
     },
     {
       "name": "node-collapse",
-      "description": "An event that is triggered when a node is shut down",
-      "params": "共三个参数，依次为：传递给 `data` 属性的数组中该节点所对应的对象、节点对应的 Node、节点组件本身",
+      "description": "triggers when current node close",
+      "params": "three parameters: node object corresponding to the node closed, `node` property of TreeNode, TreeNode itself",
       "description_zh": "节点被关闭时触发的事件",
       "value": ""
     },
     {
       "name": "node-drag-start",
-      "description": "An event that is triggered when a node starts dragging",
-      "params": "共两个参数，依次为：被拖拽节点对应的 Node、event",
+      "description": "triggers when dragging starts",
+      "params": "two parameters: node object corresponding to the dragging node, event.",
       "description_zh": "节点开始拖拽时触发的事件",
       "value": ""
     },
     {
       "name": "node-drag-enter",
-      "description": "An event that is triggered when dragging into another node",
-      "params": "共三个参数，依次为：被拖拽节点对应的 Node、所进入节点对应的 Node、event",
+      "description": "triggers when the dragging node enters another node",
+      "params": "three parameters: node object corresponding to the dragging node, node object corresponding to the entering node, event.",
       "description_zh": "拖拽进入其他节点时触发的事件",
       "value": ""
     },
     {
       "name": "node-drag-leave",
-      "description": "An event that is triggered when a node is dragged away",
-      "params": "共三个参数，依次为：被拖拽节点对应的 Node、所离开节点对应的 Node、event",
+      "description": "triggers when the dragging node leaves a node",
+      "params": "three parameters: node object corresponding to the dragging node, node object corresponding to the leaving node, event.",
       "description_zh": "拖拽离开某个节点时触发的事件",
       "value": ""
     },
     {
       "name": "node-drag-over",
-      "description": "Events that are triggered when a node is dragged (browser-like mouseover events)",
-      "params": "共三个参数，依次为：被拖拽节点对应的 Node、当前进入节点对应的 Node、event",
+      "description": "triggers when dragging over a node (like mouseover event)",
+      "params": "three parameters: node object corresponding to the dragging node, node object corresponding to the dragging over node, event.",
       "description_zh": "在拖拽节点时触发的事件（类似浏览器的 mouseover 事件）",
       "value": ""
     },
     {
       "name": "node-drag-end",
-      "description": "An event that is triggered at the end of the drag (which may not have been successful).",
-      "params": "共四个参数，依次为：被拖拽节点对应的 Node、结束拖拽时最后进入的节点（可能为空）、被拖拽节点的放置位置（before、after、inner）、event",
+      "description": "triggers when dragging ends",
+      "params": "four parameters: node object corresponding to the dragging node, node object corresponding to the dragging end node (may be `undefined`), node drop type (before / after / inner), event.",
       "description_zh": "拖拽结束时（可能未成功）触发的事件",
       "value": ""
     },
     {
       "name": "node-drop",
-      "description": "An event that is triggered when the drag is successfully completed",
-      "params": "共四个参数，依次为：被拖拽节点对应的 Node、结束拖拽时最后进入的节点、被拖拽节点的放置位置（before、after、inner）、event",
+      "description": "triggers after the dragging node is dropped",
+      "params": "four parameters: node object corresponding to the dragging node, node object corresponding to the dropped node, node drop type (before / after / inner), event.",
       "description_zh": "拖拽成功完成时触发的事件",
       "value": ""
     }
   ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Custom content for tree nodes. The scope parameter is { node, data }",
+      "description_zh": "自定义树节点的内容，参数为 { node, data }"
+    },
+    {
+      "name": "empty",
+      "description": "empty you can customize content when data is empty.",
+      "description_zh": "数据为空时的自定义内容",
+      "version": "2.3.4"
+    }
+  ],
+  "typeDetail": {
+    "props": [
+      {
+        "name": "label",
+        "description": "specify which key of node object is used as the node's label",
+        "type": "string | Function(data, node) => string",
+        "default": "—",
+        "description_zh": "指定节点标签为节点对象的某个属性值"
+      },
+      {
+        "name": "children",
+        "description": "specify which node object is used as the node's subtree",
+        "type": "string",
+        "default": "—",
+        "description_zh": "指定子树为节点对象的某个属性值"
+      },
+      {
+        "name": "disabled",
+        "description": "specify which key of node object represents if node's checkbox is disabled",
+        "type": "string | Function(data, node) => boolean",
+        "default": "—",
+        "description_zh": "指定节点选择框是否禁用为节点对象的某个属性值"
+      },
+      {
+        "name": "isLeaf",
+        "description": "specify whether the node is a leaf node, only works when lazy load is enabled",
+        "type": "string | Function(data, node) => boolean",
+        "default": "—",
+        "description_zh": "指定节点是否为叶子节点，仅在指定了lazy属性的情况下生效"
+      },
+      {
+        "name": "class",
+        "description": "custom node class name",
+        "type": "string | Function(data, node) => string",
+        "default": "—",
+        "description_zh": "自定义节点的 class"
+      }
+    ]
+  },
   "link": "https://element-plus.org/en-US/component/tree.html",
   "link_zh": "https://element-plus.org/zh-CN/component/tree.html"
 }

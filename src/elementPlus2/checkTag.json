@@ -1,0 +1,53 @@
+{
+  "name": "ElCheckTag",
+  "props": {
+    "checked": {
+      "value": "",
+      "description": "is checked",
+      "default": false,
+      "type": "boolean",
+      "description_zh": "是否选中"
+    },
+    "disabled": {
+      "value": "",
+      "description": "whether the check-tag is disabled",
+      "default": false,
+      "type": "boolean",
+      "description_zh": "是否禁用",
+      "version": "2.8.2"
+    },
+    "type": {
+      "value": [
+        "primary",
+        "success",
+        "info",
+        "warning",
+        "danger"
+      ],
+      "description": "type of CheckTag",
+      "default": "primary",
+      "type": "string",
+      "description_zh": "标签类型",
+      "version": "2.5.4"
+    }
+  },
+  "events": [
+    {
+      "name": "change",
+      "description": "triggers when Check Tag is clicked",
+      "params": "(value: boolean) => void",
+      "description_zh": "点击标签时触发的事件",
+      "value": ""
+    }
+  ],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "customize default content",
+      "description_zh": "自定义默认内容"
+    }
+  ],
+  "link": "https://element-plus.org/en-US/component/check-tag.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/check-tag.html"
+}

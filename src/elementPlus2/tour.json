@@ -1,10 +1,11 @@
 {
   "name": "ElTour",
+  "version": "2.5.0",
   "props": {
     "show-arrow": {
       "value": "",
       "description": "whether to show the arrow",
-      "default": "true",
+      "default": true,
       "type": "boolean",
       "description_zh": "是否显示箭头"
     },
@@ -25,10 +26,10 @@
       ],
       "description": "position of the guide card relative to the target element",
       "default": "bottom",
-      "type": "top / top-start / top-end / bottom /bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end",
+      "type": "string",
       "description_zh": "引导卡片相对于目标元素的位置"
     },
-    "content-style": {
+    ":content-style": {
       "value": "",
       "description": "custom style for content",
       "default": "—",
@@ -38,33 +39,28 @@
     "mask": {
       "value": "",
       "description": "whether to enable masking, change mask style and fill color by pass custom props",
-      "default": "true",
+      "default": true,
       "type": "boolean | Object",
       "description_zh": "是否启用遮罩，通过自定义属性改变遮罩样式以及填充的颜色"
     },
     "type": {
-      "value": "",
+      "value": [
+        "default",
+        "primary"
+      ],
       "description": "type, affects the background color and text color",
       "default": "default",
-      "type": "default | primary",
+      "type": "string",
       "description_zh": "类型，影响底色与文字颜色"
     },
-    "value": {
+    "model-value": {
       "value": "",
       "description": "open tour",
-      "default": "*",
+      "default": "—",
       "type": "boolean",
       "description_zh": "打开引导"
     },
-    ":v-modal": {
-      "value": "",
-      "description": "open tour",
-      "default": "*",
-      "type": "boolean",
-      "description_zh": "打开引导",
-      "required": true
-    },
-    ":current": {
+    "current": {
       "value": "",
       "description": "what is the current step",
       "default": "—",
@@ -74,42 +70,42 @@
     "scroll-into-view-options": {
       "value": "",
       "description": "support pass custom scrollIntoView options",
-      "default": "Object",
+      "default": "{ block: 'center' }",
       "type": "boolean | ScrollIntoViewOptions",
       "description_zh": "是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数"
     },
     ":z-index": {
       "value": "",
       "description": "Tour's zIndex",
-      "default": "2001",
+      "default": 2001,
       "type": "number",
       "description_zh": "Tour 的层级"
     },
     "show-close": {
       "value": "",
       "description": "whether to show a close button",
-      "default": "true",
+      "default": true,
       "type": "boolean",
       "description_zh": "是否显示关闭按钮"
     },
     "close-icon": {
       "value": "",
       "description": "custom close icon, default is Close",
-      "default": "*",
+      "default": "—",
       "type": "string | Component",
       "description_zh": "自定义关闭图标，默认Close"
     },
     "close-on-press-escape": {
       "value": "",
       "description": "whether the Dialog can be closed by pressing ESC",
-      "default": "true",
+      "default": true,
       "type": "boolean",
       "description_zh": "是否可以通过按下 ESC 关闭引导"
     },
     "target-area-clickable": {
       "value": "",
       "description": "whether the target element can be clickable, when using mask",
-      "default": "true",
+      "default": true,
       "type": "boolean",
       "description_zh": "启用蒙层时，target 元素区域是否可以点击。"
     }
@@ -118,21 +114,21 @@
     {
       "name": "close",
       "description": "callback function on shutdown",
-      "params": "(current: number)",
+      "params": "(current: number) => void",
       "description_zh": "关闭引导时的回调函数",
       "value": ""
     },
     {
       "name": "finish",
       "description": "callback function on finished",
-      "params": "",
+      "params": "() => void",
       "description_zh": "引导完成时的回调",
       "value": ""
     },
     {
       "name": "change",
       "description": "callback when the step changes",
-      "params": "(current: number)",
+      "params": "(current: number) => void",
       "description_zh": "步骤改变时的回调",
       "value": ""
     }

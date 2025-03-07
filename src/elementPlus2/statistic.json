@@ -1,69 +1,68 @@
 {
   "name": "ElStatistic",
+  "version": "2.2.30",
   "props": {
     ":value": {
       "value": "",
-      "description": "Required value, enter the binding value",
-      "default": "—",
-      "type": "string",
-      "description_zh": "必填值，输入绑定值",
-      "required": true
+      "description": "Numerical content",
+      "default": 0,
+      "type": "number",
+      "description_zh": "数值内容"
     },
     "decimal-separator": {
       "value": "",
-      "description": "Set the decimal point",
-      "default": "—",
+      "description": "Setting the decimal point",
+      "default": ".",
       "type": "string",
       "description_zh": "设置小数点"
     },
     ":formatter": {
       "value": "",
-      "description": "Custom numerical display",
+      "description": "Custom numerical presentation",
       "default": "—",
-      "type": "v-slot |({value}) => VNode",
+      "type": "Function(value: number) => string | number",
       "description_zh": "自定义数值展示"
     },
     "group-separator": {
       "value": "",
-      "description": "Set the thousandth identifier",
-      "default": "—",
+      "description": "Sets the thousandth identifier",
+      "default": ",",
       "type": "string",
       "description_zh": "设置千分位标识符"
     },
     ":precision": {
       "value": "",
-      "description": "Numerical precision",
-      "default": "—",
+      "description": "numerical precision",
+      "default": 0,
       "type": "number",
       "description_zh": "数值精度"
     },
     "prefix": {
       "value": "",
-      "description": "Set the prefix of the numeric value",
+      "description": "Sets the prefix of a number",
       "default": "—",
-      "type": "string | v-slot",
+      "type": "string",
       "description_zh": "设置数值的前缀"
     },
     "suffix": {
       "value": "",
-      "description": "Set the suffix of the numeric value",
+      "description": "Sets the suffix of a number",
       "default": "—",
-      "type": "string | v-slot",
+      "type": "string",
       "description_zh": "设置数值的后缀"
     },
     "title": {
       "value": "",
-      "description": "The title of the numeric value",
+      "description": "Numeric titles",
       "default": "—",
-      "type": "string | v-slot",
-      "description_zh": "数值的标题",
-      "required": true
+      "type": "string",
+      "description_zh": "数值的标题"
     },
-    ":value-style": {
+    "value-style": {
       "value": "",
-      "description": "Sets the style of the numeric value",
+      "description": "Styles numeric values",
       "default": "—",
-      "type": "object",
+      "type": "CSSProperties | CSSProperties[] | string[] | string",
       "description_zh": "设置数值的样式"
     },
     ":rate": {
@@ -116,12 +115,12 @@
   "slots": [
     {
       "name": "prefix",
-      "description": "The prefix of the numeric value",
+      "description": "Numeric prefix",
       "description_zh": "数值的前缀"
     },
     {
       "name": "suffix",
-      "description": "The suffix of the numeric value",
+      "description": "Suffixes for numeric values",
       "description_zh": "数值的后缀"
     },
     {
@@ -131,8 +130,16 @@
     },
     {
       "name": "title",
-      "description": "The title of the numeric value",
+      "description": "Numeric titles",
       "description_zh": "数值的标题"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "displayValue",
+      "description": "current display value",
+      "description_zh": "当前显示值",
+      "detail": "Ref<string | number>"
     }
   ],
   "link": "https://element-plus.org/en-US/component/statistic.html",

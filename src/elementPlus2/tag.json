@@ -3,54 +3,55 @@
   "props": {
     "type": {
       "value": [
+        "primary",
         "success",
         "info",
         "warning",
         "danger"
       ],
-      "description": "type",
-      "default": "success | info | warning | danger",
+      "description": "type of Tag",
+      "default": "primary",
       "type": "string",
-      "description_zh": "类型"
+      "description_zh": "标签类型"
     },
     "closable": {
       "value": "",
-      "description": "Whether it can be turned off",
-      "default": "false",
+      "description": "whether Tag can be removed",
+      "default": false,
       "type": "boolean",
       "description_zh": "是否可关闭"
     },
     "disable-transitions": {
       "value": "",
-      "description": "Whether to disable gradient animation",
-      "default": "false",
+      "description": "whether to disable animations",
+      "default": false,
       "type": "boolean",
       "description_zh": "是否禁用渐变动画"
     },
     "hit": {
       "value": "",
-      "description": "Whether there is a border stroke or not",
-      "default": "false",
+      "description": "whether Tag has a highlighted border",
+      "default": false,
       "type": "boolean",
       "description_zh": "是否有边框描边"
     },
     "color": {
       "value": "",
-      "description": "Background color",
+      "description": "background color of the Tag",
       "default": "—",
       "type": "string",
-      "description_zh": "背景色"
+      "description_zh": "标签背景色"
     },
     "size": {
       "value": [
-        "medium",
-        "small",
-        "mini"
+        "large",
+        "default",
+        "small"
       ],
-      "description": "size",
-      "default": "medium | small | mini",
+      "description": "size of Tag",
+      "default": "—",
       "type": "string",
-      "description_zh": "尺寸"
+      "description_zh": "标签尺寸"
     },
     "effect": {
       "value": [
@@ -58,29 +59,43 @@
         "light",
         "plain"
       ],
-      "description": "topic",
-      "default": "dark | light | plain",
+      "description": "theme of Tag",
+      "default": "light",
       "type": "string",
-      "description_zh": "主题"
+      "description_zh": "标签主题"
+    },
+    "round": {
+      "value": "",
+      "description": "whether Tag is rounded",
+      "default": false,
+      "type": "boolean",
+      "description_zh": "是否为圆形标签"
     }
   },
   "events": [
     {
       "name": "click",
-      "description": "An event that is triggered when a tag is clicked",
-      "params": "—",
-      "description_zh": "点击 Tag 时触发的事件",
+      "description": "triggers when Tag is clicked",
+      "params": "(evt: MouseEvent) => void",
+      "description_zh": "点击标签时触发的事件",
       "value": ""
     },
     {
       "name": "close",
-      "description": "An event that is triggered when a tag is turned off",
-      "params": "—",
-      "description_zh": "关闭 Tag 时触发的事件",
+      "description": "triggers when Tag is removed",
+      "params": "(evt: MouseEvent) => void",
+      "description_zh": "关闭标签时触发的事件",
       "value": ""
     }
   ],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "customize default content",
+      "description_zh": "自定义默认内容"
+    }
+  ],
   "link": "https://element-plus.org/en-US/component/tag.html",
-  "link_zh": "https://element-plus.org/zh-CN/component/tag.html",
-  "methods": []
+  "link_zh": "https://element-plus.org/zh-CN/component/tag.html"
 }

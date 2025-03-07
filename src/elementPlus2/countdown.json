@@ -1,0 +1,91 @@
+{
+  "name": "ElCountdown",
+  "props": {
+    ":value": {
+      "value": "",
+      "description": "target time",
+      "default": "—",
+      "type": "number | Dayjs",
+      "description_zh": "目标时间"
+    },
+    "format": {
+      "value": "",
+      "description": "Formatting the countdown display",
+      "default": "HH:mm:ss",
+      "type": "string",
+      "description_zh": "格式化倒计时展示"
+    },
+    "prefix": {
+      "value": "",
+      "description": "Sets the prefix of a countdown",
+      "default": "—",
+      "type": "string",
+      "description_zh": "设置倒计时的前缀"
+    },
+    "suffix": {
+      "value": "",
+      "description": "Sets the suffix of a countdown",
+      "default": "—",
+      "type": "string",
+      "description_zh": "设置倒计时的后缀"
+    },
+    "title": {
+      "value": "",
+      "description": "countdown titles",
+      "default": "—",
+      "type": "string",
+      "description_zh": "倒计时的标题"
+    },
+    "value-style": {
+      "value": "",
+      "description": "Styles countdown values",
+      "default": "—",
+      "type": "string | CSSProperties | CSSProperties[] | string[]",
+      "description_zh": "设置倒计时的样式"
+    }
+  },
+  "events": [
+    {
+      "name": "change",
+      "description": "Time difference change event",
+      "params": "(value: number) => void",
+      "description_zh": "时间差变化事件",
+      "value": ""
+    },
+    {
+      "name": "finish",
+      "description": "countdown end event",
+      "params": "() => void",
+      "description_zh": "倒计时结束事件",
+      "value": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "prefix",
+      "description": "countdown value prefix",
+      "description_zh": "倒计时数值的前缀"
+    },
+    {
+      "name": "suffix",
+      "description": "countdown value suffix",
+      "description_zh": "倒计时数值的后缀"
+    },
+    {
+      "name": "title",
+      "description": "countdown title",
+      "description_zh": "倒计时的标题"
+    }
+  ],
+  "exposed": [
+    {
+      "name": "displayValue",
+      "description": "current display value",
+      "description_zh": "当前显示值",
+      "detail": "Ref<string>"
+    }
+  ],
+  "methods": [],
+  "link": "https://element-plus.org/en-US/component/statistic.html#countdown",
+  "link_zh": "https://element-plus.org/zh-CN/component/statistic.html#countdown"
+}

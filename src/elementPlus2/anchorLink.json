@@ -1,0 +1,40 @@
+{
+  "name": "ElAnchorLink",
+  "version": "2.6.0",
+  "props": {
+    "title": {
+      "value": "",
+      "description": "the text content of the anchor link.",
+      "default": "—",
+      "type": "string",
+      "description_zh": "锚点链接的文本内容"
+    },
+    "href": {
+      "value": "",
+      "description": "The address of the anchor link.",
+      "default": "—",
+      "type": "string",
+      "description_zh": "锚点链接的地址",
+      "required": true
+    }
+  },
+  "events": [],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "the content of the anchor link.",
+      "description_zh": "锚点链接的内容"
+    },
+    {
+      "name": "sub-link",
+      "description": "slots for child links.",
+      "description_zh": "子链接的插槽"
+    }
+  ],
+  "suggestions": [
+    "el-anchor"
+  ],
+  "link": "https://element-plus.org/en-US/component/anchor.html#anchorlink-api",
+  "link_zh": "https://element-plus.org/zh-CN/component/anchor.html#anchorlink-api"
+}

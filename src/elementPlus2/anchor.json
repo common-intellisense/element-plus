@@ -1,0 +1,106 @@
+{
+  "name": "ElAnchor",
+  "version": "2.6.0",
+  "props": {
+    "container": {
+      "value": "",
+      "description": "scroll container.",
+      "default": "—",
+      "type": "string | HTMLElement | Window",
+      "description_zh": "滚动容器"
+    },
+    ":offset": {
+      "value": "",
+      "description": "set the offset of the anchor scroll.",
+      "default": 0,
+      "type": "number",
+      "description_zh": "设置锚点滚动的偏移量"
+    },
+    ":bound": {
+      "value": "",
+      "description": "the offset of the element starting to trigger the anchor.",
+      "default": 15,
+      "type": "number",
+      "description_zh": "元素开始触发锚点的偏移量"
+    },
+    ":duration": {
+      "value": "",
+      "description": "set the scroll duration of the container, in milliseconds.",
+      "default": 300,
+      "type": "number",
+      "description_zh": "设置容器滚动持续时间，以毫秒为单位"
+    },
+    "marker": {
+      "value": "",
+      "description": "whether to show the marker.",
+      "default": true,
+      "type": "boolean",
+      "description_zh": "是否显示标记"
+    },
+    "type": {
+      "value": [
+        "default",
+        "underline"
+      ],
+      "description": "set Anchor type.",
+      "default": "default",
+      "type": "string",
+      "description_zh": "设置锚点类型"
+    },
+    "direction": {
+      "value": [
+        "vertical",
+        "horizontal"
+      ],
+      "description": "Set Anchor direction.",
+      "default": "vertical",
+      "type": "string",
+      "description_zh": "设置锚点方向"
+    },
+    "select-scroll-top": {
+      "value": "",
+      "description": "scroll whether link is selected at the top",
+      "default": false,
+      "type": "boolean",
+      "description_zh": "滚动是否在顶部选择链接",
+      "version": "2.9.2"
+    }
+  },
+  "events": [
+    {
+      "name": "change",
+      "description": "callback when the step changes",
+      "params": "(href: string) => void",
+      "description_zh": "当锚点变化时的回调",
+      "value": ""
+    },
+    {
+      "name": "click",
+      "description": "Triggered when the user clicks on the link",
+      "params": "(e: MouseEvent, href?: string) => void",
+      "description_zh": "当用户点击链接时触发",
+      "value": ""
+    }
+  ],
+  "methods": [
+    {
+      "name": "scrollTo",
+      "description": "Manually scroll to the specific position.",
+      "params": "(href: string) => void",
+      "description_zh": "手动滚动到特定位置",
+      "value": ""
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "AnchorLink component list",
+      "description_zh": "锚点链接组件列表"
+    }
+  ],
+  "suggestions": [
+    "el-anchor-link"
+  ],
+  "link": "https://element-plus.org/en-US/component/anchor.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/anchor.html"
+}

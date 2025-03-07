@@ -1,4 +1,6 @@
 import ElAlert from './alert.json'
+import ElAnchor from './anchor.json'
+import ElAnchorLink from './anchorLink.json'
 import ElAside from './aside.json'
 import ElAutocomplete from './autocomplete.json'
 import ElAvatar from './avatar.json'
@@ -181,6 +183,8 @@ export function getPropsMap() {
     ElTableV2,
     ElCountdown,
     ElSegmented,
+    ElAnchor,
+    ElAnchorLink,
   ]
 }
 
@@ -638,6 +642,16 @@ export function getComponentMap(isZh: boolean) {
           '分段器',
           '<el-segmented></el-segmented>',
         ],
+        [
+          ElAnchor,
+          '锚点',
+          '<el-anchor></el-anchor>',
+        ],
+        [
+          ElAnchorLink,
+          '锚点链接',
+          '<el-anchor-link></el-anchor-link>',
+        ],
       ]
     : [
         [
@@ -1064,6 +1078,16 @@ export function getComponentMap(isZh: boolean) {
           ElSegmented,
           'segmented',
           '<el-segmented></el-segmented>',
+        ],
+        [
+          ElAnchor,
+          'anchor',
+          '<el-anchor></el-anchor>',
+        ],
+        [
+          ElAnchorLink,
+          'anchor link',
+          '<el-anchor-link></el-anchor-link>',
         ],
       ]
 }

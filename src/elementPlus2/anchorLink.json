@@ -10,7 +10,7 @@
       "description_zh": "锚点链接的文本内容"
     },
     "href": {
-      "value": "",
+      "value": "/",
       "description": "The address of the anchor link.",
       "default": "—",
       "type": "string",

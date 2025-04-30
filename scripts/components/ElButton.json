@@ -1,0 +1,206 @@
+{
+  "name": "ElButton",
+  "props": {
+    "size": {
+      "default": "—",
+      "value": "尺寸",
+      "type": "enum",
+      "version": "",
+      "description": "尺寸",
+      "required": false
+    },
+    "type": {
+      "default": "—",
+      "value": "按钮类型，在设置color时，后者优先。",
+      "type": "enum",
+      "version": "",
+      "description": "按钮类型，在设置color时，后者优先。",
+      "required": false
+    },
+    "plain": {
+      "default": "false",
+      "value": "是否为朴素按钮",
+      "type": "boolean",
+      "version": "",
+      "description": "是否为朴素按钮",
+      "required": false
+    },
+    "text": {
+      "default": "false",
+      "value": "是否为文字按钮",
+      "type": "boolean",
+      "version": "2.2.0",
+      "description": "是否为文字按钮",
+      "required": false
+    },
+    "bg": {
+      "default": "false",
+      "value": "是否显示文字按钮背景颜色",
+      "type": "boolean",
+      "version": "2.2.0",
+      "description": "是否显示文字按钮背景颜色",
+      "required": false
+    },
+    "link": {
+      "default": "false",
+      "value": "是否为链接按钮",
+      "type": "boolean",
+      "version": "2.2.1",
+      "description": "是否为链接按钮",
+      "required": false
+    },
+    "round": {
+      "default": "false",
+      "value": "是否为圆角按钮",
+      "type": "boolean",
+      "version": "",
+      "description": "是否为圆角按钮",
+      "required": false
+    },
+    "circle": {
+      "default": "false",
+      "value": "是否为圆形按钮",
+      "type": "boolean",
+      "version": "",
+      "description": "是否为圆形按钮",
+      "required": false
+    },
+    "loading": {
+      "default": "false",
+      "value": "是否为加载中状态",
+      "type": "boolean",
+      "version": "",
+      "description": "是否为加载中状态",
+      "required": false
+    },
+    "loading-icon": {
+      "default": "Loading",
+      "value": "自定义加载中状态图标组件",
+      "type": "string / Component",
+      "version": "",
+      "description": "自定义加载中状态图标组件",
+      "required": false
+    },
+    "disabled": {
+      "default": "false",
+      "value": "按钮是否为禁用状态",
+      "type": "boolean",
+      "version": "",
+      "description": "按钮是否为禁用状态",
+      "required": false
+    },
+    "icon": {
+      "default": "—",
+      "value": "图标组件",
+      "type": "string / Component",
+      "version": "",
+      "description": "图标组件",
+      "required": false
+    },
+    "autofocus": {
+      "default": "false",
+      "value": "原生 autofocus 属性",
+      "type": "boolean",
+      "version": "",
+      "description": "原生 autofocus 属性",
+      "required": false
+    },
+    "native-type": {
+      "default": "button",
+      "value": "原生 type 属性",
+      "type": "enum",
+      "version": "",
+      "description": "原生 type 属性",
+      "required": false
+    },
+    "auto-insert-space": {
+      "default": "false",
+      "value": "两个中文字符之间自动插入空格(仅当文本长度为 2 且所有字符均为中文时才生效)",
+      "type": "boolean",
+      "version": "",
+      "description": "两个中文字符之间自动插入空格(仅当文本长度为 2 且所有字符均为中文时才生效)",
+      "required": false
+    },
+    "color": {
+      "default": "—",
+      "value": "自定义按钮颜色, 并自动计算 hover 和 active 触发后的颜色",
+      "type": "string",
+      "version": "",
+      "description": "自定义按钮颜色, 并自动计算 hover 和 active 触发后的颜色",
+      "required": false
+    },
+    "dark": {
+      "default": "false",
+      "value": "dark 模式, 意味着自动设置 color 为 dark 模式的颜色",
+      "type": "boolean",
+      "version": "",
+      "description": "dark 模式, 意味着自动设置 color 为 dark 模式的颜色",
+      "required": false
+    },
+    "tag": {
+      "default": "button",
+      "value": "自定义元素标签",
+      "type": "string / Component",
+      "version": "2.3.4",
+      "description": "自定义元素标签",
+      "required": false
+    }
+  },
+  "events": [],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "自定义默认内容",
+      "params": "",
+      "version": ""
+    },
+    {
+      "name": "loading",
+      "description": "自定义加载中组件",
+      "params": "",
+      "version": ""
+    },
+    {
+      "name": "icon",
+      "description": "自定义图标组件",
+      "params": "",
+      "version": ""
+    }
+  ],
+  "exposed": [
+    {
+      "name": "ref",
+      "description": "按钮 html 元素",
+      "detail": "",
+      "version": ""
+    },
+    {
+      "name": "size",
+      "description": "按钮尺寸",
+      "detail": "",
+      "version": ""
+    },
+    {
+      "name": "type",
+      "description": "按钮类型",
+      "detail": "",
+      "version": ""
+    },
+    {
+      "name": "disabled",
+      "description": "按钮已禁用",
+      "detail": "",
+      "version": ""
+    },
+    {
+      "name": "shouldAddSpace",
+      "description": "是否在两个字符之间插入空格",
+      "detail": "",
+      "version": ""
+    }
+  ],
+  "typeDetail": {},
+  "link": "https://element-plus.org/en-US/component/button.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/button.html"
+}

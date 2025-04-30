@@ -1,0 +1,35 @@
+{
+  "name": "ElButtonGroup",
+  "props": {
+    "size": {
+      "default": "—",
+      "value": "用于控制该按钮组内按钮的大小",
+      "type": "enum",
+      "version": "",
+      "description": "用于控制该按钮组内按钮的大小",
+      "required": false
+    },
+    "type": {
+      "default": "—",
+      "value": "用于控制该按钮组内按钮的类型",
+      "type": "enum",
+      "version": "",
+      "description": "用于控制该按钮组内按钮的类型",
+      "required": false
+    }
+  },
+  "events": [],
+  "methods": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "自定义按钮组内容",
+      "params": "",
+      "version": ""
+    }
+  ],
+  "exposed": [],
+  "typeDetail": {},
+  "link": "https://element-plus.org/en-US/component/button.html",
+  "link_zh": "https://element-plus.org/zh-CN/component/button.html"
+}
